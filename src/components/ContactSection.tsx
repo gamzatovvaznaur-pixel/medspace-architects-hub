@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] };
+const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 
 const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
