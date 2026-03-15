@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import heroImg from "@/assets/hero-blueprint.jpg";
 
-const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
+const transition = { duration: 0.6, ease:[0.16, 1, 0.3, 1] as const };
 
-const stats = [
-  { value: "142+", label: "согласованных проектов", code: "PROJ" },
+const stats =[
+  { value: "120 дн.", label: "среднее время готовности одного проекта", code: "TIME" },
   { value: "0", label: "критических замечаний при авторском надзоре", code: "DEF" },
   { value: "45 дн.", label: "средний срок поставки из Шэньчжэня", code: "LOG" },
 ];
