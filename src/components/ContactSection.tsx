@@ -45,7 +45,7 @@ const ContactSection = () => {
             transition={{ ...transition, delay: 0.15 }}
           >
             {submitted ? (
-              <div className="h-full flex items-center justify-center border border-border p-12">
+              <div className="h-full flex items-center justify-center border border-border p-12 rounded-2xl">
                 <div className="text-center">
                   <span className="font-mono text-[10px] tracking-widest text-primary block mb-4">
                     RECEIVED
