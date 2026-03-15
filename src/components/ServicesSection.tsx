@@ -69,7 +69,7 @@ const ServicesSection = () => {
               viewport={{ once: true }}
               transition={{ ...transition, delay: i * 0.08 }}
               whileHover={{ x: 8 }}
-              className={`border-l-4 border-l-primary border-b border-border pl-6 pr-6 py-8 group cursor-default bg-surface hover:bg-secondary/50 transition-colors`}
+              className={`border-l-4 border-l-primary border-b border-border pl-6 pr-6 py-8 rounded-xl group cursor-default bg-surface hover:bg-secondary/50 transition-colors`}
             >
               <span className="font-mono text-[10px] tracking-widest text-primary mb-2 block">
                 {service.code}

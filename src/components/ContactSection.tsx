@@ -45,7 +45,7 @@ const ContactSection = () => {
             transition={{ ...transition, delay: 0.15 }}
           >
             {submitted ? (
-              <div className="h-full flex items-center justify-center border border-border p-12">
+              <div className="h-full flex items-center justify-center border border-border p-12 rounded-2xl">
                 <div className="text-center">
                   <span className="font-mono text-[10px] tracking-widest text-primary block mb-4">
                     RECEIVED
@@ -71,7 +71,7 @@ const ContactSection = () => {
                   <input
                     type="tel"
                     required
-                    className="w-full border border-border bg-surface px-4 py-3 text-foreground font-body focus:outline-none focus:border-primary transition-colors"
+                    className="w-full border border-border bg-surface px-4 py-3 rounded-xl text-foreground font-body focus:outline-none focus:border-primary transition-colors"
                     placeholder="+7 (XXX) XXX-XX-XX"
                   />
                 </div>
@@ -81,13 +81,13 @@ const ContactSection = () => {
                   </label>
                   <textarea
                     rows={4}
-                    className="w-full border border-border bg-surface px-4 py-3 text-foreground font-body focus:outline-none focus:border-primary transition-colors resize-none"
+                    className="w-full border border-border bg-surface px-4 py-3 rounded-xl text-foreground font-body focus:outline-none focus:border-primary transition-colors resize-none"
                     placeholder="Тип объекта, площадь, особые требования..."
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-primary text-primary-foreground px-10 py-4 font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
+                  className="w-full bg-primary text-primary-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
                 >
                   Отправить заявку
                 </button>

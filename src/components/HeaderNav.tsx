@@ -24,7 +24,7 @@ const HeaderNav = () => {
           </a>
           <a
             href="#contact"
-            className="bg-primary text-primary-foreground px-6 py-2 font-display text-[11px] font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
+            className="bg-primary text-primary-foreground px-6 py-2 rounded-xl font-display text-[11px] font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
           >
             Консультация
           </a>

@@ -45,7 +45,7 @@ const ServiceBlock = ({
           transition={transition}
           className="lg:[direction:ltr] overflow-hidden"
         >
-          <div className="relative aspect-[4/3] overflow-hidden">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
             <img
               src={image}
               alt={imageAlt}
@@ -53,7 +53,7 @@ const ServiceBlock = ({
               loading="lazy"
             />
             {/* Code overlay */}
-            <div className="absolute top-4 left-4 bg-foreground/80 backdrop-blur-sm px-3 py-1.5">
+            <div className="absolute top-4 left-4 bg-foreground/80 backdrop-blur-sm px-3 py-1.5 rounded-lg">
               <span className="font-mono text-[10px] tracking-widest text-primary-foreground">
                 {code}
               </span>
@@ -77,7 +77,7 @@ const ServiceBlock = ({
           </h2>
 
           {highlight && (
-            <div className="bg-primary/10 border-l-4 border-primary px-5 py-4 mb-6">
+            <div className="bg-primary/10 border-l-4 border-primary px-5 py-4 mb-6 rounded-xl">
               <p className="text-foreground font-display font-medium text-sm leading-relaxed">
                 {highlight}
               </p>

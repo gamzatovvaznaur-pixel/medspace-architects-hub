@@ -64,8 +64,8 @@ const LogisticsSection = () => {
                 className="relative md:pr-8"
               >
                 {/* Node */}
-                <div className="w-6 h-6 rounded-none border-2 border-primary bg-foreground mb-6 flex items-center justify-center relative z-10">
-                  <div className="w-2 h-2 bg-primary" />
+                <div className="w-6 h-6 rounded-full border-2 border-primary bg-foreground mb-6 flex items-center justify-center relative z-10">
+                  <div className="w-2 h-2 rounded-full bg-primary" />
                 </div>
 
                 <span className="font-mono text-[10px] tracking-widest text-primary block mb-1">
