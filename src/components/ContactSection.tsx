@@ -87,7 +87,7 @@ const ContactSection = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-primary text-primary-foreground px-10 py-4 font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
+                  className="w-full bg-primary text-primary-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
                 >
                   Отправить заявку
                 </button>

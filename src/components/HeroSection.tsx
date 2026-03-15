@@ -65,7 +65,7 @@ const HeroSection = () => {
         >
           <a
             href="#contact"
-            className="inline-block bg-primary text-primary-foreground px-10 py-4 font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
+            className="inline-block bg-primary text-primary-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
           >
             Запросить консультацию
           </a>

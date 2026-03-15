@@ -77,7 +77,7 @@ const ServiceBlock = ({
           </h2>
 
           {highlight && (
-            <div className="bg-primary/10 border-l-4 border-primary px-5 py-4 mb-6">
+            <div className="bg-primary/10 border-l-4 border-primary px-5 py-4 mb-6 rounded-xl">
               <p className="text-foreground font-display font-medium text-sm leading-relaxed">
                 {highlight}
               </p>
