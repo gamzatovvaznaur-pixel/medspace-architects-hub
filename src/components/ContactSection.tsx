@@ -71,7 +71,7 @@ const ContactSection = () => {
                   <input
                     type="tel"
                     required
-                    className="w-full border border-border bg-surface px-4 py-3 text-foreground font-body focus:outline-none focus:border-primary transition-colors"
+                    className="w-full border border-border bg-surface px-4 py-3 rounded-xl text-foreground font-body focus:outline-none focus:border-primary transition-colors"
                     placeholder="+7 (XXX) XXX-XX-XX"
                   />
                 </div>
