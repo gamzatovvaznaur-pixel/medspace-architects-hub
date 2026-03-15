@@ -81,7 +81,7 @@ const ContactSection = () => {
                   </label>
                   <textarea
                     rows={4}
-                    className="w-full border border-border bg-surface px-4 py-3 text-foreground font-body focus:outline-none focus:border-primary transition-colors resize-none"
+                    className="w-full border border-border bg-surface px-4 py-3 rounded-xl text-foreground font-body focus:outline-none focus:border-primary transition-colors resize-none"
                     placeholder="Тип объекта, площадь, особые требования..."
                   />
                 </div>
