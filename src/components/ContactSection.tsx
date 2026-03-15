@@ -29,15 +29,11 @@ const ContactSection = () => {
             <div className="mt-12 space-y-4">
               <div className="flex items-center gap-3">
                 <span className="font-mono text-[10px] tracking-widest text-primary w-16">TEL</span>
-                <span className="text-foreground">+7 (XXX) XXX-XX-XX</span>
+                <span className="text-foreground">+7 (918) 263-36-27</span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="font-mono text-[10px] tracking-widest text-primary w-16">EMAIL</span>
-                <span className="text-foreground">info@medproject.ru</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-[10px] tracking-widest text-primary w-16">ADDR</span>
-                <span className="text-foreground">Москва, Россия</span>
+                <span className="text-foreground">gamzatov_aznaur@mail.ru</span>
               </div>
             </div>
           </motion.div>
@@ -70,34 +66,13 @@ const ContactSection = () => {
               >
                 <div>
                   <label className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2 block">
-                    Имя
+                    Номер телефона
                   </label>
                   <input
-                    type="text"
+                    type="tel"
                     required
                     className="w-full border border-border bg-surface px-4 py-3 text-foreground font-body focus:outline-none focus:border-primary transition-colors"
-                    placeholder="Иванов Иван Иванович"
-                  />
-                </div>
-                <div>
-                  <label className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2 block">
-                    Организация
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full border border-border bg-surface px-4 py-3 text-foreground font-body focus:outline-none focus:border-primary transition-colors"
-                    placeholder="Название учреждения"
-                  />
-                </div>
-                <div>
-                  <label className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2 block">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    className="w-full border border-border bg-surface px-4 py-3 text-foreground font-body focus:outline-none focus:border-primary transition-colors"
-                    placeholder="email@example.com"
+                    placeholder="+7 (XXX) XXX-XX-XX"
                   />
                 </div>
                 <div>
