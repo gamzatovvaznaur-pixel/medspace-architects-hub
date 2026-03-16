@@ -123,12 +123,20 @@ const CasesSection = () => {
                     </span>
                   ))}
                 </div>
-                <a
-                  href="tel:+79182633627"
-                  className="inline-block bg-accent text-accent-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
-                >
-                  Обсудить похожий проект
-                </a>
+                <div className="flex flex-wrap gap-3">
+                  <Link
+                    to={caseItem.slug}
+                    className="inline-block bg-white text-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
+                  >
+                    Подробнее о проекте
+                  </Link>
+                  <a
+                    href="tel:+79182633627"
+                    className="inline-block bg-accent text-accent-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
+                  >
+                    Обсудить похожий проект
+                  </a>
+                </div>
               </div>
             </motion.div>
           ))}
