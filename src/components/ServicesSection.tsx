@@ -81,10 +81,10 @@ const ServicesSection = () => {
               viewport={{ once: true }}
               transition={{ ...transition, delay: i * 0.08 }}
             >
-              <Link
-                to={`/services/${service.slug}`}
-                className="block border-l-4 border-l-primary border-b border-border pl-6 pr-6 py-8 rounded-xl group cursor-pointer bg-surface hover:bg-secondary/50 transition-colors"
-              >
+                <Link
+                  to={`/services/${service.slug}`}
+                  className="block border-l-4 border-l-primary border-b border-border pl-6 pr-6 py-8 rounded-xl group cursor-pointer bg-card hover:bg-secondary transition-colors"
+                >
                 <span className="font-mono text-[10px] tracking-widest text-primary mb-2 block">
                   {service.code}
                 </span>
