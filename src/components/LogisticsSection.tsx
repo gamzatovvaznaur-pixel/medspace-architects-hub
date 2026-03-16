@@ -31,7 +31,7 @@ const steps = [
 
 const LogisticsSection = () => {
   return (
-    <section className="py-[16vh] px-6 md:px-12 bg-foreground rounded-3xl mx-4 md:mx-8">
+    <section className="py-[16vh] px-6 md:px-12 bg-card rounded-3xl mx-4 md:mx-8 border border-border">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
