@@ -64,20 +64,20 @@ const LogisticsSection = () => {
                 className="relative md:pr-8"
               >
                 {/* Node */}
-                <div className="w-6 h-6 rounded-full border-2 border-primary bg-foreground mb-6 flex items-center justify-center relative z-10">
+                <div className="w-6 h-6 rounded-full border-2 border-primary bg-card mb-6 flex items-center justify-center relative z-10">
                   <div className="w-2 h-2 rounded-full bg-primary" />
                 </div>
 
                 <span className="font-mono text-[10px] tracking-widest text-primary block mb-1">
                   {step.phase}
                 </span>
-                <h3 className="text-xl font-display font-medium text-background mb-1">
+                <h3 className="text-xl font-display font-medium text-foreground mb-1">
                   {step.title}
                 </h3>
                 <span className="font-mono text-[10px] text-primary/60 block mb-3">
                   {step.location}
                 </span>
-                <p className="text-sm text-background/50 leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {step.description}
                 </p>
               </motion.div>
