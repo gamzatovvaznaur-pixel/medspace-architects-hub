@@ -93,7 +93,7 @@ const LogisticsSection = () => {
           transition={{ ...transition, delay: 0.4 }}
           className="mt-16 pt-12 border-t border-background/10 flex flex-col sm:flex-row items-start sm:items-center gap-6"
         >
-          <p className="text-background/60 max-w-md leading-relaxed">
+          <p className="text-muted-foreground max-w-md leading-relaxed">
             Нужна консультация по логистике или стоимости поставки?
           </p>
           <a
