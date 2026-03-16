@@ -15,10 +15,10 @@ const CTABanner = () => {
           className="bg-primary rounded-2xl p-12 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
         >
           <div>
-            <h2 className="text-2xl md:text-3xl font-display font-semibold text-background mb-3">
+            <h2 className="text-2xl md:text-3xl font-display font-semibold text-primary-foreground mb-3">
               Готовы обсудить ваш проект?
             </h2>
-            <p className="text-background/60 max-w-lg leading-relaxed">
+            <p className="text-primary-foreground/70 max-w-lg leading-relaxed">
               Свяжитесь с нами для бесплатной консультации. Мы ответим в течение одного рабочего дня.
             </p>
           </div>
