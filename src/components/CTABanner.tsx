@@ -12,26 +12,26 @@ const CTABanner = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={transition}
-          className="bg-foreground rounded-2xl p-12 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
+          className="bg-primary rounded-2xl p-12 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
         >
           <div>
-            <h2 className="text-2xl md:text-3xl font-display font-semibold text-background mb-3">
+            <h2 className="text-2xl md:text-3xl font-display font-semibold text-primary-foreground mb-3">
               Готовы обсудить ваш проект?
             </h2>
-            <p className="text-background/60 max-w-lg leading-relaxed">
+            <p className="text-primary-foreground/70 max-w-lg leading-relaxed">
               Свяжитесь с нами для бесплатной консультации. Мы ответим в течение одного рабочего дня.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <Link
               to="/#contact"
-              className="bg-primary text-primary-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity text-center"
+              className="bg-background text-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity text-center"
             >
               Оставить заявку
             </Link>
             <a
               href="tel:+79182633627"
-              className="border border-background/20 text-background px-8 py-3.5 rounded-xl font-display text-sm font-medium hover:bg-background/10 transition-colors text-center"
+              className="border border-primary-foreground/30 text-primary-foreground px-8 py-3.5 rounded-xl font-display text-sm font-medium hover:bg-primary-foreground/10 transition-colors text-center"
             >
               Позвонить
             </a>

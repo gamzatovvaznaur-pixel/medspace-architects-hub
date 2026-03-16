@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import serviceDesignImg from "@/assets/service-design.jpg";
 import serviceSupervisionImg from "@/assets/service-supervision.jpg";
 import serviceEquipmentImg from "@/assets/service-equipment.jpg";
@@ -52,9 +53,8 @@ const ServiceBlock = ({
               className="w-full h-full object-cover"
               loading="lazy"
             />
-            {/* Code overlay */}
-            <div className="absolute top-4 left-4 bg-foreground/80 backdrop-blur-sm px-3 py-1.5 rounded-lg">
-              <span className="font-mono text-[10px] tracking-widest text-primary-foreground">
+            <div className="absolute top-4 left-4 bg-background/80 backdrop-blur-sm px-3 py-1.5 rounded-lg">
+              <span className="font-mono text-[10px] tracking-widest text-primary">
                 {code}
               </span>
             </div>
@@ -88,7 +88,7 @@ const ServiceBlock = ({
             {description}
           </p>
 
-          <ul className="space-y-3">
+          <ul className="space-y-3 mb-8">
             {details.map((detail, i) => (
               <li key={i} className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 bg-primary mt-2.5 shrink-0" />
@@ -98,6 +98,13 @@ const ServiceBlock = ({
               </li>
             ))}
           </ul>
+
+          <Link
+            to="/#contact"
+            className="inline-block bg-primary text-primary-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
+          >
+            Обсудить проект
+          </Link>
         </motion.div>
       </div>
     </div>

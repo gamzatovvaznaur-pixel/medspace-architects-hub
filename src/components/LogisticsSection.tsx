@@ -31,7 +31,7 @@ const steps = [
 
 const LogisticsSection = () => {
   return (
-    <section className="py-[16vh] px-6 md:px-12 bg-foreground rounded-3xl mx-4 md:mx-8">
+    <section className="py-[16vh] px-6 md:px-12 bg-card rounded-3xl mx-4 md:mx-8 border border-border">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -43,7 +43,7 @@ const LogisticsSection = () => {
           <span className="font-mono text-[10px] tracking-widest uppercase text-primary mb-4 block">
             Логистика
           </span>
-          <h2 className="text-3xl md:text-5xl font-semibold text-background max-w-4xl">
+          <h2 className="text-3xl md:text-5xl font-semibold text-foreground max-w-4xl">
             От фабрики в Китае — до клиники заказчика
           </h2>
         </motion.div>
@@ -64,20 +64,20 @@ const LogisticsSection = () => {
                 className="relative md:pr-8"
               >
                 {/* Node */}
-                <div className="w-6 h-6 rounded-full border-2 border-primary bg-foreground mb-6 flex items-center justify-center relative z-10">
+                <div className="w-6 h-6 rounded-full border-2 border-primary bg-card mb-6 flex items-center justify-center relative z-10">
                   <div className="w-2 h-2 rounded-full bg-primary" />
                 </div>
 
                 <span className="font-mono text-[10px] tracking-widest text-primary block mb-1">
                   {step.phase}
                 </span>
-                <h3 className="text-xl font-display font-medium text-background mb-1">
+                <h3 className="text-xl font-display font-medium text-foreground mb-1">
                   {step.title}
                 </h3>
                 <span className="font-mono text-[10px] text-primary/60 block mb-3">
                   {step.location}
                 </span>
-                <p className="text-sm text-background/50 leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {step.description}
                 </p>
               </motion.div>
@@ -91,9 +91,9 @@ const LogisticsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ ...transition, delay: 0.4 }}
-          className="mt-16 pt-12 border-t border-background/10 flex flex-col sm:flex-row items-start sm:items-center gap-6"
+          className="mt-16 pt-12 border-t border-border flex flex-col sm:flex-row items-start sm:items-center gap-6"
         >
-          <p className="text-background/60 max-w-md leading-relaxed">
+          <p className="text-muted-foreground max-w-md leading-relaxed">
             Нужна консультация по логистике или стоимости поставки?
           </p>
           <a

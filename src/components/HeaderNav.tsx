@@ -17,11 +17,14 @@ const HeaderNav = () => {
           <Link to="/services" className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
             Услуги
           </Link>
-          <a href="/#logistics" className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
-            Логистика
-          </a>
           <a href="/#contact" className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
             Контакт
+          </a>
+          <a
+            href="tel:+79182633627"
+            className="border border-border text-foreground px-5 py-2 rounded-xl font-display text-[11px] font-medium uppercase tracking-widest hover:bg-secondary transition-colors"
+          >
+            Позвонить
           </a>
           <Link
             to="/#contact"
@@ -53,10 +56,16 @@ const HeaderNav = () => {
             transition={{ duration: 0.3 }}
             className="md:hidden overflow-hidden bg-background border-b border-border"
           >
-            <nav className="flex flex-col px-6 py-6 gap-4">
+            <nav className="flex flex-col px-6 py-8 gap-5">
               <Link to="/services" onClick={() => setMenuOpen(false)} className="font-mono text-xs tracking-widest uppercase text-muted-foreground">Услуги</Link>
-              <a href="/#logistics" onClick={() => setMenuOpen(false)} className="font-mono text-xs tracking-widest uppercase text-muted-foreground">Логистика</a>
               <a href="/#contact" onClick={() => setMenuOpen(false)} className="font-mono text-xs tracking-widest uppercase text-muted-foreground">Контакт</a>
+              <a
+                href="tel:+79182633627"
+                onClick={() => setMenuOpen(false)}
+                className="border border-border text-foreground px-6 py-3 rounded-xl font-display text-xs font-medium uppercase tracking-widest text-center hover:bg-secondary transition-colors"
+              >
+                Позвонить
+              </a>
               <Link
                 to="/#contact"
                 onClick={() => setMenuOpen(false)}
