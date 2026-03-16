@@ -17,11 +17,14 @@ const HeaderNav = () => {
           <Link to="/services" className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
             Услуги
           </Link>
-          <a href="/#logistics" className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
-            Логистика
-          </a>
           <a href="/#contact" className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
             Контакт
+          </a>
+          <a
+            href="tel:+79182633627"
+            className="border border-border text-foreground px-5 py-2 rounded-xl font-display text-[11px] font-medium uppercase tracking-widest hover:bg-secondary transition-colors"
+          >
+            Позвонить
           </a>
           <Link
             to="/#contact"
