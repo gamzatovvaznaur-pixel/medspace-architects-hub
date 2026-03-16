@@ -6,7 +6,7 @@ const transition = { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const };
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-end pb-20 px-6 md:px-12 overflow-hidden dark-section">
+    <section className="relative min-h-screen flex items-end pb-20 pt-32 px-6 md:px-12 overflow-hidden dark-section">
       {/* Background image */}
       <div
         className="absolute inset-0 opacity-20"
@@ -74,15 +74,15 @@ const HeroSection = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-white/10"
         >
           {[
-            { value: "120 дн.", label: "среднее время готовности проекта" },
-            { value: "84%", label: "прохождение экспертиз с 1 раза" },
-            { value: "45 дн.", label: "средний срок поставки из Китая" },
+            { value: "Полный цикл", label: "от концепции до ввода в эксплуатацию" },
+            { value: "Высокий %", label: "прохождение экспертиз с первого раза" },
+            { value: "Прямые поставки", label: "оборудование и мебель из Китая" },
           ].map((stat, i) => (
             <div
               key={i}
               className={`py-8 ${i > 0 ? "md:border-l border-t md:border-t-0 border-white/10 md:pl-8" : ""}`}
             >
-              <span className="text-3xl md:text-4xl font-display font-bold text-white">
+              <span className="text-2xl md:text-3xl font-display font-bold text-white">
                 {stat.value}
               </span>
               <p className="text-sm text-white/50 mt-1">{stat.label}</p>
