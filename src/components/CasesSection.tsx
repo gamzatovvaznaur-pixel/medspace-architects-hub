@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import irisKrd1 from "@/assets/case-iris-1.webp";
 import irisKrd2 from "@/assets/case-iris-2.webp";
@@ -17,6 +18,7 @@ const cases = [
   {
     title: "Центр офтальмохирургии «Ирис»",
     location: "Краснодар",
+    slug: "/cases/iris-krasnodar",
     description:
       "Проектирование полноценного офтальмологического центра с операционным блоком. Интеграция тяжёлого диагностического оборудования, чистые помещения с многоступенчатой очисткой воздуха, пациент-ориентированная навигация.",
     tags: ["Офтальмохирургия", "Операционный блок", "Чистые помещения"],
@@ -25,6 +27,7 @@ const cases = [
   {
     title: "Диагностический центр «Ирис»",
     location: "Махачкала",
+    slug: "/cases/iris-makhachkala",
     description:
       "Создание экспертного диагностического центра с интеграцией в федеральную сеть. Размещение высокоточного оборудования мирового уровня, специализированная светотехника для офтальмоскопии, эргономичные кабинеты.",
     tags: ["Диагностика", "Федеральная сеть", "Инжиниринг"],
@@ -120,12 +123,20 @@ const CasesSection = () => {
                     </span>
                   ))}
                 </div>
-                <a
-                  href="tel:+79182633627"
-                  className="inline-block bg-accent text-accent-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
-                >
-                  Обсудить похожий проект
-                </a>
+                <div className="flex flex-wrap gap-3">
+                  <Link
+                    to={caseItem.slug}
+                    className="inline-block bg-white text-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
+                  >
+                    Подробнее о проекте
+                  </Link>
+                  <a
+                    href="tel:+79182633627"
+                    className="inline-block bg-accent text-accent-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
+                  >
+                    Обсудить похожий проект
+                  </a>
+                </div>
               </div>
             </motion.div>
           ))}
