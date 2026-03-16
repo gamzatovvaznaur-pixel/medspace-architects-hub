@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const HeaderNav = () => {
@@ -7,27 +8,27 @@ const HeaderNav = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16">
-        <a href="/" className="font-display font-bold text-lg tracking-tight text-foreground">
+        <Link to="/" className="font-display font-bold text-lg tracking-tight text-foreground">
           МедПроект
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#services" className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
+          <Link to="/services" className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
             Услуги
-          </a>
-          <a href="#logistics" className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
+          </Link>
+          <a href="/#logistics" className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
             Логистика
           </a>
-          <a href="#contact" className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
+          <a href="/#contact" className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
             Контакт
           </a>
-          <a
-            href="#contact"
+          <Link
+            to="/#contact"
             className="bg-primary text-primary-foreground px-6 py-2 rounded-xl font-display text-[11px] font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
           >
             Консультация
-          </a>
+          </Link>
         </nav>
 
         {/* Mobile burger */}
@@ -53,9 +54,16 @@ const HeaderNav = () => {
             className="md:hidden overflow-hidden bg-background border-b border-border"
           >
             <nav className="flex flex-col px-6 py-6 gap-4">
-              <a href="#services" onClick={() => setMenuOpen(false)} className="font-mono text-xs tracking-widest uppercase text-muted-foreground">Услуги</a>
-              <a href="#logistics" onClick={() => setMenuOpen(false)} className="font-mono text-xs tracking-widest uppercase text-muted-foreground">Логистика</a>
-              <a href="#contact" onClick={() => setMenuOpen(false)} className="font-mono text-xs tracking-widest uppercase text-muted-foreground">Контакт</a>
+              <Link to="/services" onClick={() => setMenuOpen(false)} className="font-mono text-xs tracking-widest uppercase text-muted-foreground">Услуги</Link>
+              <a href="/#logistics" onClick={() => setMenuOpen(false)} className="font-mono text-xs tracking-widest uppercase text-muted-foreground">Логистика</a>
+              <a href="/#contact" onClick={() => setMenuOpen(false)} className="font-mono text-xs tracking-widest uppercase text-muted-foreground">Контакт</a>
+              <Link
+                to="/#contact"
+                onClick={() => setMenuOpen(false)}
+                className="bg-primary text-primary-foreground px-6 py-3 rounded-xl font-display text-xs font-semibold uppercase tracking-widest text-center hover:opacity-90 transition-opacity"
+              >
+                Консультация
+              </Link>
             </nav>
           </motion.div>
         )}
