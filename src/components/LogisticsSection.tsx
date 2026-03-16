@@ -31,7 +31,7 @@ const steps = [
 
 const LogisticsSection = () => {
   return (
-    <section className="py-[16vh] px-6 md:px-12 bg-foreground">
+    <section className="py-[16vh] px-6 md:px-12 bg-foreground rounded-3xl mx-4 md:mx-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -84,6 +84,25 @@ const LogisticsSection = () => {
             ))}
           </div>
         </div>
+
+        {/* CTA in logistics */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ ...transition, delay: 0.4 }}
+          className="mt-16 pt-12 border-t border-background/10 flex flex-col sm:flex-row items-start sm:items-center gap-6"
+        >
+          <p className="text-background/60 max-w-md leading-relaxed">
+            Нужна консультация по логистике или стоимости поставки?
+          </p>
+          <a
+            href="/#contact"
+            className="bg-primary text-primary-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity shrink-0"
+          >
+            Запросить расчёт
+          </a>
+        </motion.div>
       </div>
     </section>
   );
