@@ -2,6 +2,7 @@ import HeaderNav from "@/components/HeaderNav";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import AboutPreviewSection from "@/components/AboutPreviewSection";
+import CasesSection from "@/components/CasesSection";
 import LogisticsSection from "@/components/LogisticsSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
@@ -16,6 +17,8 @@ const Index = () => {
         <ServicesSection />
       </div>
       <AboutPreviewSection />
+      <CTABanner />
+      <CasesSection />
       <CTABanner />
       <div id="logistics">
         <LogisticsSection />

@@ -45,13 +45,13 @@ const AboutPreviewSection = () => {
             className="grid grid-cols-2 gap-6"
           >
             {[
-              { value: "84%", label: "экспертиз с первого раза" },
-              { value: "150+", label: "реализованных проектов" },
-              { value: "30+", label: "городов России и СНГ" },
-              { value: "30–50%", label: "экономия на оборудовании" },
+              { value: "Множество", label: "реализованных проектов" },
+              { value: "Десятки", label: "городов России и СНГ" },
+              { value: "Полный цикл", label: "проектирования и поставок" },
+              { value: "Значительная", label: "экономия на оборудовании" },
             ].map((stat, i) => (
               <div key={i} className="border border-white/10 rounded-2xl p-6">
-                <span className="text-3xl font-display font-bold text-accent">{stat.value}</span>
+                <span className="text-2xl font-display font-bold text-accent">{stat.value}</span>
                 <p className="text-sm text-white/50 mt-2">{stat.label}</p>
               </div>
             ))}
