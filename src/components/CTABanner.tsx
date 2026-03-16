@@ -12,7 +12,7 @@ const CTABanner = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={transition}
-          className="bg-foreground rounded-2xl p-12 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
+          className="bg-primary rounded-2xl p-12 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
         >
           <div>
             <h2 className="text-2xl md:text-3xl font-display font-semibold text-background mb-3">
