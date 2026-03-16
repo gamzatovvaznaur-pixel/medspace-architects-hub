@@ -23,7 +23,7 @@ const servicesData: Record<string, {
     code: "SRV-01",
     title: "Проектирование с учётом специфики медицины",
     image: serviceDesignImg,
-    description: "Мы проектируем медицинские учреждения любой сложности — от районных поликлиник до высокотехнологичных хирургических центров. Каждый проект учитывает специфические требования медицинской отрасли: потоки пациентов, зонирование чистых помещений, размещение тяжёлого оборудования.",
+    description: "Мы проектируем медицинские учреждения любой сложности — от районных поликлиник до высокотехнологичных хирургических центров.",
     details: [
       "Полный комплект проектной и рабочей документации в соответствии с СанПиН, СП и техническими регламентами",
       "Технологическое проектирование: медицинские газы, вентиляция чистых помещений, экранирование рентгеновских кабинетов",
@@ -35,9 +35,9 @@ const servicesData: Record<string, {
     code: "SRV-02",
     title: "Авторский надзор при строительстве",
     image: serviceSupervisionImg,
-    description: "Наши специалисты контролируют каждый этап строительства, обеспечивая точное соответствие проектным решениям. Это критически важно для медицинских объектов, где отклонения от проекта могут привести к несоответствию санитарным нормам.",
+    description: "Наши специалисты контролируют каждый этап строительства, обеспечивая точное соответствие проектным решениям.",
     details: [
-      "Регулярные выезды на площадку с проверкой скрытых работ и узловых соединений",
+      "Регулярные выезды на площадку с проверкой скрытых работ",
       "Оперативное решение технических вопросов без остановки строительства",
       "Ведение журнала авторского надзора с фиксацией всех изменений",
       "Контроль применяемых материалов на соответствие спецификациям проекта",
@@ -47,37 +47,37 @@ const servicesData: Record<string, {
     code: "SRV-03",
     title: "Поставка оборудования из Китая",
     image: serviceEquipmentImg,
-    highlight: "Стоимость оборудования от китайских производителей на 30–50% ниже европейских аналогов при сопоставимом качестве и полной сертификации для РФ.",
-    description: "Мы работаем напрямую с ведущими китайскими производителями медицинского оборудования. Прямые контракты без посредников позволяют существенно сократить бюджет проекта без компромиссов в качестве.",
+    highlight: "Стоимость на 30–50% ниже европейских аналогов при полной сертификации для РФ.",
+    description: "Мы работаем напрямую с ведущими китайскими производителями медицинского оборудования.",
     details: [
-      "Прямые контракты с фабриками в Шэньчжэне, Шанхае и Гуанчжоу — без посредников",
-      "Полная сертификация для российского рынка: РУ, декларации соответствия, ТУ",
-      "Инспекция качества на производстве перед отгрузкой — наши специалисты на месте",
-      "Логистика «под ключ»: море, авиа, ж/д — с таможенным оформлением и страхованием",
+      "Прямые контракты с фабриками — без посредников",
+      "Полная сертификация для российского рынка",
+      "Инспекция качества на производстве перед отгрузкой",
+      "Логистика «под ключ» с таможенным оформлением и страхованием",
     ],
   },
   furniture: {
     code: "SRV-04",
     title: "Поставка медицинской мебели из Китая",
     image: serviceFurnitureImg,
-    highlight: "Индивидуальное производство мебели под ваш проект — точные размеры, цвета и конфигурации без наценок дистрибьюторов.",
-    description: "Медицинская и специализированная мебель от проверенных фабрик Китая. Мы организуем весь процесс от подбора моделей до монтажа на объекте, включая кастомизацию под планировки вашего проекта.",
+    highlight: "Индивидуальное производство мебели под ваш проект без наценок дистрибьюторов.",
+    description: "Медицинская и специализированная мебель от проверенных фабрик Китая.",
     details: [
-      "Медицинские кушетки, операционные столы, лабораторная мебель, шкафы для медикаментов",
-      "Мебель для палат, ресепшн, зон ожидания — единый стиль под дизайн-проект",
-      "Материалы, устойчивые к дезинфекции и соответствующие санитарным нормам",
-      "Гарантия от производителя и сервисное обслуживание на территории РФ",
+      "Медицинские кушетки, операционные столы, лабораторная мебель",
+      "Мебель для палат, ресепшн, зон ожидания",
+      "Материалы, устойчивые к дезинфекции",
+      "Гарантия и сервисное обслуживание на территории РФ",
     ],
   },
   approval: {
     code: "SRV-05",
     title: "Согласование документации в ГАСН",
     image: serviceApprovalImg,
-    description: "Берём на себя весь процесс прохождения государственной экспертизы и согласования в органах архитектурно-строительного надзора.",
+    description: "Берём на себя весь процесс прохождения государственной экспертизы.",
     details: [
       "Подготовка и подача документации в органы экспертизы и ГАСН",
-      "Оперативное устранение замечаний экспертов — без затягивания сроков",
-      "Получение разрешений на строительство и ввод объекта в эксплуатацию",
+      "Оперативное устранение замечаний экспертов",
+      "Получение разрешений на строительство и ввод в эксплуатацию",
       "Сопровождение при взаимодействии с Роспотребнадзором и пожарной инспекцией",
     ],
   },
@@ -115,19 +115,11 @@ const ServiceDetailPage = () => {
             transition={transition}
             className="relative aspect-[21/9] overflow-hidden rounded-2xl"
           >
-            <img
-              src={service.image}
-              alt={service.title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
+            <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             <div className="absolute bottom-8 left-8">
-              <span className="font-mono text-xs tracking-widest text-primary-foreground/70 mb-2 block">
-                {service.code}
-              </span>
-              <h1 className="text-3xl md:text-5xl font-semibold text-primary-foreground max-w-3xl">
-                {service.title}
-              </h1>
+              <span className="font-mono text-xs tracking-widest text-white/70 mb-2 block">{service.code}</span>
+              <h1 className="text-3xl md:text-5xl font-semibold text-white max-w-3xl">{service.title}</h1>
             </div>
           </motion.div>
         </div>
@@ -143,24 +135,16 @@ const ServiceDetailPage = () => {
             className="lg:col-span-2"
           >
             {service.highlight && (
-              <div className="bg-primary/10 border-l-4 border-primary px-6 py-5 mb-8 rounded-xl">
-                <p className="text-foreground font-display font-medium leading-relaxed">
-                  {service.highlight}
-                </p>
+              <div className="bg-accent/10 border-l-4 border-accent px-6 py-5 mb-8 rounded-xl">
+                <p className="text-foreground font-display font-medium leading-relaxed">{service.highlight}</p>
               </div>
             )}
-
-            <p className="text-lg text-muted-foreground leading-relaxed mb-10">
-              {service.description}
-            </p>
-
-            <h2 className="text-2xl font-display font-semibold text-foreground mb-6">
-              Что входит в услугу
-            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-10">{service.description}</p>
+            <h2 className="text-2xl font-display font-semibold text-foreground mb-6">Что входит в услугу</h2>
             <ul className="space-y-4">
               {service.details.map((detail, i) => (
                 <li key={i} className="flex items-start gap-4">
-                  <span className="w-2 h-2 bg-primary rounded-full mt-2.5 shrink-0" />
+                  <span className="w-2 h-2 bg-accent rounded-full mt-2.5 shrink-0" />
                   <span className="text-muted-foreground leading-relaxed">{detail}</span>
                 </li>
               ))}
@@ -174,18 +158,14 @@ const ServiceDetailPage = () => {
             transition={{ ...transition, delay: 0.25 }}
           >
             <div className="bg-card border border-border rounded-2xl p-8 sticky top-24">
-              <h3 className="text-xl font-display font-semibold text-foreground mb-3">
-                Обсудить проект?
-              </h3>
-              <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                Оставьте заявку — мы свяжемся с вами в течение одного рабочего дня.
-              </p>
-              <Link
-                to="/#contact"
-                className="block w-full text-center bg-primary text-primary-foreground px-6 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity mb-4"
+              <h3 className="text-xl font-display font-semibold text-foreground mb-3">Обсудить проект?</h3>
+              <p className="text-sm text-muted-foreground mb-6 leading-relaxed">Позвоните нам или оставьте заявку — мы свяжемся в течение одного рабочего дня.</p>
+              <a
+                href="tel:+79182633627"
+                className="block w-full text-center bg-accent text-accent-foreground px-6 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity mb-4"
               >
-                Оставить заявку
-              </Link>
+                Позвонить
+              </a>
               <a
                 href="tel:+79182633627"
                 className="block w-full text-center border border-border text-foreground px-6 py-3.5 rounded-xl font-display text-sm font-medium hover:bg-secondary transition-colors"
