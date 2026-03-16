@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import irisKrd1 from "@/assets/case-iris-1.webp";
 import irisKrd2 from "@/assets/case-iris-2.webp";
