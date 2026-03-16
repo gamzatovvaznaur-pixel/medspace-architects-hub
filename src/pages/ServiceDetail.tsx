@@ -147,7 +147,7 @@ const ServiceDetailPage = () => {
                   <span className="w-2 h-2 bg-accent rounded-full mt-2.5 shrink-0" />
                   <span className="text-muted-foreground leading-relaxed">{detail}</span>
                 </li>
-              ))
+              ))}
             </ul>
           </motion.div>
 
