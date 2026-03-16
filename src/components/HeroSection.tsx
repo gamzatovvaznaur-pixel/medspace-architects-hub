@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import heroImg from "@/assets/hero-blueprint.jpg";
 
-const transition = { duration: 0.6, ease:[0.16, 1, 0.3, 1] as const };
+const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 
-const stats =[
+const stats = [
   { value: "120 дн.", label: "среднее время готовности одного проекта", code: "TIME" },
   { value: "84%", label: "прохождение государственных экспертиз с 1 раза", code: "DEF" },
   { value: "45 дн.", label: "средний срок поставки из Шэньчжэня", code: "LOG" },
@@ -51,24 +52,30 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...transition, delay: 0.35 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-16 leading-relaxed text-pretty"
+          className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 leading-relaxed text-pretty"
         >
           От разработки рабочей документации до ввода в эксплуатацию. Прямые поставки оборудования и мебели из Китая. Полное согласование в ГАСН.
         </motion.p>
 
-        {/* CTA */}
+        {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...transition, delay: 0.45 }}
-          className="mb-20"
+          className="flex flex-col sm:flex-row gap-4 mb-20"
         >
           <a
             href="#contact"
-            className="inline-block bg-primary text-primary-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
+            className="inline-block bg-primary text-primary-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity text-center"
           >
             Запросить консультацию
           </a>
+          <Link
+            to="/services"
+            className="inline-block border border-border text-foreground px-10 py-4 rounded-xl font-display text-sm font-medium uppercase tracking-widest hover:bg-secondary transition-colors text-center"
+          >
+            Наши услуги
+          </Link>
         </motion.div>
 
         {/* Stats */}
