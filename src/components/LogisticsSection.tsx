@@ -43,7 +43,7 @@ const LogisticsSection = () => {
           <span className="font-mono text-[10px] tracking-widest uppercase text-primary mb-4 block">
             Логистика
           </span>
-          <h2 className="text-3xl md:text-5xl font-semibold text-background max-w-4xl">
+          <h2 className="text-3xl md:text-5xl font-semibold text-foreground max-w-4xl">
             От фабрики в Китае — до клиники заказчика
           </h2>
         </motion.div>
