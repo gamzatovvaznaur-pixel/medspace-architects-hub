@@ -98,6 +98,28 @@ const ServicesSection = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* CTA under services */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ ...transition, delay: 0.3 }}
+          className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <Link
+            to="/services"
+            className="bg-primary text-primary-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
+          >
+            Подробнее об услугах
+          </Link>
+          <a
+            href="#contact"
+            className="border border-border text-foreground px-8 py-3.5 rounded-xl font-display text-sm font-medium uppercase tracking-widest hover:bg-secondary transition-colors"
+          >
+            Связаться с нами
+          </a>
+        </motion.div>
       </div>
     </section>
   );

@@ -25,13 +25,13 @@ const CTABanner = () => {
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <Link
               to="/#contact"
-              className="bg-primary text-primary-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity text-center"
+              className="bg-background text-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity text-center"
             >
               Оставить заявку
             </Link>
             <a
               href="tel:+79182633627"
-              className="border border-background/20 text-background px-8 py-3.5 rounded-xl font-display text-sm font-medium hover:bg-background/10 transition-colors text-center"
+              className="border border-primary-foreground/30 text-primary-foreground px-8 py-3.5 rounded-xl font-display text-sm font-medium hover:bg-primary-foreground/10 transition-colors text-center"
             >
               Позвонить
             </a>
