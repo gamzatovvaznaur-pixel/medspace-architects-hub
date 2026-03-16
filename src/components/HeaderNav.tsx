@@ -1,9 +1,16 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+
+const navLinks = [
+  { to: "/services", label: "Услуги" },
+  { to: "/about", label: "О компании" },
+];
 
 const HeaderNav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -14,24 +21,34 @@ const HeaderNav = () => {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link to="/services" className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
-            Услуги
-          </Link>
-          <a href="/#contact" className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
-            Контакт
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={`font-mono text-[11px] tracking-widest uppercase transition-colors ${
+                location.pathname.startsWith(link.to)
+                  ? "text-foreground font-medium"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <a href={isHome ? "#contact" : "/#contact"} className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
+            Контакты
           </a>
           <a
             href="tel:+79182633627"
             className="border border-border text-foreground px-5 py-2 rounded-xl font-display text-[11px] font-medium uppercase tracking-widest hover:bg-secondary transition-colors"
           >
-            Позвонить
+            +7 (918) 263-36-27
           </a>
-          <Link
-            to="/#contact"
-            className="bg-primary text-primary-foreground px-6 py-2 rounded-xl font-display text-[11px] font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
+          <a
+            href="tel:+79182633627"
+            className="bg-accent text-accent-foreground px-6 py-2 rounded-xl font-display text-[11px] font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
           >
-            Консультация
-          </Link>
+            Подать заявку
+          </a>
         </nav>
 
         {/* Mobile burger */}
@@ -56,23 +73,29 @@ const HeaderNav = () => {
             transition={{ duration: 0.3 }}
             className="md:hidden overflow-hidden bg-background border-b border-border"
           >
-            <nav className="flex flex-col px-6 py-8 gap-5">
-              <Link to="/services" onClick={() => setMenuOpen(false)} className="font-mono text-xs tracking-widest uppercase text-muted-foreground">Услуги</Link>
-              <a href="/#contact" onClick={() => setMenuOpen(false)} className="font-mono text-xs tracking-widest uppercase text-muted-foreground">Контакт</a>
+            <nav className="flex flex-col px-6 py-10 gap-6">
+              {navLinks.map((link) => (
+                <Link key={link.to} to={link.to} onClick={() => setMenuOpen(false)} className="font-mono text-xs tracking-widest uppercase text-muted-foreground">
+                  {link.label}
+                </Link>
+              ))}
+              <a href={isHome ? "#contact" : "/#contact"} onClick={() => setMenuOpen(false)} className="font-mono text-xs tracking-widest uppercase text-muted-foreground">
+                Контакты
+              </a>
               <a
                 href="tel:+79182633627"
                 onClick={() => setMenuOpen(false)}
                 className="border border-border text-foreground px-6 py-3 rounded-xl font-display text-xs font-medium uppercase tracking-widest text-center hover:bg-secondary transition-colors"
               >
-                Позвонить
+                +7 (918) 263-36-27
               </a>
-              <Link
-                to="/#contact"
+              <a
+                href="tel:+79182633627"
                 onClick={() => setMenuOpen(false)}
-                className="bg-primary text-primary-foreground px-6 py-3 rounded-xl font-display text-xs font-semibold uppercase tracking-widest text-center hover:opacity-90 transition-opacity"
+                className="bg-accent text-accent-foreground px-6 py-3 rounded-xl font-display text-xs font-semibold uppercase tracking-widest text-center hover:opacity-90 transition-opacity"
               >
-                Консультация
-              </Link>
+                Подать заявку
+              </a>
             </nav>
           </motion.div>
         )}

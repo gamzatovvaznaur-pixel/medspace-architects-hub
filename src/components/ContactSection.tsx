@@ -5,9 +5,21 @@ const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 
 const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({ phone: "", description: "" });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Send form data via mailto
+    const subject = encodeURIComponent("Заявка с сайта МедПроект");
+    const body = encodeURIComponent(
+      `Телефон: ${formData.phone}\n\nОписание проекта: ${formData.description}`
+    );
+    window.location.href = `mailto:aznaur2107@mail.ru?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+  };
 
   return (
-    <section id="contact" className="py-[12vh] px-6 md:px-12">
+    <section id="contact" className="py-24 px-6 md:px-12 dark-section">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <motion.div
@@ -16,26 +28,33 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={transition}
           >
-            <span className="font-mono text-[10px] tracking-widest uppercase text-primary mb-4 block">
-              Контакт
+            <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-4 block">
+              Контакты
             </span>
-            <h2 className="text-3xl md:text-5xl font-semibold text-foreground mb-6">
-              Запросить техническую консультацию
+            <h2 className="text-3xl md:text-5xl font-semibold text-white mb-6">
+              Запросить консультацию
             </h2>
-            <p className="text-muted-foreground leading-relaxed max-w-md text-pretty">
+            <p className="text-white/50 leading-relaxed max-w-md">
               Оставьте заявку — мы свяжемся с вами в течение одного рабочего дня для обсуждения вашего проекта.
             </p>
 
             <div className="mt-12 space-y-4">
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-[10px] tracking-widest text-primary w-16">TEL</span>
-                <span className="text-foreground">+7 (918) 263-36-27</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-[10px] tracking-widest text-primary w-16">EMAIL</span>
-                <span className="text-foreground">gamzatov_aznaur@mail.ru</span>
-              </div>
+              <a href="tel:+79182633627" className="flex items-center gap-3 group">
+                <span className="font-mono text-[10px] tracking-widest text-accent w-16">TEL</span>
+                <span className="text-white group-hover:text-accent transition-colors">+7 (918) 263-36-27</span>
+              </a>
+              <a href="mailto:aznaur2107@mail.ru" className="flex items-center gap-3 group">
+                <span className="font-mono text-[10px] tracking-widest text-accent w-16">EMAIL</span>
+                <span className="text-white group-hover:text-accent transition-colors">aznaur2107@mail.ru</span>
+              </a>
             </div>
+
+            <a
+              href="tel:+79182633627"
+              className="inline-block mt-8 bg-accent text-accent-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
+            >
+              Позвонить сейчас
+            </a>
           </motion.div>
 
           <motion.div
@@ -45,49 +64,43 @@ const ContactSection = () => {
             transition={{ ...transition, delay: 0.15 }}
           >
             {submitted ? (
-              <div className="h-full flex items-center justify-center border border-border p-12 rounded-2xl">
+              <div className="h-full flex items-center justify-center border border-white/10 p-12 rounded-2xl">
                 <div className="text-center">
-                  <span className="font-mono text-[10px] tracking-widest text-primary block mb-4">
-                    RECEIVED
-                  </span>
-                  <p className="text-xl font-display font-medium text-foreground">
-                    Заявка отправлена
-                  </p>
-                  <p className="text-muted-foreground mt-2">Мы свяжемся с вами в ближайшее время.</p>
+                  <span className="font-mono text-[10px] tracking-widest text-accent block mb-4">ОТПРАВЛЕНО</span>
+                  <p className="text-xl font-display font-medium text-white">Заявка отправлена</p>
+                  <p className="text-white/50 mt-2">Мы свяжемся с вами в ближайшее время.</p>
                 </div>
               </div>
             ) : (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setSubmitted(true);
-                }}
-                className="space-y-6"
-              >
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2 block">
+                  <label className="font-mono text-[10px] tracking-widest uppercase text-white/50 mb-2 block">
                     Номер телефона
                   </label>
                   <input
                     type="tel"
                     required
-                    className="w-full border border-border bg-surface px-4 py-3 rounded-xl text-foreground font-body focus:outline-none focus:border-primary transition-colors"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full border border-white/10 bg-white/5 px-4 py-3 rounded-xl text-white font-body focus:outline-none focus:border-accent transition-colors"
                     placeholder="+7 (XXX) XXX-XX-XX"
                   />
                 </div>
                 <div>
-                  <label className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2 block">
+                  <label className="font-mono text-[10px] tracking-widest uppercase text-white/50 mb-2 block">
                     Описание проекта
                   </label>
                   <textarea
                     rows={4}
-                    className="w-full border border-border bg-surface px-4 py-3 rounded-xl text-foreground font-body focus:outline-none focus:border-primary transition-colors resize-none"
+                    value={formData.description}
+                    onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                    className="w-full border border-white/10 bg-white/5 px-4 py-3 rounded-xl text-white font-body focus:outline-none focus:border-accent transition-colors resize-none"
                     placeholder="Тип объекта, площадь, особые требования..."
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-primary text-primary-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
+                  className="w-full bg-accent text-accent-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
                 >
                   Отправить заявку
                 </button>
