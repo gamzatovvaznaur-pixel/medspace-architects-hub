@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { to: "/services", label: "Услуги" },
   { to: "/about", label: "О компании" },
+  { to: "/documents", label: "Документация" },
 ];
 
 const HeaderNav = () => {
