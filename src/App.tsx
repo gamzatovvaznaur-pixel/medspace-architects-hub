@@ -9,6 +9,7 @@ import ServiceDetail from "./pages/ServiceDetail.tsx";
 import About from "./pages/About.tsx";
 import CaseIrisKrasnodar from "./pages/CaseIrisKrasnodar.tsx";
 import CaseIrisMakhachkala from "./pages/CaseIrisMakhachkala.tsx";
+import Documents from "./pages/Documents.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
