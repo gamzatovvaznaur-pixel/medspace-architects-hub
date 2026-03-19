@@ -126,7 +126,7 @@ const CasesSection = () => {
                 <div className="flex flex-wrap gap-3">
                   <Link
                     to={caseItem.slug}
-                    className="inline-block bg-white/80 text-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:bg-white transition-colors"
+                    className="inline-block bg-white text-primary px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:bg-white/90 transition-colors"
                   >
                     Подробнее о проекте
                   </Link>
