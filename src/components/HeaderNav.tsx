@@ -26,6 +26,7 @@ const HeaderNav = () => {
             <Link
               key={link.to}
               to={link.to}
+              onClick={() => window.scrollTo({ top: 0 })}
               className={`font-mono text-[11px] tracking-widest uppercase transition-colors ${
                 location.pathname.startsWith(link.to)
                   ? "text-foreground font-medium"
