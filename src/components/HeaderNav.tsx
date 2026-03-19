@@ -36,7 +36,7 @@ const HeaderNav = () => {
               {link.label}
             </Link>
           ))}
-          <a href={isHome ? "#contact" : "/#contact"} className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
+          <a href={isHome ? "#contact" : "/#contact"} onClick={(e) => { if (isHome) { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}} className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
             Контакты
           </a>
           <a
