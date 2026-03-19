@@ -6,7 +6,7 @@ const transition = { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const };
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-end pb-20 pt-32 px-6 md:px-12 overflow-hidden dark-section">
+    <section className="relative h-screen flex items-end pb-20 pt-32 px-6 md:px-12 overflow-hidden dark-section">
       {/* Background image */}
       <div
         className="absolute inset-0 opacity-20"

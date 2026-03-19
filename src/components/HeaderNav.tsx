@@ -77,7 +77,7 @@ const HeaderNav = () => {
           >
             <nav className="flex flex-col px-6 py-10 gap-6">
               {navLinks.map((link) => (
-                <Link key={link.to} to={link.to} onClick={() => setMenuOpen(false)} className="font-mono text-xs tracking-widest uppercase text-muted-foreground">
+                <Link key={link.to} to={link.to} onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }} className="font-mono text-xs tracking-widest uppercase text-muted-foreground">
                   {link.label}
                 </Link>
               ))}

@@ -17,7 +17,7 @@ const CaseIrisKrasnodar = () => {
       <HeaderNav />
 
       {/* Hero */}
-      <section className="pt-32 pb-20 px-6 md:px-12">
+      <section className="min-h-screen flex flex-col justify-center pt-32 pb-20 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
           <Link to="/#cases" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8">
             <ArrowLeft className="w-4 h-4" /> Назад к кейсам
