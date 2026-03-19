@@ -14,7 +14,7 @@ const ContactSection = () => {
     const body = encodeURIComponent(
       `Телефон: ${formData.phone}\n\nОписание проекта: ${formData.description}`
     );
-    window.location.href = `mailto:aznaur2107@mail.ru?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:med-project@bk.ru?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
