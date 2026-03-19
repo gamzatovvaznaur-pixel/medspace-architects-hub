@@ -48,7 +48,7 @@ const AboutPage = () => {
       <HeaderNav />
 
       {/* Hero */}
-      <section className="pt-32 pb-20 px-6 md:px-12 dark-section">
+      <section className="min-h-screen flex flex-col justify-center pt-32 pb-20 px-6 md:px-12 dark-section">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

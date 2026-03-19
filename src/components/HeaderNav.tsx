@@ -16,7 +16,7 @@ const HeaderNav = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16">
-        <Link to="/" className="font-display font-bold text-lg tracking-tight text-foreground">
+        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="font-display font-bold text-lg tracking-tight text-foreground">
           МедПроект
         </Link>
 
@@ -26,6 +26,7 @@ const HeaderNav = () => {
             <Link
               key={link.to}
               to={link.to}
+              onClick={() => window.scrollTo({ top: 0 })}
               className={`font-mono text-[11px] tracking-widest uppercase transition-colors ${
                 location.pathname.startsWith(link.to)
                   ? "text-foreground font-medium"
@@ -76,7 +77,7 @@ const HeaderNav = () => {
           >
             <nav className="flex flex-col px-6 py-10 gap-6">
               {navLinks.map((link) => (
-                <Link key={link.to} to={link.to} onClick={() => setMenuOpen(false)} className="font-mono text-xs tracking-widest uppercase text-muted-foreground">
+                <Link key={link.to} to={link.to} onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }} className="font-mono text-xs tracking-widest uppercase text-muted-foreground">
                   {link.label}
                 </Link>
               ))}

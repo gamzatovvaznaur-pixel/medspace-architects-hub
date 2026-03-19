@@ -14,7 +14,7 @@ const ContactSection = () => {
     const body = encodeURIComponent(
       `Телефон: ${formData.phone}\n\nОписание проекта: ${formData.description}`
     );
-    window.location.href = `mailto:aznaur2107@mail.ru?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:med-project@bk.ru?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -43,9 +43,9 @@ const ContactSection = () => {
                 <span className="font-mono text-[10px] tracking-widest text-accent w-16">TEL</span>
                 <span className="text-white group-hover:text-accent transition-colors">+7 (918) 263-36-27</span>
               </a>
-              <a href="mailto:aznaur2107@mail.ru" className="flex items-center gap-3 group">
+              <a href="mailto:med-project@bk.ru" className="flex items-center gap-3 group">
                 <span className="font-mono text-[10px] tracking-widest text-accent w-16">EMAIL</span>
-                <span className="text-white group-hover:text-accent transition-colors">aznaur2107@mail.ru</span>
+                <span className="text-white group-hover:text-accent transition-colors">med-project@bk.ru</span>
               </a>
             </div>
 

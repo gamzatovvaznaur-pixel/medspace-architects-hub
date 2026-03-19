@@ -24,7 +24,7 @@ const ServicesPage = () => {
     <div className="min-h-screen bg-background">
       <HeaderNav />
 
-      <section className="pt-32 pb-16 px-6 md:px-12">
+      <section className="min-h-screen flex flex-col justify-center pt-32 pb-16 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={transition}>
             <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-4 block">Наши услуги</span>
