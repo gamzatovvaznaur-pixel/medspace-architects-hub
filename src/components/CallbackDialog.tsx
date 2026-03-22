@@ -109,9 +109,10 @@ const CallbackDialog = ({ open, onOpenChange }: CallbackDialogProps) => {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-accent text-accent-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
+                    disabled={sending}
+                    className="w-full bg-accent text-accent-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity disabled:opacity-50"
                   >
-                    Перезвоните мне
+                    {sending ? "Отправка..." : "Перезвоните мне"}
                   </button>
                 </form>
               </>

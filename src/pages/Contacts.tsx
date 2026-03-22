@@ -155,9 +155,10 @@ const Contacts = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-accent text-accent-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
+                  disabled={sending}
+                  className="w-full bg-accent text-accent-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity disabled:opacity-50"
                 >
-                  Отправить заявку
+                  {sending ? "Отправка..." : "Отправить заявку"}
                 </button>
               </form>
             )}
