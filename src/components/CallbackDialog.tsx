@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
+const FORMSPREE_URL = "https://formspree.io/f/mqeyvkdj";
+
 interface CallbackDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -10,6 +12,7 @@ interface CallbackDialogProps {
 const CallbackDialog = ({ open, onOpenChange }: CallbackDialogProps) => {
   const [phone, setPhone] = useState("+7");
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value;
@@ -19,12 +22,21 @@ const CallbackDialog = ({ open, onOpenChange }: CallbackDialogProps) => {
     setPhone(value);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent("Обратный звонок — МедПроект");
-    const body = encodeURIComponent(`Телефон для обратного звонка: ${phone}`);
-    window.location.href = `mailto:aznaur2107@mail.ru?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    setSending(true);
+    try {
+      await fetch(FORMSPREE_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phone, _subject: "Обратный звонок — МедПроект" }),
+      });
+      setSubmitted(true);
+    } catch {
+      alert("Ошибка отправки. Попробуйте позже.");
+    } finally {
+      setSending(false);
+    }
   };
 
   const handleClose = () => {
