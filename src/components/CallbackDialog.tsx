@@ -8,7 +8,7 @@ interface CallbackDialogProps {
 }
 
 const CallbackDialog = ({ open, onOpenChange }: CallbackDialogProps) => {
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState("+7");
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
