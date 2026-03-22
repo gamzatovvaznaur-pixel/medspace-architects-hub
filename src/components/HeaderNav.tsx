@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 
 const navLinks = [
   { to: "/services", label: "Услуги" },
   { to: "/about", label: "О компании" },
   { to: "/documents", label: "Документация" },
+  { to: "/contacts", label: "Контакты" },
 ];
 
 const HeaderNav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
-  const isHome = location.pathname === "/";
+  const { openCallback } = useCallbackDialog();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -36,21 +37,18 @@ const HeaderNav = () => {
               {link.label}
             </Link>
           ))}
-          <a href={isHome ? "#contact" : "/#contact"} onClick={(e) => { if (isHome) { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}} className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
-            Контакты
-          </a>
           <a
             href="tel:+79182633627"
             className="border border-border text-foreground px-5 py-2 rounded-xl font-display text-[11px] font-medium uppercase tracking-widest hover:bg-secondary transition-colors"
           >
             +7 (918) 263-36-27
           </a>
-          <a
-            href="tel:+79182633627"
+          <button
+            onClick={openCallback}
             className="bg-accent text-accent-foreground px-6 py-2 rounded-xl font-display text-[11px] font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
           >
             Подать заявку
-          </a>
+          </button>
         </nav>
 
         {/* Mobile burger */}
@@ -81,9 +79,6 @@ const HeaderNav = () => {
                   {link.label}
                 </Link>
               ))}
-              <a href={isHome ? "#contact" : "/#contact"} onClick={() => setMenuOpen(false)} className="font-mono text-xs tracking-widest uppercase text-muted-foreground">
-                Контакты
-              </a>
               <a
                 href="tel:+79182633627"
                 onClick={() => setMenuOpen(false)}
@@ -91,13 +86,12 @@ const HeaderNav = () => {
               >
                 +7 (918) 263-36-27
               </a>
-              <a
-                href="tel:+79182633627"
-                onClick={() => setMenuOpen(false)}
+              <button
+                onClick={() => { setMenuOpen(false); openCallback(); }}
                 className="bg-accent text-accent-foreground px-6 py-3 rounded-xl font-display text-xs font-semibold uppercase tracking-widest text-center hover:opacity-90 transition-opacity"
               >
                 Подать заявку
-              </a>
+              </button>
             </nav>
           </motion.div>
         )}

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import specDental from "@/assets/spec-dental.jpg";
 import specCosmetology from "@/assets/spec-cosmetology.jpg";
 import specLaboratory from "@/assets/spec-laboratory.jpg";
@@ -49,6 +49,8 @@ const specializations = [
 ];
 
 const SpecializationsSection = () => {
+  const { openCallback } = useCallbackDialog();
+
   return (
     <section className="py-24 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
@@ -82,7 +84,6 @@ const SpecializationsSection = () => {
                 i % 2 === 1 ? "lg:direction-rtl" : ""
               }`}
             >
-              {/* Image */}
               <div className={`${i % 2 === 1 ? "lg:order-2" : ""}`}>
                 <div className="rounded-2xl overflow-hidden aspect-[4/3]">
                   <img
@@ -93,7 +94,6 @@ const SpecializationsSection = () => {
                 </div>
               </div>
 
-              {/* Content */}
               <div className={`${i % 2 === 1 ? "lg:order-1" : ""}`}>
                 <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-2 block">
                   {spec.subtitle}
@@ -114,12 +114,12 @@ const SpecializationsSection = () => {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="tel:+79182633627"
+                <button
+                  onClick={openCallback}
                   className="inline-block bg-accent text-accent-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
                 >
                   Обсудить проект
-                </a>
+                </button>
               </div>
             </motion.div>
           ))}

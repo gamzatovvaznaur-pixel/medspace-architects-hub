@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
+import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 
 const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 
 const VideoShowcase = () => {
+  const { openCallback } = useCallbackDialog();
+
   return (
     <section className="py-24 px-6 md:px-12 dark-section">
       <div className="max-w-6xl mx-auto">
@@ -50,12 +53,12 @@ const VideoShowcase = () => {
           transition={{ ...transition, delay: 0.3 }}
           className="text-center mt-10"
         >
-          <a
-            href="tel:+79182633627"
+          <button
+            onClick={openCallback}
             className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-xl font-semibold text-sm uppercase tracking-widest hover:opacity-90 transition-opacity"
           >
             <Phone className="w-4 h-4" /> Обсудить ваш проект
-          </a>
+          </button>
         </motion.div>
       </div>
     </section>

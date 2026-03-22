@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 
 const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 
 const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ phone: "", description: "" });
+  const { openCallback } = useCallbackDialog();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Send form data via mailto
     const subject = encodeURIComponent("Заявка с сайта МедПроект");
     const body = encodeURIComponent(
       `Телефон: ${formData.phone}\n\nОписание проекта: ${formData.description}`
@@ -49,12 +50,12 @@ const ContactSection = () => {
               </a>
             </div>
 
-            <a
-              href="tel:+79182633627"
+            <button
+              onClick={openCallback}
               className="inline-block mt-8 bg-accent text-accent-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
             >
-              Позвонить сейчас
-            </a>
+              Заказать звонок
+            </button>
           </motion.div>
 
           <motion.div

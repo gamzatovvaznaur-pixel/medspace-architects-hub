@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 
 const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 
 const AboutPreviewSection = () => {
+  const { openCallback } = useCallbackDialog();
+
   return (
     <section className="py-24 px-6 md:px-12 dark-section">
       <div className="max-w-7xl mx-auto">
@@ -28,12 +31,12 @@ const AboutPreviewSection = () => {
               >
                 Подробнее
               </Link>
-              <a
-                href="tel:+79182633627"
+              <button
+                onClick={openCallback}
                 className="inline-block bg-accent text-accent-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity text-center"
               >
                 Связаться с нами
-              </a>
+              </button>
             </div>
           </motion.div>
 
