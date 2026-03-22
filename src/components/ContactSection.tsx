@@ -6,7 +6,7 @@ const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 
 const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ phone: "", description: "" });
+  const [formData, setFormData] = useState({ phone: "+7", description: "" });
   const { openCallback } = useCallbackDialog();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -15,7 +15,7 @@ const ContactSection = () => {
     const body = encodeURIComponent(
       `Телефон: ${formData.phone}\n\nОписание проекта: ${formData.description}`
     );
-    window.location.href = `mailto:med-project@bk.ru?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:aznaur2107@mail.ru?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -82,7 +82,11 @@ const ContactSection = () => {
                     type="tel"
                     required
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onChange={(e) => {
+                      let value = e.target.value;
+                      if (!value.startsWith("+7")) value = "+7" + value.replace(/^\+?7?/, "");
+                      setFormData({ ...formData, phone: value });
+                    }}
                     className="w-full border border-white/10 bg-white/5 px-4 py-3 rounded-xl text-white font-body focus:outline-none focus:border-accent transition-colors"
                     placeholder="+7 (XXX) XXX-XX-XX"
                   />
