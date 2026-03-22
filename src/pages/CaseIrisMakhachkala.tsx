@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Phone } from "lucide-react";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
+import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 
 import img1 from "@/assets/case-iris-mhk-1.webp";
 import img2 from "@/assets/case-iris-mhk-2.webp";
@@ -12,11 +13,12 @@ import img4 from "@/assets/case-iris-mhk-4.webp";
 const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 
 const CaseIrisMakhachkala = () => {
+  const { openCallback } = useCallbackDialog();
+
   return (
     <div className="min-h-screen bg-background">
       <HeaderNav />
 
-      {/* Hero */}
       <section className="min-h-screen flex flex-col justify-center pt-32 pb-20 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
           <Link to="/#cases" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8">
@@ -52,68 +54,36 @@ const CaseIrisMakhachkala = () => {
         </div>
       </section>
 
-      {/* Images */}
       <section className="px-6 md:px-12 pb-20">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
           {[img1, img2, img3, img4].map((img, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ ...transition, delay: i * 0.1 }}
-              className="rounded-2xl overflow-hidden aspect-[4/3]"
-            >
+            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ ...transition, delay: i * 0.1 }} className="rounded-2xl overflow-hidden aspect-[4/3]">
               <img src={img} alt={`Ирис Махачкала — фото ${i + 1}`} className="w-full h-full object-cover" />
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* О проекте */}
       <section className="px-6 md:px-12 pb-20">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={transition}
-              className="bg-card border border-border rounded-2xl p-8"
-            >
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transition} className="bg-card border border-border rounded-2xl p-8">
               <span className="text-3xl mb-4 block">🔄</span>
               <h3 className="text-xl font-semibold text-foreground mb-3">Бесшовный путь пациента</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                От первичного осмотра до подготовки к высокотехнологичной операции в Краснодаре.
-              </p>
+              <p className="text-muted-foreground leading-relaxed">От первичного осмотра до подготовки к высокотехнологичной операции в Краснодаре.</p>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ ...transition, delay: 0.1 }}
-              className="bg-card border border-border rounded-2xl p-8"
-            >
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ ...transition, delay: 0.1 }} className="bg-card border border-border rounded-2xl p-8">
               <span className="text-3xl mb-4 block">⚙️</span>
               <h3 className="text-xl font-semibold text-foreground mb-3">Оборудование мирового уровня</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Проектирование кабинетов под высокоточную технику (Япония, Германия), организация трансфера и медсопровождения.
-              </p>
+              <p className="text-muted-foreground leading-relaxed">Проектирование кабинетов под высокоточную технику (Япония, Германия), организация трансфера и медсопровождения.</p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Челлендж */}
       <section className="dark-section py-20 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={transition}
-            className="text-3xl md:text-4xl font-display font-bold text-white mb-4"
-          >
+          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transition} className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
             Челлендж
           </motion.h2>
           <p className="text-white/60 text-xl mb-12">Каждый метр работает на точность диагностики и комфорт пациента.</p>
@@ -124,23 +94,13 @@ const CaseIrisMakhachkala = () => {
               { badge: "Маршрутизация", text: "Логистика внутри клиники, исключающая очереди при высокой проходимости пациентов." },
               { badge: "Единый стандарт", text: "Интерьерные решения, соответствующие визуальному коду сети «Ирис» — доверие и экспертность." },
             ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ ...transition, delay: i * 0.1 }}
-                className="bg-white/5 border border-white/10 rounded-2xl p-6"
-              >
-                <span className="inline-block bg-accent/20 text-accent px-3 py-1 rounded-full text-xs font-medium mb-3">
-                  {item.badge}
-                </span>
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ ...transition, delay: i * 0.1 }} className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <span className="inline-block bg-accent/20 text-accent px-3 py-1 rounded-full text-xs font-medium mb-3">{item.badge}</span>
                 <p className="text-white/60 leading-relaxed">{item.text}</p>
               </motion.div>
             ))}
           </div>
 
-          {/* Flow */}
           <div className="flex items-center justify-around bg-white/5 border border-white/10 rounded-full py-4 px-6 flex-wrap gap-2">
             {["🚶 Вход", "🔍 Диагностика", "📋 Консультация", "✈️ Трансфер в Краснодар"].map((step, i) => (
               <span key={i} className="flex items-center gap-2 text-white/80 text-sm">
@@ -152,16 +112,9 @@ const CaseIrisMakhachkala = () => {
         </div>
       </section>
 
-      {/* Инженерная точность */}
       <section className="py-20 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={transition}
-            className="text-3xl md:text-4xl font-display font-bold text-foreground mb-12"
-          >
+          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transition} className="text-3xl md:text-4xl font-display font-bold text-foreground mb-12">
             Инженерная точность
           </motion.h2>
 
@@ -171,14 +124,7 @@ const CaseIrisMakhachkala = () => {
               { icon: "💡", title: "Светотехника", text: "Специализированное освещение в кабинетах офтальмоскопии — критически важно для выявления патологий сетчатки." },
               { icon: "🪑", title: "Эргономика", text: "Планировки кабинетов: офтальмолог работает с пациентом без лишних движений." },
             ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ ...transition, delay: i * 0.1 }}
-                className="bg-card border border-border rounded-2xl p-8"
-              >
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ ...transition, delay: i * 0.1 }} className="bg-card border border-border rounded-2xl p-8">
                 <span className="text-3xl mb-4 block">{item.icon}</span>
                 <h3 className="text-xl font-semibold text-foreground mb-3">{item.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{item.text}</p>
@@ -188,16 +134,9 @@ const CaseIrisMakhachkala = () => {
         </div>
       </section>
 
-      {/* Пространство заботы */}
       <section className="dark-section py-20 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={transition}
-            className="text-3xl md:text-4xl font-display font-bold text-white mb-4"
-          >
+          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transition} className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
             Пространство заботы и спокойствия
           </motion.h2>
           <p className="text-white/60 text-lg mb-12">Дизайн интерьера призван снимать тревожность перед обследованием.</p>
@@ -208,17 +147,8 @@ const CaseIrisMakhachkala = () => {
               { badge: "Навигация", text: "Интуитивно понятные указатели — быстрое перемещение между кабинетами диагностики." },
               { badge: "Комфорт", text: "Эргономичная мебель и зона оформления документов для людей любого возраста." },
             ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ ...transition, delay: i * 0.1 }}
-                className="bg-white/5 border border-white/10 rounded-2xl p-6"
-              >
-                <span className="inline-block bg-accent/20 text-accent px-3 py-1 rounded-full text-xs font-medium mb-3">
-                  {item.badge}
-                </span>
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ ...transition, delay: i * 0.1 }} className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <span className="inline-block bg-accent/20 text-accent px-3 py-1 rounded-full text-xs font-medium mb-3">{item.badge}</span>
                 <p className="text-white/60 leading-relaxed">{item.text}</p>
               </motion.div>
             ))}
@@ -226,16 +156,9 @@ const CaseIrisMakhachkala = () => {
         </div>
       </section>
 
-      {/* Результат */}
       <section className="py-20 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={transition}
-            className="text-3xl md:text-4xl font-display font-bold text-foreground mb-10"
-          >
+          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transition} className="text-3xl md:text-4xl font-display font-bold text-foreground mb-10">
             Результат
           </motion.h2>
 
@@ -260,7 +183,6 @@ const CaseIrisMakhachkala = () => {
             </p>
           </div>
 
-          {/* Testimonial */}
           <div className="bg-card border border-border rounded-2xl p-8 mb-10">
             <p className="text-xl text-foreground leading-relaxed italic mb-4">
               «Команда "Медпроекта" создала для нас пространство, в котором оборудование работает на пределе своих возможностей, а пациент чувствует себя в полной безопасности».
@@ -268,12 +190,12 @@ const CaseIrisMakhachkala = () => {
             <p className="text-muted-foreground font-medium">— Руководство клиники «Ирис» (Махачкала)</p>
           </div>
 
-          <a
-            href="tel:+79182633627"
+          <button
+            onClick={openCallback}
             className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-xl font-semibold text-sm uppercase tracking-widest hover:opacity-90 transition-opacity"
           >
             <Phone className="w-4 h-4" /> Обсудить проект
-          </a>
+          </button>
         </div>
       </section>
 

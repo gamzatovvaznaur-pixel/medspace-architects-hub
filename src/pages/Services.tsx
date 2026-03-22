@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import CTABanner from "@/components/CTABanner";
+import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import serviceDesignImg from "@/assets/service-design.jpg";
 import serviceSupervisionImg from "@/assets/service-supervision.jpg";
 import serviceEquipmentImg from "@/assets/service-equipment.jpg";
@@ -20,6 +21,8 @@ const services = [
 ];
 
 const ServicesPage = () => {
+  const { openCallback } = useCallbackDialog();
+
   return (
     <div className="min-h-screen bg-background">
       <HeaderNav />
@@ -63,16 +66,15 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="pb-20 px-6 md:px-12">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="text-muted-foreground text-lg mb-6">Не нашли нужную услугу? Позвоните нам — мы подберём решение.</p>
-          <a
-            href="tel:+79182633627"
+          <p className="text-muted-foreground text-lg mb-6">Не нашли нужную услугу? Свяжитесь с нами — мы подберём решение.</p>
+          <button
+            onClick={openCallback}
             className="inline-block bg-accent text-accent-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
           >
-            Позвонить
-          </a>
+            Заказать звонок
+          </button>
         </div>
       </section>
 
