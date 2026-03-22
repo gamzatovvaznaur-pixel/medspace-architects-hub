@@ -4,19 +4,33 @@ import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 
 const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 
+const FORMSPREE_URL = "https://formspree.io/f/mqeyvkdj";
+
 const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
   const [formData, setFormData] = useState({ phone: "+7", description: "" });
   const { openCallback } = useCallbackDialog();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent("Заявка с сайта МедПроект");
-    const body = encodeURIComponent(
-      `Телефон: ${formData.phone}\n\nОписание проекта: ${formData.description}`
-    );
-    window.location.href = `mailto:aznaur2107@mail.ru?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    setSending(true);
+    try {
+      await fetch(FORMSPREE_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          phone: formData.phone,
+          description: formData.description,
+          _subject: "Заявка с сайта МедПроект",
+        }),
+      });
+      setSubmitted(true);
+    } catch {
+      alert("Ошибка отправки. Попробуйте позже.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
