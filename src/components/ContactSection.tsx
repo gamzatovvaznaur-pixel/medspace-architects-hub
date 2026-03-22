@@ -6,7 +6,7 @@ const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 
 const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ phone: "", description: "" });
+  const [formData, setFormData] = useState({ phone: "+7", description: "" });
   const { openCallback } = useCallbackDialog();
 
   const handleSubmit = (e: React.FormEvent) => {
