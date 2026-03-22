@@ -82,7 +82,11 @@ const ContactSection = () => {
                     type="tel"
                     required
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onChange={(e) => {
+                      let value = e.target.value;
+                      if (!value.startsWith("+7")) value = "+7" + value.replace(/^\+?7?/, "");
+                      setFormData({ ...formData, phone: value });
+                    }}
                     className="w-full border border-white/10 bg-white/5 px-4 py-3 rounded-xl text-white font-body focus:outline-none focus:border-accent transition-colors"
                     placeholder="+7 (XXX) XXX-XX-XX"
                   />

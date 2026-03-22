@@ -90,7 +90,7 @@ const CallbackDialog = ({ open, onOpenChange }: CallbackDialogProps) => {
                       type="tel"
                       required
                       value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
+                      onChange={handlePhoneChange}
                       className="w-full border border-border bg-background px-4 py-3 rounded-xl text-foreground focus:outline-none focus:border-accent transition-colors"
                       placeholder="+7 (XXX) XXX-XX-XX"
                     />

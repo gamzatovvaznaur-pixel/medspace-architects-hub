@@ -119,7 +119,11 @@ const Contacts = () => {
                     type="tel"
                     required
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onChange={(e) => {
+                      let value = e.target.value;
+                      if (!value.startsWith("+7")) value = "+7" + value.replace(/^\+?7?/, "");
+                      setFormData({ ...formData, phone: value });
+                    }}
                     className="w-full border border-border bg-background px-4 py-3 rounded-xl text-foreground focus:outline-none focus:border-accent transition-colors"
                     placeholder="+7 (XXX) XXX-XX-XX"
                   />
