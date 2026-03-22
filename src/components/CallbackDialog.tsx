@@ -11,11 +11,19 @@ const CallbackDialog = ({ open, onOpenChange }: CallbackDialogProps) => {
   const [phone, setPhone] = useState("+7");
   const [submitted, setSubmitted] = useState(false);
 
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value;
+    if (!value.startsWith("+7")) {
+      value = "+7" + value.replace(/^\+?7?/, "");
+    }
+    setPhone(value);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const subject = encodeURIComponent("Обратный звонок — МедПроект");
     const body = encodeURIComponent(`Телефон для обратного звонка: ${phone}`);
-    window.location.href = `mailto:med-project@bk.ru?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:aznaur2107@mail.ru?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
