@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import CTABanner from "@/components/CTABanner";
+import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 
 const transition = { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const };
 
@@ -43,6 +44,8 @@ const sections = [
 ];
 
 const AboutPage = () => {
+  const { openCallback } = useCallbackDialog();
+
   return (
     <div className="min-h-screen bg-background">
       <HeaderNav />
@@ -66,7 +69,6 @@ const AboutPage = () => {
             </p>
           </motion.div>
 
-          {/* Stats */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -112,17 +114,16 @@ const AboutPage = () => {
             </motion.div>
           </div>
 
-          {/* Mid-section CTA every 2 sections */}
           {i === 1 && (
             <div className="max-w-4xl mx-auto mt-12">
               <div className="flex flex-col sm:flex-row items-center gap-4 border-t border-border pt-10">
                 <p className="text-muted-foreground">Хотите обсудить ваш проект?</p>
-                <a
-                  href="tel:+79182633627"
+                <button
+                  onClick={openCallback}
                   className="bg-accent text-accent-foreground px-8 py-3 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
                 >
-                  Позвонить нам
-                </a>
+                  Заказать звонок
+                </button>
               </div>
             </div>
           )}
@@ -145,18 +146,18 @@ const AboutPage = () => {
               Расскажите нам о вашем проекте — мы подготовим предварительную оценку сроков и стоимости.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="tel:+79182633627"
+              <button
+                onClick={openCallback}
                 className="bg-accent text-accent-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
               >
-                Позвонить сейчас
-              </a>
-              <a
-                href="/#contact"
+                Заказать звонок
+              </button>
+              <button
+                onClick={openCallback}
                 className="border border-white/20 text-white px-10 py-4 rounded-xl font-display text-sm font-medium uppercase tracking-widest hover:bg-white/10 transition-colors"
               >
                 Оставить заявку
-              </a>
+              </button>
             </div>
           </motion.div>
         </div>

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import CTABanner from "@/components/CTABanner";
+import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import serviceDesignImg from "@/assets/service-design.jpg";
 import serviceSupervisionImg from "@/assets/service-supervision.jpg";
 import serviceEquipmentImg from "@/assets/service-equipment.jpg";
@@ -86,6 +87,7 @@ const servicesData: Record<string, {
 const ServiceDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const service = slug ? servicesData[slug] : undefined;
+  const { openCallback } = useCallbackDialog();
 
   if (!service) return <Navigate to="/services" replace />;
 
@@ -93,7 +95,6 @@ const ServiceDetailPage = () => {
     <div className="min-h-screen bg-background">
       <HeaderNav />
 
-      {/* Breadcrumb */}
       <div className="pt-24 pb-4 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -106,7 +107,6 @@ const ServiceDetailPage = () => {
         </div>
       </div>
 
-      {/* Hero image */}
       <section className="px-6 md:px-12 pb-12">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -125,7 +125,6 @@ const ServiceDetailPage = () => {
         </div>
       </section>
 
-      {/* Content */}
       <section className="px-6 md:px-12 pb-20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
           <motion.div
@@ -151,7 +150,6 @@ const ServiceDetailPage = () => {
             </ul>
           </motion.div>
 
-          {/* Sidebar CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -159,13 +157,13 @@ const ServiceDetailPage = () => {
           >
             <div className="bg-card border border-border rounded-2xl p-8 sticky top-24">
               <h3 className="text-xl font-display font-semibold text-foreground mb-3">Обсудить проект?</h3>
-              <p className="text-sm text-muted-foreground mb-6 leading-relaxed">Позвоните нам или оставьте заявку — мы свяжемся в течение одного рабочего дня.</p>
-              <a
-                href="tel:+79182633627"
+              <p className="text-sm text-muted-foreground mb-6 leading-relaxed">Оставьте заявку — мы свяжемся в течение одного рабочего дня.</p>
+              <button
+                onClick={openCallback}
                 className="block w-full text-center bg-accent text-accent-foreground px-6 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity mb-4"
               >
-                Позвонить
-              </a>
+                Заказать звонок
+              </button>
               <a
                 href="tel:+79182633627"
                 className="block w-full text-center border border-border text-foreground px-6 py-3.5 rounded-xl font-display text-sm font-medium hover:bg-secondary transition-colors"

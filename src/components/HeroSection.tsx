@@ -1,13 +1,15 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import heroImg from "@/assets/hero-blueprint.jpg";
 
 const transition = { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const };
 
 const HeroSection = () => {
+  const { openCallback } = useCallbackDialog();
+
   return (
     <section className="relative min-h-screen flex items-end pb-12 pt-24 md:pb-20 md:pt-32 px-6 md:px-12 overflow-hidden dark-section">
-      {/* Background image */}
       <div
         className="absolute inset-0 opacity-20"
         style={{
@@ -52,12 +54,12 @@ const HeroSection = () => {
           transition={{ ...transition, delay: 0.45 }}
           className="flex flex-col sm:flex-row gap-4 mb-16"
         >
-          <a
-            href="tel:+79182633627"
+          <button
+            onClick={openCallback}
             className="inline-block bg-accent text-accent-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity text-center"
           >
-            Позвонить нам
-          </a>
+            Заказать звонок
+          </button>
           <Link
             to="/services"
             className="inline-block border border-white/20 text-white px-10 py-4 rounded-xl font-display text-sm font-medium uppercase tracking-widest hover:bg-white/10 transition-colors text-center"
@@ -66,7 +68,6 @@ const HeroSection = () => {
           </Link>
         </motion.div>
 
-        {/* Stats */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

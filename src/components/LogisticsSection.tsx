@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 
 const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 
@@ -10,6 +11,8 @@ const steps = [
 ];
 
 const LogisticsSection = () => {
+  const { openCallback } = useCallbackDialog();
+
   return (
     <section className="py-24 px-6 md:px-12">
       <div className="max-w-7xl mx-auto bg-card border border-border rounded-3xl p-10 md:p-16">
@@ -60,12 +63,12 @@ const LogisticsSection = () => {
           <p className="text-muted-foreground max-w-md leading-relaxed">
             Нужна консультация по логистике или стоимости поставки?
           </p>
-          <a
-            href="tel:+79182633627"
+          <button
+            onClick={openCallback}
             className="bg-accent text-accent-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity shrink-0"
           >
             Запросить расчёт
-          </a>
+          </button>
         </motion.div>
       </div>
     </section>

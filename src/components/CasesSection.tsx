@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 
 import irisKrd1 from "@/assets/case-iris-1.webp";
 import irisKrd2 from "@/assets/case-iris-2.webp";
@@ -37,6 +38,7 @@ const cases = [
 
 const CasesSection = () => {
   const [activeImages, setActiveImages] = useState<number[]>([0, 0]);
+  const { openCallback } = useCallbackDialog();
 
   return (
     <section className="py-24 px-6 md:px-12 dark-section">
@@ -66,7 +68,6 @@ const CasesSection = () => {
               transition={{ ...transition, delay: 0.1 }}
               className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start"
             >
-              {/* Images */}
               <div>
                 <div className="rounded-2xl overflow-hidden aspect-[4/3] mb-4">
                   <img
@@ -102,7 +103,6 @@ const CasesSection = () => {
                 </div>
               </div>
 
-              {/* Info */}
               <div className="lg:pt-4">
                 <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-2 block">
                   {caseItem.location}
@@ -130,12 +130,12 @@ const CasesSection = () => {
                   >
                     Подробнее о проекте
                   </Link>
-                  <a
-                    href="tel:+79182633627"
+                  <button
+                    onClick={openCallback}
                     className="inline-block bg-accent text-accent-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
                   >
                     Обсудить похожий проект
-                  </a>
+                  </button>
                 </div>
               </div>
             </motion.div>
