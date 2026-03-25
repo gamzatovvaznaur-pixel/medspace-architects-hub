@@ -53,7 +53,8 @@ const HeroSection = () => {
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ ...transition, delay: 0.45 }}
           className="flex flex-col sm:flex-row gap-4 mb-16"
         >
