@@ -13,6 +13,7 @@ import CaseIrisMakhachkala from "./pages/CaseIrisMakhachkala.tsx";
 import Documents from "./pages/Documents.tsx";
 import Contacts from "./pages/Contacts.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import ScrollToTop from "./components/ScrollToTop.tsx";
 
 const queryClient = new QueryClient();
 
