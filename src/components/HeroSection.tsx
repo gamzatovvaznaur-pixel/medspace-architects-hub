@@ -23,7 +23,8 @@ const HeroSection = () => {
       <div className="relative max-w-7xl mx-auto w-full">
         <motion.span
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ ...transition, delay: 0.1 }}
           className="font-mono text-xs tracking-widest uppercase text-accent mb-6 block"
         >
