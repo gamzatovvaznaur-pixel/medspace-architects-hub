@@ -42,7 +42,7 @@ const clinicTypes = [
 ];
 
 const ServiceCard = ({ service, i }: { service: typeof mainServices[0]; i: number }) => (
-  <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ ...transition, delay: i * 0.06 }}>
+  <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ ...transition, delay: i * 0.06 }}>
     <Link
       to={`/services/${service.slug}`}
       className="group block bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
@@ -69,7 +69,7 @@ const ServicesPage = () => {
 
       <section className="min-h-screen flex flex-col justify-center pt-32 pb-16 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={transition}>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transition}>
             <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-4 block">Наши услуги</span>
             <h1 className="text-4xl md:text-6xl font-semibold text-foreground max-w-4xl mb-6">
               Полный цикл — от концепции до ввода в эксплуатацию

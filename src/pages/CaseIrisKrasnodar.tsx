@@ -25,7 +25,7 @@ const CaseIrisKrasnodar = () => {
             <ArrowLeft className="w-4 h-4" /> Назад к кейсам
           </Link>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={transition}>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transition}>
             <span className="inline-block bg-accent/10 text-accent px-4 py-1.5 rounded-full text-sm font-medium mb-6">
               Офтальмохирургия • Краснодар
             </span>

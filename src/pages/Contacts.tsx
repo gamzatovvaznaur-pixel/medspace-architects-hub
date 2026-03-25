@@ -43,7 +43,8 @@ const Contacts = () => {
         <div className="max-w-7xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={transition}
           >
             <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-6 block">
@@ -59,7 +60,8 @@ const Contacts = () => {
 
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ ...transition, delay: 0.3 }}
             className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16"
           >

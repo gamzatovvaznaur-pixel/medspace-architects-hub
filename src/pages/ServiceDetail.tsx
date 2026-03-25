@@ -454,7 +454,8 @@ const ServiceDetailPage = () => {
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
             transition={transition}
             className="relative aspect-[21/9] overflow-hidden rounded-2xl"
           >
@@ -473,7 +474,8 @@ const ServiceDetailPage = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ ...transition, delay: 0.15 }}
             className="lg:col-span-2"
           >
@@ -606,7 +608,8 @@ const ServiceDetailPage = () => {
           {/* Sidebar */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ ...transition, delay: 0.25 }}
           >
             <div className="bg-card border border-border rounded-2xl p-8 sticky top-24 space-y-6">

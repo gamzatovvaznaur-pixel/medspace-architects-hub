@@ -23,7 +23,8 @@ const HeroSection = () => {
       <div className="relative max-w-7xl mx-auto w-full">
         <motion.span
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ ...transition, delay: 0.1 }}
           className="font-mono text-xs tracking-widest uppercase text-accent mb-6 block"
         >
@@ -32,7 +33,8 @@ const HeroSection = () => {
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ ...transition, delay: 0.2 }}
           className="text-4xl md:text-6xl lg:text-7xl font-semibold text-white max-w-5xl mb-6 leading-[1.05] tracking-tight"
         >
@@ -41,7 +43,8 @@ const HeroSection = () => {
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ ...transition, delay: 0.35 }}
           className="text-lg md:text-xl text-white/60 max-w-2xl mb-10 leading-relaxed"
         >
@@ -50,7 +53,8 @@ const HeroSection = () => {
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ ...transition, delay: 0.45 }}
           className="flex flex-col sm:flex-row gap-4 mb-16"
         >
@@ -70,7 +74,8 @@ const HeroSection = () => {
 
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ ...transition, delay: 0.6 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-white/10"
         >
