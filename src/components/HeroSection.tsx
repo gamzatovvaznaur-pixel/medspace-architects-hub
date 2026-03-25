@@ -43,7 +43,8 @@ const HeroSection = () => {
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ ...transition, delay: 0.35 }}
           className="text-lg md:text-xl text-white/60 max-w-2xl mb-10 leading-relaxed"
         >
