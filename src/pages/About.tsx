@@ -55,7 +55,8 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={transition}
           >
             <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-6 block">
