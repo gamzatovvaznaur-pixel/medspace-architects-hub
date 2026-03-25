@@ -60,7 +60,8 @@ const Contacts = () => {
 
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ ...transition, delay: 0.3 }}
             className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16"
           >

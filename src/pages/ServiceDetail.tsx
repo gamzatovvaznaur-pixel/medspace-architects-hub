@@ -608,7 +608,8 @@ const ServiceDetailPage = () => {
           {/* Sidebar */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ ...transition, delay: 0.25 }}
           >
             <div className="bg-card border border-border rounded-2xl p-8 sticky top-24 space-y-6">
