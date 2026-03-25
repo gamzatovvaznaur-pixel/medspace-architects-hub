@@ -74,7 +74,8 @@ const HeroSection = () => {
 
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ ...transition, delay: 0.6 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-white/10"
         >
