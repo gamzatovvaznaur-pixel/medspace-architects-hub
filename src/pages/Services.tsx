@@ -42,7 +42,7 @@ const clinicTypes = [
 ];
 
 const ServiceCard = ({ service, i }: { service: typeof mainServices[0]; i: number }) => (
-  <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ ...transition, delay: i * 0.06 }}>
+  <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ ...transition, delay: i * 0.06 }}>
     <Link
       to={`/services/${service.slug}`}
       className="group block bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
