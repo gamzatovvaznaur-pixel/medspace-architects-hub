@@ -454,7 +454,8 @@ const ServiceDetailPage = () => {
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
             transition={transition}
             className="relative aspect-[21/9] overflow-hidden rounded-2xl"
           >
