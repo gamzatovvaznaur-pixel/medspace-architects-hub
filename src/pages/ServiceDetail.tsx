@@ -474,7 +474,8 @@ const ServiceDetailPage = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ ...transition, delay: 0.15 }}
             className="lg:col-span-2"
           >
