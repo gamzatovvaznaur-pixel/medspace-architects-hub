@@ -14,6 +14,7 @@ const services = [
 ];
 
 const ServicesSection = () => {
+  const { openCallback } = useCallbackDialog();
   return (
     <section className="py-24 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
