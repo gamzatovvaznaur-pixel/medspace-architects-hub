@@ -21,9 +21,20 @@ const HeaderNav = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16">
-        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="font-display font-bold text-lg tracking-tight text-foreground">
-          МедПроект
-        </Link>
+        <div className="flex items-center gap-3">
+          {isSubPage && (
+            <button
+              onClick={() => navigate(-1)}
+              className="flex items-center justify-center w-8 h-8 rounded-lg hover:bg-secondary transition-colors text-muted-foreground hover:text-foreground"
+              aria-label="Назад"
+            >
+              <ArrowLeft className="w-4 h-4" />
+            </button>
+          )}
+          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="font-display font-bold text-lg tracking-tight text-foreground">
+            МедПроект
+          </Link>
+        </div>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">

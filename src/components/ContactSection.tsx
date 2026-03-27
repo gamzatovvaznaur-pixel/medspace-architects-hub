@@ -54,12 +54,12 @@ const ContactSection = () => {
             </p>
 
             <div className="mt-12 space-y-4">
-              <a href="tel:+79182633627" className="flex items-center gap-3 group">
-                <span className="font-mono text-[10px] tracking-widest text-accent w-16">TEL</span>
+              <a href="tel:+79182633627" className="flex items-center gap-3 group select-all">
+                <span className="font-mono text-[10px] tracking-widest text-accent w-16 select-none">TEL</span>
                 <span className="text-white group-hover:text-accent transition-colors">+7 (918) 263-36-27</span>
               </a>
-              <a href="mailto:med-project@bk.ru" className="flex items-center gap-3 group">
-                <span className="font-mono text-[10px] tracking-widest text-accent w-16">EMAIL</span>
+              <a href="mailto:med-project@bk.ru" className="flex items-center gap-3 group select-all">
+                <span className="font-mono text-[10px] tracking-widest text-accent w-16 select-none">EMAIL</span>
                 <span className="text-white group-hover:text-accent transition-colors">med-project@bk.ru</span>
               </a>
             </div>

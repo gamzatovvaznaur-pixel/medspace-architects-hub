@@ -36,8 +36,8 @@ const FooterSection = () => {
           <div>
             <h4 className="font-display font-semibold text-sm text-foreground mb-4">Контакты</h4>
             <ul className="space-y-2">
-              <li><a href="tel:+79182633627" className="text-sm text-muted-foreground hover:text-foreground transition-colors">+7 (918) 263-36-27</a></li>
-              <li><a href="mailto:med-project@bk.ru" className="text-sm text-muted-foreground hover:text-foreground transition-colors">med-project@bk.ru</a></li>
+              <li><a href="tel:+79182633627" className="text-sm text-muted-foreground hover:text-foreground transition-colors select-all">+7 (918) 263-36-27</a></li>
+              <li><a href="mailto:med-project@bk.ru" className="text-sm text-muted-foreground hover:text-foreground transition-colors select-all">med-project@bk.ru</a></li>
             </ul>
           </div>
         </div>

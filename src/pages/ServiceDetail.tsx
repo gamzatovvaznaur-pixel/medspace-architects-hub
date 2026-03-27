@@ -645,8 +645,8 @@ const ServiceDetailPage = () => {
                       <span>городов России</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-accent font-bold text-lg">3</span>
-                      <span>лицензии: СРО, МЧС, ИИИ</span>
+                      <span className="text-accent font-bold text-lg">2</span>
+                      <span>лицензии: СРО, ИИИ</span>
                     </div>
                   </div>
                   <Link

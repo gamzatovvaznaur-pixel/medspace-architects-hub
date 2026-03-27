@@ -65,12 +65,12 @@ const Contacts = () => {
             transition={{ ...transition, delay: 0.3 }}
             className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16"
           >
-            <a href="tel:+79182633627" className="border border-white/10 rounded-2xl p-6 group hover:border-accent/40 transition-colors">
-              <span className="font-mono text-[10px] tracking-widest text-accent block mb-2">ТЕЛЕФОН</span>
+            <a href="tel:+79182633627" className="border border-white/10 rounded-2xl p-6 group hover:border-accent/40 transition-colors select-all">
+              <span className="font-mono text-[10px] tracking-widest text-accent block mb-2 select-none">ТЕЛЕФОН</span>
               <span className="text-xl font-display font-semibold text-white group-hover:text-accent transition-colors">+7 (918) 263-36-27</span>
             </a>
-            <a href="mailto:med-project@bk.ru" className="border border-white/10 rounded-2xl p-6 group hover:border-accent/40 transition-colors">
-              <span className="font-mono text-[10px] tracking-widest text-accent block mb-2">EMAIL</span>
+            <a href="mailto:med-project@bk.ru" className="border border-white/10 rounded-2xl p-6 group hover:border-accent/40 transition-colors select-all">
+              <span className="font-mono text-[10px] tracking-widest text-accent block mb-2 select-none">EMAIL</span>
               <span className="text-xl font-display font-semibold text-white group-hover:text-accent transition-colors">med-project@bk.ru</span>
             </a>
             <button onClick={openCallback} className="border border-white/10 rounded-2xl p-6 group hover:border-accent/40 transition-colors text-left">

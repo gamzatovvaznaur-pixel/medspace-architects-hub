@@ -23,6 +23,7 @@ const CTABanner = () => {
             <p className="text-white/60 max-w-lg leading-relaxed">
               Свяжитесь с нами для бесплатной консультации. Мы ответим в течение одного рабочего дня.
             </p>
+            <a href="mailto:med-project@bk.ru" className="text-white/80 hover:text-accent transition-colors text-sm mt-2 inline-block select-all">med-project@bk.ru</a>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <button
