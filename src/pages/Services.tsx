@@ -101,6 +101,12 @@ const ServicesPage = () => {
       {/* Main services */}
       <section className="pb-20 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transition} className="mb-12">
+            <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-4 block">Услуги</span>
+            <h2 className="text-3xl md:text-5xl font-semibold text-foreground max-w-3xl">
+              Общие услуги
+            </h2>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {mainServices.map((service, i) => (
               <ServiceCard key={service.slug} service={service} i={i} />
