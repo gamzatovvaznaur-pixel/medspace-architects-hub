@@ -9,6 +9,7 @@ import LogisticsSection from "@/components/LogisticsSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
 import CTABanner from "@/components/CTABanner";
+import QuizSection from "@/components/QuizSection";
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
       <AboutPreviewSection />
       <CTABanner />
       <SpecializationsSection />
+      <QuizSection />
       <CTABanner />
       <div id="cases">
         <CasesSection />
