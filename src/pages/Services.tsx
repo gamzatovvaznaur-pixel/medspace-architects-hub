@@ -4,6 +4,7 @@ import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import CTABanner from "@/components/CTABanner";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
+import serviceConsultationImg from "@/assets/service-consultation.jpg";
 import serviceDesignImg from "@/assets/service-design.jpg";
 import serviceSupervisionImg from "@/assets/service-supervision.jpg";
 import serviceEquipmentImg from "@/assets/service-equipment.jpg";
