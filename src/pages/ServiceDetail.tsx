@@ -6,6 +6,7 @@ import CTABanner from "@/components/CTABanner";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import { CheckCircle, Building2, ShieldCheck, Truck, FileCheck, HardHat } from "lucide-react";
 import serviceDesignImg from "@/assets/service-design.jpg";
+import serviceConsultationImg from "@/assets/service-consultation.jpg";
 import serviceSupervisionImg from "@/assets/service-supervision.jpg";
 import serviceEquipmentImg from "@/assets/service-equipment.jpg";
 import serviceFurnitureImg from "@/assets/service-furniture.jpg";
