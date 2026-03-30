@@ -81,17 +81,6 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      {/* Main services */}
-      <section className="pb-20 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {mainServices.map((service, i) => (
-              <ServiceCard key={service.slug} service={service} i={i} />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Clinic design types */}
       <section className="pb-20 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
@@ -103,6 +92,17 @@ const ServicesPage = () => {
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {clinicTypes.map((service, i) => (
+              <ServiceCard key={service.slug} service={service} i={i} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Main services */}
+      <section className="pb-20 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {mainServices.map((service, i) => (
               <ServiceCard key={service.slug} service={service} i={i} />
             ))}
           </div>
