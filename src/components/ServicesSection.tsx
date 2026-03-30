@@ -5,7 +5,6 @@ import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 
 const services = [
-  { slug: "consultation", code: "00", title: "Я не знаю, что мне нужно", description: "Поможем разобраться: расскажем про виды проектирования, этапы и нужную документацию." },
   { slug: "design", code: "01", title: "Проектная документация", description: "Полный комплект проектной документации для медицинских учреждений любой сложности." },
   { slug: "design", code: "02", title: "Рабочая документация", description: "Детализированные чертежи, спецификации и узлы. Медицинские газы, чистые помещения." },
   { slug: "supervision", code: "03", title: "Авторский надзор", description: "Контроль соответствия строительства проектным решениям на каждом этапе." },
