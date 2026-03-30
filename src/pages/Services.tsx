@@ -23,6 +23,7 @@ import clinicOphthalmologyImg from "@/assets/clinic-ophthalmology.jpg";
 const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 
 const mainServices = [
+  { slug: "consultation", code: "SRV-00", title: "Я не знаю, что мне нужно", summary: "Поможем разобраться: расскажем про виды проектирования, этапы и нужную документацию. Бесплатная консультация.", image: serviceConsultationImg },
   { slug: "design", code: "SRV-01", title: "Проектирование медицинских учреждений", summary: "Полный комплект проектной и рабочей документации с учётом специфики медицинской отрасли.", image: serviceDesignImg },
   { slug: "supervision", code: "SRV-02", title: "Авторский надзор при строительстве", summary: "Контроль каждого этапа строительства, обеспечивающий точное соответствие проектным решениям.", image: serviceSupervisionImg },
   { slug: "equipment", code: "SRV-03", title: "Поставка оборудования из Китая", summary: "Прямые контракты без посредников. Стоимость на 30–50% ниже европейских аналогов.", image: serviceEquipmentImg },
