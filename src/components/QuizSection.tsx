@@ -64,6 +64,22 @@ const questions = [
 
 const transition = { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const };
 
+const buildQuizFormData = (answers: Record<number, string>, phone: string) => {
+  const formData = new FormData();
+  const quizResults = questions.map((q, i) => `${q.question}: ${answers[i] || "—"}`).join("\n");
+
+  formData.append("phone", phone);
+  formData.append("quiz", quizResults);
+  formData.append("_subject", "Квиз — расчёт стоимости — МедПроект");
+
+  questions.forEach((q, i) => {
+    formData.append(`question_${i + 1}`, q.question);
+    formData.append(`answer_${i + 1}`, answers[i] || "—");
+  });
+
+  return formData;
+};
+
 const QuizSection = () => {
   const [started, setStarted] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
@@ -102,17 +118,18 @@ const QuizSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
-    const quizResults = questions.map((q, i) => `${q.question}: ${answers[i] || "—"}`).join("\n");
+
     try {
-      await fetch(FORMSPREE_URL, {
+      const response = await fetch(FORMSPREE_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          phone,
-          quiz: quizResults,
-          _subject: "Квиз — расчёт стоимости — МедПроект",
-        }),
+        headers: { Accept: "application/json" },
+        body: buildQuizFormData(answers, phone),
       });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
       setSubmitted(true);
     } catch {
       alert("Ошибка отправки. Попробуйте позже.");
