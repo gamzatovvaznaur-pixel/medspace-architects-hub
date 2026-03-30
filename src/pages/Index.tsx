@@ -9,18 +9,19 @@ import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
 import CTABanner from "@/components/CTABanner";
 import QuizSection from "@/components/QuizSection";
+import ConsultationBlock from "@/components/ConsultationBlock";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <HeaderNav />
       <HeroSection />
+      <ConsultationBlock />
       <div id="services">
         <ServicesSection />
       </div>
       <QuizSection />
       <AboutPreviewSection />
-      <CTABanner />
       <SpecializationsSection />
       <CTABanner />
       <div id="cases">
