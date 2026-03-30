@@ -38,7 +38,7 @@ const HeroSection = () => {
           transition={{ ...transition, delay: 0.2 }}
           className="text-4xl md:text-6xl lg:text-7xl font-semibold text-white max-w-5xl mb-6 leading-[1.05] tracking-tight"
         >
-          Проектируем технологически сложные медицинские центры
+          Вы уйдёте от нас с полностью готовым проектом
         </motion.h1>
 
         <motion.p
@@ -48,7 +48,7 @@ const HeroSection = () => {
           transition={{ ...transition, delay: 0.35 }}
           className="text-lg md:text-xl text-white/60 max-w-2xl mb-10 leading-relaxed"
         >
-          От разработки рабочей документации до ввода в эксплуатацию. Прямые поставки оборудования и мебели из Китая. Полное согласование в ГАСН.
+          Проектная и рабочая документация с соблюдением всех норм и СанПиН. Согласование в ГАСН, поставка оборудования и мебели — под ключ, без головной боли.
         </motion.p>
 
         <motion.div
@@ -80,8 +80,8 @@ const HeroSection = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-white/10"
         >
           {[
-            { value: "Полный цикл", label: "от концепции до ввода в эксплуатацию" },
-            { value: "Высокий %", label: "прохождение экспертиз с первого раза" },
+            { value: "Все нормы", label: "СанПиН, СП, приказы — учтено в проекте" },
+            { value: "Под ключ", label: "документация, экспертиза, поставки" },
             { value: "Прямые поставки", label: "оборудование и мебель из Китая" },
           ].map((stat, i) => (
             <div
