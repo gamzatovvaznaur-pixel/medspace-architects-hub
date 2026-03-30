@@ -604,6 +604,40 @@ const ServiceDetailPage = () => {
               </motion.div>
             )}
 
+            {/* Consultation CTA for design page */}
+            {slug === "design" && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={transition}
+                className="mb-12"
+              >
+                <div className="bg-accent/5 border border-accent/20 rounded-2xl p-8">
+                  <h2 className="text-2xl font-display font-semibold text-foreground mb-4">
+                    Проектирование — это не одна услуга
+                  </h2>
+                  <div className="space-y-4 text-muted-foreground leading-relaxed mb-6">
+                    <p>
+                      Слово «проектирование» может означать совершенно разные вещи: дизайн-проект интерьера, архитектурные планировки, инженерные сети (электрика, вентиляция, водоснабжение), технологическое проектирование медицинских газов и чистых помещений, рабочую документацию для строителей.
+                    </p>
+                    <p>
+                      Каждому проекту нужен свой набор документации — стоматологии, МРТ-кабинету и многопрофильному центру требуются совершенно разные комплекты. Важно точно определить, что нужно именно вам, чтобы не переплачивать за лишнее и не упустить необходимое.
+                    </p>
+                    <p>
+                      Мы поможем разобраться — проведём бесплатную консультацию и составим перечень того, что нужно для вашего конкретного случая.
+                    </p>
+                  </div>
+                  <Link
+                    to="/services/consultation"
+                    className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
+                  >
+                    Разобраться, что мне нужно →
+                  </Link>
+                </div>
+              </motion.div>
+            )}
+
             {/* Full services complex for clinic pages */}
             {isClinic && (
               <motion.div

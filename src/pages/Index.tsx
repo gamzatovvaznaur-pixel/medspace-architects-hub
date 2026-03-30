@@ -31,7 +31,6 @@ const Index = () => {
       <div id="logistics">
         <LogisticsSection />
       </div>
-      <CTABanner />
       <ContactSection />
       <FooterSection />
     </div>
