@@ -621,7 +621,7 @@ const ServiceDetailPage = () => {
               </motion.div>
             )}
 
-            {/* Consultation CTA for design page */}
+            {/* Consultation CTA for design page — prominent block */}
             {slug === "design" && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -630,27 +630,27 @@ const ServiceDetailPage = () => {
                 transition={transition}
                 className="mb-12"
               >
-                <div className="bg-accent/5 border border-accent/20 rounded-2xl p-8">
-                  <h2 className="text-2xl font-display font-semibold text-foreground mb-4">
-                    Проектирование — это не одна услуга
+                <div className="bg-accent/10 border-2 border-accent/30 rounded-2xl p-8 md:p-10 text-center">
+                  <h2 className="text-2xl md:text-3xl font-display font-semibold text-foreground mb-4">
+                    Не знаете, с чего начать?
                   </h2>
-                  <div className="space-y-4 text-muted-foreground leading-relaxed mb-6">
-                    <p>
-                      Слово «проектирование» может означать совершенно разные вещи: дизайн-проект интерьера, архитектурные планировки, инженерные сети (электрика, вентиляция, водоснабжение), технологическое проектирование медицинских газов и чистых помещений, рабочую документацию для строителей.
-                    </p>
-                    <p>
-                      Каждому проекту нужен свой набор документации — стоматологии, МРТ-кабинету и многопрофильному центру требуются совершенно разные комплекты. Важно точно определить, что нужно именно вам, чтобы не переплачивать за лишнее и не упустить необходимое.
-                    </p>
-                    <p>
-                      Мы поможем разобраться — проведём бесплатную консультацию и составим перечень того, что нужно для вашего конкретного случая.
-                    </p>
+                  <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto mb-4">
+                    Большинство наших клиентов приходят именно с этим вопросом. Расскажите, что хотите открыть — мы объясним, что для этого нужно. Простыми словами, без обязательств.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                    <button
+                      onClick={openCallback}
+                      className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
+                    >
+                      Получить консультацию
+                    </button>
+                    <Link
+                      to="/services/consultation"
+                      className="inline-flex items-center justify-center gap-2 border border-border text-foreground px-8 py-3.5 rounded-xl font-display text-sm font-medium uppercase tracking-widest hover:bg-secondary transition-colors"
+                    >
+                      Подробнее →
+                    </Link>
                   </div>
-                  <Link
-                    to="/services/consultation"
-                    className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
-                  >
-                    Разобраться, что мне нужно →
-                  </Link>
                 </div>
               </motion.div>
             )}
