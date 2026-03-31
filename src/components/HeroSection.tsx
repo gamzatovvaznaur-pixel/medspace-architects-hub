@@ -38,7 +38,7 @@ const HeroSection = () => {
           transition={{ ...transition, delay: 0.2 }}
           className="text-4xl md:text-6xl lg:text-7xl font-semibold text-white max-w-5xl mb-6 leading-[1.05] tracking-tight"
         >
-          Вы уйдёте от нас с полностью готовым проектом
+          Проектирование медицинских учреждений любой сложности с нуля
         </motion.h1>
 
         <motion.p
