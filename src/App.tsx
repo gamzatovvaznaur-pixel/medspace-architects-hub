@@ -12,6 +12,7 @@ import CaseIrisKrasnodar from "./pages/CaseIrisKrasnodar.tsx";
 import CaseIrisMakhachkala from "./pages/CaseIrisMakhachkala.tsx";
 import Documents from "./pages/Documents.tsx";
 import Contacts from "./pages/Contacts.tsx";
+import Privacy from "./pages/Privacy.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/cases/iris-krasnodar" element={<CaseIrisKrasnodar />} />
             <Route path="/cases/iris-makhachkala" element={<CaseIrisMakhachkala />} />
             <Route path="/documents" element={<Documents />} />
+            <Route path="/privacy" element={<Privacy />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
