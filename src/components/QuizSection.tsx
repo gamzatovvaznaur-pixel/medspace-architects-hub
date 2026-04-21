@@ -252,6 +252,13 @@ const QuizSection = () => {
                       >
                         {sending ? "Отправка..." : "Получить расчёт"}
                       </button>
+                      <p className="text-[10px] text-white/40 leading-relaxed">
+                        Нажимая кнопку, вы соглашаетесь с{" "}
+                        <a href="#/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-white/70">
+                          политикой обработки персональных данных
+                        </a>
+                        .
+                      </p>
                     </form>
                   </motion.div>
                 )}
