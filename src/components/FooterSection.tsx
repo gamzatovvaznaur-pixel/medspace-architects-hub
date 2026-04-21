@@ -45,9 +45,18 @@ const FooterSection = () => {
           <span className="font-mono text-[10px] tracking-widest text-muted-foreground">
             © {new Date().getFullYear()} МЕДПРОЕКТ. ВСЕ ПРАВА ЗАЩИЩЕНЫ.
           </span>
-          <button onClick={openCallback} className="text-sm text-accent font-display font-medium hover:opacity-80 transition-opacity">
-            Запросить консультацию →
-          </button>
+          <div className="flex items-center gap-6">
+            <Link
+              to="/privacy"
+              onClick={scrollToTop}
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Политика конфиденциальности
+            </Link>
+            <button onClick={openCallback} className="text-sm text-accent font-display font-medium hover:opacity-80 transition-opacity">
+              Запросить консультацию →
+            </button>
+          </div>
         </div>
       </div>
     </footer>
