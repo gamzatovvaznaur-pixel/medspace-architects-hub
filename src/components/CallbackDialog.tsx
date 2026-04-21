@@ -114,6 +114,13 @@ const CallbackDialog = ({ open, onOpenChange }: CallbackDialogProps) => {
                   >
                     {sending ? "Отправка..." : "Перезвоните мне"}
                   </button>
+                  <p className="text-[10px] text-muted-foreground/70 leading-relaxed">
+                    Нажимая кнопку, вы соглашаетесь с{" "}
+                    <a href="#/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">
+                      политикой обработки персональных данных
+                    </a>
+                    .
+                  </p>
                 </form>
               </>
             )}
