@@ -188,28 +188,7 @@ const Landing = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Минимальная шапка без отвлекающей навигации */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/85 backdrop-blur-md border-b border-border">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16">
-          <span className="font-display font-bold text-lg tracking-tight text-foreground">
-            МедПроект
-          </span>
-          <div className="flex items-center gap-3">
-            <a
-              href={PHONE_HREF}
-              className="hidden sm:inline-flex border border-border text-foreground px-5 py-2 rounded-xl font-display text-[11px] font-medium uppercase tracking-widest hover:bg-secondary transition-colors"
-            >
-              {PHONE_DISPLAY}
-            </a>
-            <button
-              onClick={openCallback}
-              className="bg-accent text-accent-foreground px-5 py-2 rounded-xl font-display text-[11px] font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
-            >
-              Заказать звонок
-            </button>
-          </div>
-        </div>
-      </header>
+      <HeaderNav />
 
       {/* HERO */}
       <section className="relative min-h-screen flex items-center pt-24 pb-16 px-6 md:px-12 overflow-hidden dark-section">
