@@ -10,6 +10,7 @@ import {
   Building2,
   FileCheck2,
   Sparkles,
+  Ruler,
 } from "lucide-react";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import heroImg from "@/assets/hero-blueprint.jpg";
