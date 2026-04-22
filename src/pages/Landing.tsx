@@ -358,7 +358,7 @@ const Landing = () => {
               Путь от идеи до клиники
             </span>
             <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground max-w-3xl leading-tight">
-              4 этапа — и у вас на руках проект, готовый к подаче в Роспотребнадзор
+              5 этапов — и у вас на руках проект, готовый к подаче в Роспотребнадзор
             </h2>
           </motion.div>
 
