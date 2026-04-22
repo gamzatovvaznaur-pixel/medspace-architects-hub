@@ -13,6 +13,7 @@ import {
   Ruler,
 } from "lucide-react";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
+import HeaderNav from "@/components/HeaderNav";
 import heroImg from "@/assets/hero-blueprint.jpg";
 
 const FORMSPREE_URL = "https://formspree.io/f/mdapgwjz";
