@@ -5,7 +5,7 @@ import FooterSection from "@/components/FooterSection";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 
 const transition = { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const };
-const FORMSPREE_URL = "https://formspree.io/f/mqeyvkdj";
+const FORMSPREE_URL = "https://formspree.io/f/mdapgwjz";
 
 const Contacts = () => {
   const [submitted, setSubmitted] = useState(false);
