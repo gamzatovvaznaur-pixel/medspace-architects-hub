@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
-const FORMSPREE_URL = "https://formspree.io/f/mqeyvkdj";
+const FORMSPREE_URL = "https://formspree.io/f/mdapgwjz";
 
 interface CallbackDialogProps {
   open: boolean;
