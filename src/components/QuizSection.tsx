@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
 
-const FORMSPREE_URL = "https://formspree.io/f/mdapgwjz";
+const FORMSPREE_URL = "https://formspree.io/f/xykllrgn";
 
 const questions = [
   {
