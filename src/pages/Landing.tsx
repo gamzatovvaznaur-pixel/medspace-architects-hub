@@ -16,7 +16,7 @@ import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import HeaderNav from "@/components/HeaderNav";
 import heroImg from "@/assets/hero-blueprint.jpg";
 
-const FORMSPREE_URL = "https://formspree.io/f/mdapgwjz";
+const FORMSPREE_URL = "https://formspree.io/f/xykllrgn";
 const PHONE_DISPLAY = "+7 (918) 263-36-27";
 const PHONE_HREF = "tel:+79182633627";
 
