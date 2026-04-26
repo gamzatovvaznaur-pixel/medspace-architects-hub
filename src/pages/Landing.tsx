@@ -244,12 +244,15 @@ const Landing = () => {
             >
               Получить консультацию
             </button>
-            <a
-              href="#quiz"
+            <button
+              type="button"
+              onClick={() => {
+                document.getElementById("quiz")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
               className="border border-white/20 text-white px-10 py-4 rounded-xl font-display text-sm font-medium uppercase tracking-widest hover:bg-white/10 transition-colors text-center"
             >
               Рассчитать стоимость
-            </a>
+            </button>
           </motion.div>
 
           <motion.div
