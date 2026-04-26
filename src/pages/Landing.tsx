@@ -244,15 +244,24 @@ const Landing = () => {
             >
               Получить консультацию
             </button>
-            <button
-              type="button"
-              onClick={() => {
-                document.getElementById("quiz")?.scrollIntoView({ behavior: "smooth", block: "start" });
+            <a
+              href="#/landing"
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById("quiz");
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth", block: "start" });
+                } else {
+                  // Fallback: ждём рендер и пробуем снова
+                  setTimeout(() => {
+                    document.getElementById("quiz")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }, 100);
+                }
               }}
               className="border border-white/20 text-white px-10 py-4 rounded-xl font-display text-sm font-medium uppercase tracking-widest hover:bg-white/10 transition-colors text-center"
             >
               Рассчитать стоимость
-            </button>
+            </a>
           </motion.div>
 
           <motion.div
