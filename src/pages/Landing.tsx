@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import HeaderNav from "@/components/HeaderNav";
+import ConsentCheckbox from "@/components/ConsentCheckbox";
 import heroImg from "@/assets/hero-blueprint.jpg";
 
 const FORMSPREE_URL = "https://formspree.io/f/xykllrgn";
@@ -144,6 +145,7 @@ const Landing = () => {
   const [phone, setPhone] = useState("+7");
   const [sending, setSending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [consent, setConsent] = useState(false);
 
   const totalSteps = questions.length + 1;
   const progress = started ? ((step + 1) / totalSteps) * 100 : 0;
@@ -160,6 +162,10 @@ const Landing = () => {
 
   const handleSubmitQuiz = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!consent) {
+      alert("Необходимо согласие на обработку персональных данных.");
+      return;
+    }
     setSending(true);
     try {
       const formData = new FormData();
@@ -579,25 +585,19 @@ const Landing = () => {
                           placeholder="+7 (XXX) XXX-XX-XX"
                           className="w-full border border-white/20 bg-white/5 px-5 py-4 rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-accent transition-colors"
                         />
+                        <ConsentCheckbox
+                          id="landing-quiz-consent"
+                          variant="dark"
+                          checked={consent}
+                          onChange={setConsent}
+                        />
                         <button
                           type="submit"
-                          disabled={sending}
-                          className="w-full bg-accent text-accent-foreground px-8 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity disabled:opacity-50"
+                          disabled={sending || !consent}
+                          className="w-full bg-accent text-accent-foreground px-8 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
                         >
                           {sending ? "Отправка..." : "Получить расчёт"}
                         </button>
-                        <p className="text-[10px] text-white/40 leading-relaxed">
-                          Нажимая кнопку, вы соглашаетесь с{" "}
-                          <a
-                            href="#/privacy"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="underline hover:text-white/70"
-                          >
-                            политикой обработки персональных данных
-                          </a>
-                          .
-                        </p>
                       </form>
                     </motion.div>
                   )}
