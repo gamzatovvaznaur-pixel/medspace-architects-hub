@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
+import ConsentCheckbox from "./ConsentCheckbox";
 
 const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 
@@ -10,10 +11,15 @@ const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [formData, setFormData] = useState({ phone: "+7", description: "" });
+  const [consent, setConsent] = useState(false);
   const { openCallback } = useCallbackDialog();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!consent) {
+      alert("Необходимо согласие на обработку персональных данных.");
+      return;
+    }
     setSending(true);
     try {
       await fetch(FORMSPREE_URL, {
@@ -117,20 +123,19 @@ const ContactSection = () => {
                     placeholder="Тип объекта, площадь, особые требования..."
                   />
                 </div>
+                <ConsentCheckbox
+                  id="contact-consent"
+                  variant="dark"
+                  checked={consent}
+                  onChange={setConsent}
+                />
                 <button
                   type="submit"
-                  disabled={sending}
-                  className="w-full bg-accent text-accent-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity disabled:opacity-50"
+                  disabled={sending || !consent}
+                  className="w-full bg-accent text-accent-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   {sending ? "Отправка..." : "Отправить заявку"}
                 </button>
-                <p className="text-[10px] text-white/40 leading-relaxed">
-                  Нажимая кнопку, вы соглашаетесь с{" "}
-                  <a href="#/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-white/70">
-                    политикой обработки персональных данных
-                  </a>
-                  .
-                </p>
               </form>
             )}
           </motion.div>
