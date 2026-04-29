@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import ConsentCheckbox from "./ConsentCheckbox";
 
 const FORMSPREE_URL_DEFAULT = "https://formspree.io/f/mdapgwjz";
 const FORMSPREE_URL_LANDING = "https://formspree.io/f/xlgaaqrw";
@@ -14,6 +15,7 @@ const CallbackDialog = ({ open, onOpenChange }: CallbackDialogProps) => {
   const [phone, setPhone] = useState("+7");
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [consent, setConsent] = useState(false);
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value;
@@ -25,6 +27,10 @@ const CallbackDialog = ({ open, onOpenChange }: CallbackDialogProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!consent) {
+      alert("Необходимо согласие на обработку персональных данных.");
+      return;
+    }
     setSending(true);
     const isLanding = typeof window !== "undefined" && window.location.hash.includes("/landing");
     const url = isLanding ? FORMSPREE_URL_LANDING : FORMSPREE_URL_DEFAULT;
@@ -46,7 +52,8 @@ const CallbackDialog = ({ open, onOpenChange }: CallbackDialogProps) => {
     onOpenChange(false);
     setTimeout(() => {
       setSubmitted(false);
-      setPhone("");
+      setPhone("+7");
+      setConsent(false);
     }, 300);
   };
 
@@ -110,20 +117,19 @@ const CallbackDialog = ({ open, onOpenChange }: CallbackDialogProps) => {
                       placeholder="+7 (XXX) XXX-XX-XX"
                     />
                   </div>
+                  <ConsentCheckbox
+                    id="callback-consent"
+                    variant="light"
+                    checked={consent}
+                    onChange={setConsent}
+                  />
                   <button
                     type="submit"
-                    disabled={sending}
-                    className="w-full bg-accent text-accent-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity disabled:opacity-50"
+                    disabled={sending || !consent}
+                    className="w-full bg-accent text-accent-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
                   >
                     {sending ? "Отправка..." : "Перезвоните мне"}
                   </button>
-                  <p className="text-[10px] text-muted-foreground/70 leading-relaxed">
-                    Нажимая кнопку, вы соглашаетесь с{" "}
-                    <a href="#/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">
-                      политикой обработки персональных данных
-                    </a>
-                    .
-                  </p>
                 </form>
               </>
             )}
