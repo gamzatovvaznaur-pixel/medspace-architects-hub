@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { lazy, Suspense } from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
@@ -10,7 +11,6 @@ import ServiceDetail from "./pages/ServiceDetail.tsx";
 import About from "./pages/About.tsx";
 import CaseIrisKrasnodar from "./pages/CaseIrisKrasnodar.tsx";
 import CaseIrisMakhachkala from "./pages/CaseIrisMakhachkala.tsx";
-import Documents from "./pages/Documents.tsx";
 import Contacts from "./pages/Contacts.tsx";
 import Privacy from "./pages/Privacy.tsx";
 import Landing from "./pages/Landing.tsx";
@@ -20,6 +20,11 @@ import ScrollToTop from "./components/ScrollToTop.tsx";
 import CookieConsent from "./components/CookieConsent.tsx";
 
 const queryClient = new QueryClient();
+const Documents = lazy(() => import("./pages/Documents.tsx"));
+
+const PageLoader = () => (
+  <div className="min-h-screen bg-background" aria-label="Загрузка страницы" />
+);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -37,7 +42,7 @@ const App = () => (
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/cases/iris-krasnodar" element={<CaseIrisKrasnodar />} />
             <Route path="/cases/iris-makhachkala" element={<CaseIrisMakhachkala />} />
-            <Route path="/documents" element={<Documents />} />
+            <Route path="/documents" element={<Suspense fallback={<PageLoader />}><Documents /></Suspense>} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/landing" element={<Landing />} />
             <Route path="/landing2" element={<Landing2 />} />
