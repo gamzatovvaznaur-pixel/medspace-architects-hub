@@ -6,24 +6,28 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { CallbackDialogProvider } from "@/hooks/useCallbackDialog";
 import Index from "./pages/Index.tsx";
-import Services from "./pages/Services.tsx";
-import ServiceDetail from "./pages/ServiceDetail.tsx";
-import About from "./pages/About.tsx";
-import CaseIrisKrasnodar from "./pages/CaseIrisKrasnodar.tsx";
-import CaseIrisMakhachkala from "./pages/CaseIrisMakhachkala.tsx";
-import Contacts from "./pages/Contacts.tsx";
-import Privacy from "./pages/Privacy.tsx";
-import Landing from "./pages/Landing.tsx";
-import Landing2 from "./pages/Landing2.tsx";
-import NotFound from "./pages/NotFound.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 import CookieConsent from "./components/CookieConsent.tsx";
 
 const queryClient = new QueryClient();
+const Services = lazy(() => import("./pages/Services.tsx"));
+const ServiceDetail = lazy(() => import("./pages/ServiceDetail.tsx"));
+const About = lazy(() => import("./pages/About.tsx"));
+const CaseIrisKrasnodar = lazy(() => import("./pages/CaseIrisKrasnodar.tsx"));
+const CaseIrisMakhachkala = lazy(() => import("./pages/CaseIrisMakhachkala.tsx"));
+const Contacts = lazy(() => import("./pages/Contacts.tsx"));
+const Privacy = lazy(() => import("./pages/Privacy.tsx"));
+const Landing = lazy(() => import("./pages/Landing.tsx"));
+const Landing2 = lazy(() => import("./pages/Landing2.tsx"));
 const Documents = lazy(() => import("./pages/Documents.tsx"));
+const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
 const PageLoader = () => (
   <div className="min-h-screen bg-background" aria-label="Загрузка страницы" />
+);
+
+const withSuspense = (element: JSX.Element) => (
+  <Suspense fallback={<PageLoader />}>{element}</Suspense>
 );
 
 const App = () => (
@@ -36,18 +40,18 @@ const App = () => (
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/services/:slug" element={<ServiceDetail />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contacts" element={<Contacts />} />
-            <Route path="/cases/iris-krasnodar" element={<CaseIrisKrasnodar />} />
-            <Route path="/cases/iris-makhachkala" element={<CaseIrisMakhachkala />} />
-            <Route path="/documents" element={<Suspense fallback={<PageLoader />}><Documents /></Suspense>} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/landing" element={<Landing />} />
-            <Route path="/landing2" element={<Landing2 />} />
+            <Route path="/services" element={withSuspense(<Services />)} />
+            <Route path="/services/:slug" element={withSuspense(<ServiceDetail />)} />
+            <Route path="/about" element={withSuspense(<About />)} />
+            <Route path="/contacts" element={withSuspense(<Contacts />)} />
+            <Route path="/cases/iris-krasnodar" element={withSuspense(<CaseIrisKrasnodar />)} />
+            <Route path="/cases/iris-makhachkala" element={withSuspense(<CaseIrisMakhachkala />)} />
+            <Route path="/documents" element={withSuspense(<Documents />)} />
+            <Route path="/privacy" element={withSuspense(<Privacy />)} />
+            <Route path="/landing" element={withSuspense(<Landing />)} />
+            <Route path="/landing2" element={withSuspense(<Landing2 />)} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={withSuspense(<NotFound />)} />
           </Routes>
           <CookieConsent />
         </HashRouter>
