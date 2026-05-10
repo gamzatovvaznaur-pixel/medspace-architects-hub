@@ -33,10 +33,10 @@ const withSuspense = (element: ReactNode) => (
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <CallbackDialogProvider>
-        <Toaster />
-        <Sonner />
-        <HashRouter>
+      <Toaster />
+      <Sonner />
+      <HashRouter>
+        <CallbackDialogProvider>
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
@@ -54,8 +54,8 @@ const App = () => (
             <Route path="*" element={withSuspense(<NotFound />)} />
           </Routes>
           <CookieConsent />
-        </HashRouter>
-      </CallbackDialogProvider>
+        </CallbackDialogProvider>
+      </HashRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
