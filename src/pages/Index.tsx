@@ -8,6 +8,7 @@ import FooterSection from "@/components/FooterSection";
 import CTABanner from "@/components/CTABanner";
 import QuizSection from "@/components/QuizSection";
 import ConsultationBlock from "@/components/ConsultationBlock";
+import StatsSection from "@/components/StatsSection";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <div id="services">
         <ServicesSection />
       </div>
+      <StatsSection />
       <QuizSection />
       <SpecializationsSection />
       <CTABanner />

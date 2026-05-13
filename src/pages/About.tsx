@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import CTABanner from "@/components/CTABanner";
+import StatsSection from "@/components/StatsSection";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 
 const transition = { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const };
@@ -131,6 +132,8 @@ const AboutPage = () => {
           )}
         </section>
       ))}
+
+      <StatsSection />
 
       {/* Final CTA */}
       <section className="py-20 px-6 md:px-12 dark-section">
