@@ -1,33 +1,35 @@
 import HeaderNav from "@/components/HeaderNav";
 import HeroSection from "@/components/HeroSection";
-import ServicesSection from "@/components/ServicesSection";
-import SpecializationsSection from "@/components/SpecializationsSection";
+import SymptomsChecklist from "@/components/SymptomsChecklist";
+import RiskReductionSection from "@/components/RiskReductionSection";
+import LossCalculator from "@/components/LossCalculator";
+import ProcessRoadmap from "@/components/ProcessRoadmap";
+import StatsSection from "@/components/StatsSection";
 import CasesSection from "@/components/CasesSection";
+import HonestRefuseSection from "@/components/HonestRefuseSection";
+import ProcrastinationSection from "@/components/ProcrastinationSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
-import CTABanner from "@/components/CTABanner";
-import QuizSection from "@/components/QuizSection";
-import ConsultationBlock from "@/components/ConsultationBlock";
-import StatsSection from "@/components/StatsSection";
+import FloatingHelpWidget from "@/components/FloatingHelpWidget";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <HeaderNav />
       <HeroSection />
-      <ConsultationBlock />
-      <div id="services">
-        <ServicesSection />
-      </div>
+      <SymptomsChecklist />
+      <RiskReductionSection />
+      <LossCalculator />
+      <ProcessRoadmap />
       <StatsSection />
-      <QuizSection />
-      <SpecializationsSection />
-      <CTABanner />
       <div id="cases">
         <CasesSection />
       </div>
+      <HonestRefuseSection />
+      <ProcrastinationSection />
       <ContactSection />
       <FooterSection />
+      <FloatingHelpWidget />
     </div>
   );
 };

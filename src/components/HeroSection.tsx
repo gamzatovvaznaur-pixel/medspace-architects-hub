@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import heroImg from "@/assets/hero-blueprint.jpg";
 
 const transition = { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const };
+
+const scrollTo = (id: string) => {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+};
 
 const HeroSection = () => {
   const { openCallback } = useCallbackDialog();
@@ -28,7 +32,7 @@ const HeroSection = () => {
           transition={{ ...transition, delay: 0.1 }}
           className="font-mono text-xs tracking-widest uppercase text-accent mb-6 block"
         >
-          Медицинское проектирование & поставки
+          Проектирование клиник под Роспотребнадзор
         </motion.span>
 
         <motion.h1
@@ -38,7 +42,7 @@ const HeroSection = () => {
           transition={{ ...transition, delay: 0.2 }}
           className="text-4xl md:text-6xl lg:text-7xl font-semibold text-white max-w-5xl mb-6 leading-[1.05] tracking-tight"
         >
-          Проектирование медицинских учреждений любой сложности с нуля
+          Как открыть клинику и получить СЭЗ за 60–90 дней — без переделок и штрафов
         </motion.h1>
 
         <motion.p
@@ -48,7 +52,7 @@ const HeroSection = () => {
           transition={{ ...transition, delay: 0.35 }}
           className="text-lg md:text-xl text-white/60 max-w-2xl mb-10 leading-relaxed"
         >
-          Проектная и рабочая документация с соблюдением всех норм и СанПиН. Согласование в ГАСН, поставка оборудования и мебели — под ключ, без головной боли.
+          Проект для медучреждения — как чертёж самолёта: одна ошибка в потоках или зонировании, и Роспотребнадзор не выдаст заключение. Мы делаем чертёж сразу под нормы.
         </motion.p>
 
         <motion.div
@@ -56,20 +60,26 @@ const HeroSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ ...transition, delay: 0.45 }}
-          className="flex flex-col sm:flex-row gap-4 mb-16"
+          className="flex flex-col sm:flex-row gap-4 mb-4"
         >
-          <button
-            onClick={openCallback}
-            className="inline-block bg-accent text-accent-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity text-center"
-          >
-            Заказать звонок
-          </button>
-          <Link
-            to="/services"
-            className="inline-block border border-white/20 text-white px-10 py-4 rounded-xl font-display text-sm font-medium uppercase tracking-widest hover:bg-white/10 transition-colors text-center"
-          >
-            Наши услуги
-          </Link>
+          <div className="flex flex-col">
+            <button
+              onClick={openCallback}
+              className="bg-accent text-accent-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity text-center"
+            >
+              Получить бесплатный аудит (15 мин)
+            </button>
+            <span className="text-xs text-white/40 mt-2 text-center sm:text-left">Бесплатно · без обязательств · по телефону</span>
+          </div>
+          <div className="flex flex-col">
+            <button
+              onClick={() => scrollTo("cases")}
+              className="border border-white/20 text-white px-10 py-4 rounded-xl font-display text-sm font-medium uppercase tracking-widest hover:bg-white/10 transition-colors text-center"
+            >
+              Посмотреть примеры работ
+            </button>
+            <span className="text-xs text-white/40 mt-2 text-center sm:text-left">38 реализованных проектов в 12 регионах</span>
+          </div>
         </motion.div>
 
         <motion.div
@@ -77,12 +87,12 @@ const HeroSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ ...transition, delay: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-white/10"
+          className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-white/10 mt-12"
         >
           {[
-            { value: "Все нормы", label: "СанПиН, СП, приказы — учтено в проекте" },
-            { value: "Под ключ", label: "документация, экспертиза, поставки" },
-            { value: "Прямые поставки", label: "оборудование и мебель из Китая" },
+            { value: "100%", label: "проектов прошли СЭЗ Роспотребнадзора с первого раза" },
+            { value: "Фикс. цена", label: "стоимость не меняется по ходу проекта" },
+            { value: "Ответ за 24 ч", label: "по любому вопросу на этапе работы" },
           ].map((stat, i) => (
             <div
               key={i}
