@@ -1,5 +1,6 @@
 import HeaderNav from "@/components/HeaderNav";
 import HeroSimpleSection from "@/components/HeroSimpleSection";
+import StatsSection from "@/components/StatsSection";
 import FullCycleSection from "@/components/FullCycleSection";
 import NormsSection from "@/components/NormsSection";
 import HomeCasesSection from "@/components/HomeCasesSection";
