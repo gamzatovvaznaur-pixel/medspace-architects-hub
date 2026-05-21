@@ -4,6 +4,7 @@ import StatsSection from "@/components/StatsSection";
 import FullCycleSection from "@/components/FullCycleSection";
 import NormsSection from "@/components/NormsSection";
 import HomeCasesSection from "@/components/HomeCasesSection";
+import QuizSection from "@/components/QuizSection";
 import LicensingCompanionSection from "@/components/LicensingCompanionSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
@@ -18,6 +19,7 @@ const Index = () => {
       <NormsSection />
       <HomeCasesSection />
       <LicensingCompanionSection />
+      <QuizSection />
       <ContactSection />
       <FooterSection />
     </div>
