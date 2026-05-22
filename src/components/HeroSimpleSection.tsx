@@ -8,18 +8,19 @@ const HeroSimpleSection = () => {
   const { openCallback } = useCallbackDialog();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12 overflow-hidden dark-section">
+    <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12 overflow-hidden">
       <div
-        className="absolute inset-0 opacity-[0.12]"
+        className="absolute inset-0"
         style={{
           backgroundImage: `url(${heroImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,15%,10%)]/60 via-[hsl(220,15%,10%)]/80 to-[hsl(220,15%,10%)]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/55 to-white/85" />
 
-      <div className="relative max-w-4xl mx-auto w-full text-center">
+      <div className="relative max-w-7xl mx-auto w-full text-center">
+
         <motion.span
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
