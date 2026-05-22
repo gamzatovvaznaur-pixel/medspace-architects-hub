@@ -7,48 +7,48 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 220 15% 15%;
+    --foreground: 215 35% 18%;
 
-    --card: 220 10% 96%;
-    --card-foreground: 220 15% 15%;
+    --card: 205 55% 97%;
+    --card-foreground: 215 35% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 15%;
+    --popover-foreground: 215 35% 18%;
 
-    --primary: 220 13% 18%;
+    --primary: 212 90% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 10% 94%;
-    --secondary-foreground: 220 15% 25%;
+    --secondary: 205 60% 94%;
+    --secondary-foreground: 215 40% 22%;
 
-    --muted: 220 10% 94%;
-    --muted-foreground: 220 8% 46%;
+    --muted: 205 40% 94%;
+    --muted-foreground: 215 18% 42%;
 
-    --accent: 0 72% 51%;
+    --accent: 205 95% 50%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 85% 60%;
+    --destructive: 0 80% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 10% 90%;
-    --input: 220 10% 90%;
-    --ring: 220 13% 18%;
+    --border: 210 35% 88%;
+    --input: 210 35% 88%;
+    --ring: 212 90% 45%;
 
     --radius: 0.75rem;
 
-    --surface: 220 10% 97%;
+    --surface: 205 60% 97%;
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 220 15% 15%;
-    --sidebar-primary: 220 13% 18%;
+    --sidebar-foreground: 215 35% 18%;
+    --sidebar-primary: 212 90% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 10% 94%;
-    --sidebar-accent-foreground: 220 15% 25%;
-    --sidebar-border: 220 10% 90%;
-    --sidebar-ring: 220 13% 18%;
+    --sidebar-accent: 205 60% 94%;
+    --sidebar-accent-foreground: 215 40% 22%;
+    --sidebar-border: 210 35% 88%;
+    --sidebar-ring: 212 90% 45%;
 
-    --dark-section: 220 15% 10%;
-    --dark-section-foreground: 210 20% 92%;
+    --dark-section: 212 65% 22%;
+    --dark-section-foreground: 205 60% 97%;
   }
 }
 
@@ -76,24 +76,63 @@
   }
 }
 
-/* Dark sections */
+/* Hero / accent sections — light blue with airy clinic photograph */
 .dark-section {
-  background-color: hsl(var(--dark-section));
-  color: hsl(var(--dark-section-foreground));
+  position: relative;
+  background-color: hsl(var(--surface));
+  background-image:
+    linear-gradient(180deg, hsla(205, 80%, 97%, 0.78), hsla(0, 0%, 100%, 0.88)),
+    url('/hero-blueprint.jpg');
+  background-size: cover;
+  background-position: center;
+  color: hsl(var(--foreground));
+}
+
+/* Force readable dark text on the new light hero, overriding existing white utilities */
+.dark-section .text-white,
+.dark-section .text-white\/30,
+.dark-section .text-white\/40,
+.dark-section .text-white\/50,
+.dark-section .text-white\/55,
+.dark-section .text-white\/60,
+.dark-section .text-white\/65,
+.dark-section .text-white\/70,
+.dark-section .text-white\/80 {
+  color: hsl(var(--foreground)) !important;
+}
+.dark-section .text-white\/30 { opacity: 0.55; }
+.dark-section .text-white\/40,
+.dark-section .text-white\/50,
+.dark-section .text-white\/55,
+.dark-section .text-white\/60,
+.dark-section .text-white\/65 { opacity: 0.72; }
+.dark-section .text-white\/70,
+.dark-section .text-white\/80 { opacity: 0.85; }
+
+.dark-section .border-white\/10,
+.dark-section .border-white\/15,
+.dark-section .border-white\/20,
+.dark-section .border-white\/30 {
+  border-color: hsl(var(--border)) !important;
+}
+.dark-section .bg-white\/5,
+.dark-section .bg-white\/10 {
+  background-color: hsl(var(--card)) !important;
 }
 
 .dark-section .text-muted-foreground {
-  color: hsl(210 10% 55%);
+  color: hsl(var(--muted-foreground));
 }
 
 .dark-section .text-foreground {
-  color: hsl(210 20% 92%);
+  color: hsl(var(--foreground));
 }
 
 .dark-section .border-border {
-  border-color: hsl(220 15% 20%);
+  border-color: hsl(var(--border));
 }
 
 .dark-section .bg-card {
-  background-color: hsl(220 15% 14%);
+  background-color: hsl(var(--card));
 }
+

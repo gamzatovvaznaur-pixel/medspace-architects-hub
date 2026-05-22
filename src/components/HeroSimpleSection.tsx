@@ -8,18 +8,19 @@ const HeroSimpleSection = () => {
   const { openCallback } = useCallbackDialog();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12 overflow-hidden dark-section">
+    <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12 overflow-hidden">
       <div
-        className="absolute inset-0 opacity-[0.12]"
+        className="absolute inset-0"
         style={{
           backgroundImage: `url(${heroImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,15%,10%)]/60 via-[hsl(220,15%,10%)]/80 to-[hsl(220,15%,10%)]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/55 to-white/85" />
 
-      <div className="relative max-w-4xl mx-auto w-full text-center">
+      <div className="relative max-w-7xl mx-auto w-full text-center">
+
         <motion.span
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,7 +36,7 @@ const HeroSimpleSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ ...transition, delay: 0.15 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.05] tracking-tight mb-6"
+          className="text-4xl md:text-6xl lg:text-7xl font-semibold text-foreground leading-[1.05] tracking-tight mb-6"
         >
           С нашим проектом — лицензия
         </motion.h1>
@@ -45,7 +46,7 @@ const HeroSimpleSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ ...transition, delay: 0.3 }}
-          className="text-lg md:text-xl text-white/60 max-w-xl mx-auto mb-12 leading-relaxed"
+          className="text-lg md:text-xl text-foreground/70 max-w-xl mx-auto mb-12 leading-relaxed"
         >
           Доведем до медицинской лицензии любую клинику — стоматологию 80 м², многопрофильный центр 2000 м², медицинскую лабораторию и любую другую. Давайте знакомиться!
         </motion.p>
@@ -68,7 +69,7 @@ const HeroSimpleSection = () => {
               const el = document.getElementById("full-cycle");
               if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
             }}
-            className="border border-white/20 text-white px-10 py-4 rounded-xl font-display text-sm font-medium uppercase tracking-widest hover:bg-white/10 transition-colors"
+            className="border border-foreground/20 text-foreground px-10 py-4 rounded-xl font-display text-sm font-medium uppercase tracking-widest hover:bg-foreground/5 transition-colors"
           >
             Как мы работаем
           </button>
