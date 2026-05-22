@@ -36,7 +36,7 @@ const HeroSimpleSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ ...transition, delay: 0.15 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.05] tracking-tight mb-6"
+          className="text-4xl md:text-6xl lg:text-7xl font-semibold text-foreground leading-[1.05] tracking-tight mb-6"
         >
           С нашим проектом — лицензия
         </motion.h1>
@@ -46,7 +46,7 @@ const HeroSimpleSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ ...transition, delay: 0.3 }}
-          className="text-lg md:text-xl text-white/60 max-w-xl mx-auto mb-12 leading-relaxed"
+          className="text-lg md:text-xl text-foreground/70 max-w-xl mx-auto mb-12 leading-relaxed"
         >
           Доведем до медицинской лицензии любую клинику — стоматологию 80 м², многопрофильный центр 2000 м², медицинскую лабораторию и любую другую. Давайте знакомиться!
         </motion.p>
@@ -69,7 +69,7 @@ const HeroSimpleSection = () => {
               const el = document.getElementById("full-cycle");
               if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
             }}
-            className="border border-white/20 text-white px-10 py-4 rounded-xl font-display text-sm font-medium uppercase tracking-widest hover:bg-white/10 transition-colors"
+            className="border border-foreground/20 text-foreground px-10 py-4 rounded-xl font-display text-sm font-medium uppercase tracking-widest hover:bg-foreground/5 transition-colors"
           >
             Как мы работаем
           </button>
