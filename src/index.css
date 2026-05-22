@@ -76,24 +76,63 @@
   }
 }
 
-/* Dark sections */
+/* Hero / accent sections — light blue with airy clinic photograph */
 .dark-section {
-  background-color: hsl(var(--dark-section));
-  color: hsl(var(--dark-section-foreground));
+  position: relative;
+  background-color: hsl(var(--surface));
+  background-image:
+    linear-gradient(180deg, hsla(205, 80%, 97%, 0.78), hsla(0, 0%, 100%, 0.88)),
+    url('/hero-blueprint.jpg');
+  background-size: cover;
+  background-position: center;
+  color: hsl(var(--foreground));
+}
+
+/* Force readable dark text on the new light hero, overriding existing white utilities */
+.dark-section .text-white,
+.dark-section .text-white\/30,
+.dark-section .text-white\/40,
+.dark-section .text-white\/50,
+.dark-section .text-white\/55,
+.dark-section .text-white\/60,
+.dark-section .text-white\/65,
+.dark-section .text-white\/70,
+.dark-section .text-white\/80 {
+  color: hsl(var(--foreground)) !important;
+}
+.dark-section .text-white\/30 { opacity: 0.55; }
+.dark-section .text-white\/40,
+.dark-section .text-white\/50,
+.dark-section .text-white\/55,
+.dark-section .text-white\/60,
+.dark-section .text-white\/65 { opacity: 0.72; }
+.dark-section .text-white\/70,
+.dark-section .text-white\/80 { opacity: 0.85; }
+
+.dark-section .border-white\/10,
+.dark-section .border-white\/15,
+.dark-section .border-white\/20,
+.dark-section .border-white\/30 {
+  border-color: hsl(var(--border)) !important;
+}
+.dark-section .bg-white\/5,
+.dark-section .bg-white\/10 {
+  background-color: hsl(var(--card)) !important;
 }
 
 .dark-section .text-muted-foreground {
-  color: hsl(210 10% 55%);
+  color: hsl(var(--muted-foreground));
 }
 
 .dark-section .text-foreground {
-  color: hsl(210 20% 92%);
+  color: hsl(var(--foreground));
 }
 
 .dark-section .border-border {
-  border-color: hsl(220 15% 20%);
+  border-color: hsl(var(--border));
 }
 
 .dark-section .bg-card {
-  background-color: hsl(220 15% 14%);
+  background-color: hsl(var(--card));
 }
+
