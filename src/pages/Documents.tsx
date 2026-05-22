@@ -162,7 +162,7 @@ const Documents = () => {
 
       {/* Hero */}
       <section className="min-h-screen flex flex-col justify-center pt-32 pb-16 px-6 md:px-12">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <p className="font-mono text-[11px] tracking-widest uppercase text-muted-foreground mb-4">
             Нормативная база
           </p>
@@ -177,7 +177,7 @@ const Documents = () => {
 
       {/* Documents */}
       <section className="pb-24 px-6 md:px-12">
-        <div className="max-w-5xl mx-auto space-y-16">
+        <div className="max-w-7xl mx-auto space-y-16">
           {documentCategories.map((category, catIdx) => (
             <div key={catIdx}>
               <div className="flex items-start gap-4 mb-8">
