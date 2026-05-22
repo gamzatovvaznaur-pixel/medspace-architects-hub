@@ -50,13 +50,16 @@ const FullCycleSection = () => {
           className="max-w-3xl mb-16"
         >
           <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-4 block">
-            Полный цикл
+            Полный цикл · до лицензии
           </span>
           <h2 className="text-3xl md:text-5xl font-display font-semibold text-foreground leading-tight mb-6">
-            Делаем всё под ключ — вам не нужно искать ещё кого-то
+            Кроме нас — вам не понадобится никто
           </h2>
+          <p className="text-muted-foreground text-lg leading-relaxed mb-4">
+            Чаще всего мы проектируем <span className="text-foreground font-medium">капитальный ремонт</span> в действующих и новых клиниках: от стоматологии 80 м² до многопрофильной на 2000+ м². Архитектура, все инженерные сети, технология, согласования и доведение до медицинской лицензии — под одной крышей и одной ответственностью.
+          </p>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Часто клиенту приходится собирать команду из разных подрядчиков: один рисует планировки, другой — инженерку, третий бегает по согласованиям. У нас всё это под одной крышей и под одной ответственностью.
+            Не нужно собирать команду из разных подрядчиков и бегать между ними. Один договор — и клиника работает.
           </p>
         </motion.div>
 

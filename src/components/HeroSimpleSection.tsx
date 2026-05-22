@@ -20,6 +20,16 @@ const HeroSimpleSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,15%,10%)]/60 via-[hsl(220,15%,10%)]/80 to-[hsl(220,15%,10%)]" />
 
       <div className="relative max-w-4xl mx-auto w-full text-center">
+        <motion.span
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={transition}
+          className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-accent mb-6 block"
+        >
+          Делаем маленькие клиники большими
+        </motion.span>
+
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,7 +47,7 @@ const HeroSimpleSection = () => {
           transition={{ ...transition, delay: 0.3 }}
           className="text-lg md:text-xl text-white/60 max-w-xl mx-auto mb-12 leading-relaxed"
         >
-          Всё под ключ. Осталось выполнить ряд шагов — и клиника работает.
+          Доводим до медицинской лицензии стоматологии от 80 м² и многопрофильные клиники от 2000 м². Всё под ключ.
         </motion.p>
 
         <motion.div
