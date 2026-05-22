@@ -24,9 +24,12 @@ const StatsSection = () => {
           <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-4 block">
             Итоги 2025 года
           </span>
-          <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground leading-tight">
+          <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground leading-tight mb-4">
             За 2025 год мы спроектировали
           </h2>
+          <p className="text-muted-foreground leading-relaxed">
+            От стоматологии 80 м² до многопрофильной клиники 2000+ м² — каждый объект мы довели до медицинской лицензии.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-px bg-border rounded-2xl overflow-hidden border border-border">

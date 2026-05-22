@@ -17,9 +17,9 @@ const Index = () => {
       <StatsSection />
       <FullCycleSection />
       <NormsSection />
+      <QuizSection />
       <HomeCasesSection />
       <LicensingCompanionSection />
-      <QuizSection />
       <ContactSection />
       <FooterSection />
     </div>
