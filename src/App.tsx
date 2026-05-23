@@ -39,8 +39,8 @@ const App = () => (
         <CallbackDialogProvider>
           <ScrollToTop />
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/services" element={withSuspense(<Services />)} />
+            <Route path="/" element={withSuspense(<Services />)} />
+            <Route path="/services" element={<Index />} />
             <Route path="/services/:slug" element={withSuspense(<ServiceDetail />)} />
             <Route path="/about" element={withSuspense(<About />)} />
             <Route path="/contacts" element={withSuspense(<Contacts />)} />
