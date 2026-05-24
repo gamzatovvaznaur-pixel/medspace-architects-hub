@@ -8,7 +8,7 @@ interface InlineCallbackFormProps {
   title?: string;
   description?: string;
   subject?: string;
-  variant?: "card" | "accent";
+  variant?: "card" | "accent" | "compact";
   id?: string;
 }
 
@@ -53,6 +53,65 @@ const InlineCallbackForm = ({
       setSending(false);
     }
   };
+
+  if (variant === "compact") {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="bg-card border border-border rounded-2xl p-6 md:p-8"
+      >
+        {submitted ? (
+          <div className="text-center py-4">
+            <p className="text-lg font-display font-medium text-foreground">Заявка отправлена</p>
+            <p className="text-muted-foreground mt-1 text-sm">Мы перезвоним вам в ближайшее время.</p>
+          </div>
+        ) : (
+          <div>
+            <h3 className="text-lg md:text-xl font-display font-semibold text-foreground mb-1">
+              {title}
+            </h3>
+            {description && (
+              <p className="text-sm text-muted-foreground mb-4">{description}</p>
+            )}
+            <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-3 items-end">
+              <div className="flex-1 w-full">
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full border border-border bg-background px-4 py-2.5 rounded-xl text-foreground text-sm focus:outline-none focus:border-accent transition-colors"
+                  placeholder="Имя"
+                />
+              </div>
+              <div className="flex-1 w-full">
+                <input
+                  type="tel"
+                  required
+                  value={phone}
+                  onChange={handlePhoneChange}
+                  className="w-full border border-border bg-background px-4 py-2.5 rounded-xl text-foreground text-sm focus:outline-none focus:border-accent transition-colors"
+                  placeholder="Телефон"
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={sending || !consent}
+                className="w-full md:w-auto bg-accent text-accent-foreground px-6 py-2.5 rounded-xl font-display text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed whitespace-nowrap"
+              >
+                {sending ? "..." : "Перезвоните"}
+              </button>
+            </form>
+            <div className="mt-3">
+              <ConsentCheckbox id={`${id}-consent`} variant="light" checked={consent} onChange={setConsent} />
+            </div>
+          </div>
+        )}
+      </motion.div>
+    );
+  }
 
   const wrapperClass =
     variant === "accent"
