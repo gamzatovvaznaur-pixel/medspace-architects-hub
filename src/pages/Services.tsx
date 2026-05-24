@@ -101,6 +101,19 @@ const ServicesPage = () => {
         </div>
       </section>
 
+      {/* Inline form between sections */}
+      <section className="pb-20 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <InlineCallbackForm
+            id="services-mid"
+            variant="accent"
+            title="Не нашли свою специализацию?"
+            description="Расскажите про ваш проект — подскажем, какие разделы документации понадобятся именно вам. Бесплатно, без обязательств."
+            subject="Услуги — заявка из середины страницы"
+          />
+        </div>
+      </section>
+
       {/* Main services */}
       <section className="pb-20 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
