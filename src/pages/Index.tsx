@@ -45,7 +45,7 @@ const Index = () => {
               Видео
             </span>
             <h2 className="text-3xl md:text-5xl font-display font-semibold text-foreground leading-tight mb-6">
-              Посмотрите, как мы работаем
+              Зачем разрабатывать проект для клиники
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
               Короткий ролик о нашем подходе к проектированию медицинских объектов: от замера до лицензии.
