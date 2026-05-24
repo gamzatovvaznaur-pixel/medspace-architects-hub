@@ -63,8 +63,6 @@ const ServiceCard = ({ service, i }: { service: typeof mainServices[0]; i: numbe
 );
 
 const ServicesPage = () => {
-  const { openCallback } = useCallbackDialog();
-
   return (
     <div className="min-h-screen bg-background">
       <HeaderNav />
