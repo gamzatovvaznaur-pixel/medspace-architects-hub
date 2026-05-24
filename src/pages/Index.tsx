@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import HeaderNav from "@/components/HeaderNav";
 import HeroSimpleSection from "@/components/HeroSimpleSection";
 import StatsSection from "@/components/StatsSection";
