@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import CTABanner from "@/components/CTABanner";
+import InlineCallbackForm from "@/components/InlineCallbackForm";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import { CheckCircle, Building2, ShieldCheck, Truck, FileCheck, HardHat } from "lucide-react";
 import serviceDesignImg from "@/assets/service-design.jpg";
@@ -740,6 +741,29 @@ const ServiceDetailPage = () => {
               )}
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      <section className="pb-16 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <InlineCallbackForm
+            id={`service-${slug}-mid`}
+            variant="accent"
+            title="Обсудим ваш проект"
+            description={`Расскажите про объект — бесплатно разберём, что нужно для запуска${isClinic ? " вашей клиники" : ""}, и составим план работ.`}
+            subject={`Услуга ${service.code} — заявка (середина)`}
+          />
+        </div>
+      </section>
+
+      <section className="pb-20 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <InlineCallbackForm
+            id={`service-${slug}-bottom`}
+            title="Остались вопросы?"
+            description="Оставьте номер — перезвоним в течение рабочего дня и ответим на все вопросы по проектированию и лицензированию."
+            subject={`Услуга ${service.code} — заявка (низ)`}
+          />
         </div>
       </section>
 

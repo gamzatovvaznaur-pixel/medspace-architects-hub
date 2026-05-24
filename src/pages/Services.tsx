@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import CTABanner from "@/components/CTABanner";
+import InlineCallbackForm from "@/components/InlineCallbackForm";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import serviceConsultationImg from "@/assets/service-consultation.jpg";
 import serviceDesignImg from "@/assets/service-design.jpg";
@@ -100,6 +101,19 @@ const ServicesPage = () => {
         </div>
       </section>
 
+      {/* Inline form between sections */}
+      <section className="pb-20 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <InlineCallbackForm
+            id="services-mid"
+            variant="accent"
+            title="Не нашли свою специализацию?"
+            description="Расскажите про ваш проект — подскажем, какие разделы документации понадобятся именно вам. Бесплатно, без обязательств."
+            subject="Услуги — заявка из середины страницы"
+          />
+        </div>
+      </section>
+
       {/* Main services */}
       <section className="pb-20 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
@@ -114,6 +128,17 @@ const ServicesPage = () => {
               <ServiceCard key={service.slug} service={service} i={i} />
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="pb-20 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <InlineCallbackForm
+            id="services-bottom"
+            title="Обсудим ваш проект?"
+            description="Доводим до медицинской лицензии клинику любого профиля. Оставьте номер — перезвоним и составим план под ваш объект."
+            subject="Услуги — заявка снизу страницы"
+          />
         </div>
       </section>
 
