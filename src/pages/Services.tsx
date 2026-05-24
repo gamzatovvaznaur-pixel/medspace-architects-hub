@@ -132,6 +132,17 @@ const ServicesPage = () => {
       </section>
 
       <section className="pb-20 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <InlineCallbackForm
+            id="services-bottom"
+            title="Обсудим ваш проект?"
+            description="Доводим до медицинской лицензии клинику любого профиля. Оставьте номер — перезвоним и составим план под ваш объект."
+            subject="Услуги — заявка снизу страницы"
+          />
+        </div>
+      </section>
+
+      <section className="pb-20 px-6 md:px-12">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-muted-foreground text-lg mb-6">Не нашли нужную услугу? Свяжитесь с нами — мы подберём решение.</p>
           <button
