@@ -517,6 +517,19 @@ const ServiceDetailPage = () => {
         </div>
       </section>
 
+      {/* Top inline form */}
+      <section className="px-6 md:px-12 pb-12">
+        <div className="max-w-7xl mx-auto">
+          <InlineCallbackForm
+            id={`service-${slug}-top`}
+            variant="compact"
+            title="Доведём до медицинской лицензии"
+            description="Оставьте номер — перезвоним и разберём ваш проект"
+            subject={`Услуга ${service.code} — заявка (верх)`}
+          />
+        </div>
+      </section>
+
       {/* Main content */}
       <section className="px-6 md:px-12 pb-20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
