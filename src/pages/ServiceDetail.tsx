@@ -757,24 +757,14 @@ const ServiceDetailPage = () => {
         </div>
       </section>
 
-      <section className="pb-16 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <InlineCallbackForm
-            id={`service-${slug}-mid`}
-            variant="accent"
-            title="Обсудим ваш проект"
-            description={`Расскажите про объект — бесплатно разберём, что нужно для запуска${isClinic ? " вашей клиники" : ""}, и составим план работ.`}
-            subject={`Услуга ${service.code} — заявка (середина)`}
-          />
-        </div>
-      </section>
-
+      {/* Bottom inline form */}
       <section className="pb-20 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <InlineCallbackForm
             id={`service-${slug}-bottom`}
+            variant="compact"
             title="Остались вопросы?"
-            description="Оставьте номер — перезвоним в течение рабочего дня и ответим на все вопросы по проектированию и лицензированию."
+            description="Оставьте номер — перезвоним в течение рабочего дня"
             subject={`Услуга ${service.code} — заявка (низ)`}
           />
         </div>
