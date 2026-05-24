@@ -84,6 +84,19 @@ const ServicesPage = () => {
         </div>
       </section>
 
+      {/* Top inline form */}
+      <section className="pb-16 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <InlineCallbackForm
+            id="services-top"
+            variant="compact"
+            title="Доведём до медицинской лицензии"
+            description="Оставьте номер — перезвоним и разберём ваш проект"
+            subject="Услуги — заявка сверху страницы"
+          />
+        </div>
+      </section>
+
       {/* Clinic design types */}
       <section className="pb-20 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
