@@ -4,7 +4,6 @@ import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import CTABanner from "@/components/CTABanner";
 import InlineCallbackForm from "@/components/InlineCallbackForm";
-import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import serviceConsultationImg from "@/assets/service-consultation.jpg";
 import serviceDesignImg from "@/assets/service-design.jpg";
 import serviceSupervisionImg from "@/assets/service-supervision.jpg";
@@ -64,8 +63,6 @@ const ServiceCard = ({ service, i }: { service: typeof mainServices[0]; i: numbe
 );
 
 const ServicesPage = () => {
-  const { openCallback } = useCallbackDialog();
-
   return (
     <div className="min-h-screen bg-background">
       <HeaderNav />
@@ -81,6 +78,19 @@ const ServicesPage = () => {
               Мы закрываем все этапы создания медицинского учреждения: проектирование, надзор, поставки и согласование.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Top inline form */}
+      <section className="pb-16 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <InlineCallbackForm
+            id="services-top"
+            variant="compact"
+            title="Доведём до медицинской лицензии"
+            description="Оставьте номер — перезвоним и разберём ваш проект"
+            subject="Услуги — заявка сверху страницы"
+          />
         </div>
       </section>
 
@@ -101,56 +111,16 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      {/* Inline form between sections */}
-      <section className="pb-20 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <InlineCallbackForm
-            id="services-mid"
-            variant="accent"
-            title="Не нашли свою специализацию?"
-            description="Расскажите про ваш проект — подскажем, какие разделы документации понадобятся именно вам. Бесплатно, без обязательств."
-            subject="Услуги — заявка из середины страницы"
-          />
-        </div>
-      </section>
-
-      {/* Main services */}
-      <section className="pb-20 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transition} className="mb-12">
-            <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-4 block">Услуги</span>
-            <h2 className="text-3xl md:text-5xl font-semibold text-foreground max-w-3xl">
-              Общие услуги
-            </h2>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {mainServices.map((service, i) => (
-              <ServiceCard key={service.slug} service={service} i={i} />
-            ))}
-          </div>
-        </div>
-      </section>
-
+      {/* Bottom inline form */}
       <section className="pb-20 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <InlineCallbackForm
             id="services-bottom"
+            variant="compact"
             title="Обсудим ваш проект?"
-            description="Доводим до медицинской лицензии клинику любого профиля. Оставьте номер — перезвоним и составим план под ваш объект."
+            description="Доведём до медицинской лицензии клинику любого профиля"
             subject="Услуги — заявка снизу страницы"
           />
-        </div>
-      </section>
-
-      <section className="pb-20 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-muted-foreground text-lg mb-6">Не нашли нужную услугу? Свяжитесь с нами — мы подберём решение.</p>
-          <button
-            onClick={openCallback}
-            className="inline-block bg-accent text-accent-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
-          >
-            Заказать звонок
-          </button>
         </div>
       </section>
 
