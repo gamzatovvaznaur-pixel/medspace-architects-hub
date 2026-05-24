@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import CTABanner from "@/components/CTABanner";
+import InlineCallbackForm from "@/components/InlineCallbackForm";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import serviceConsultationImg from "@/assets/service-consultation.jpg";
 import serviceDesignImg from "@/assets/service-design.jpg";
