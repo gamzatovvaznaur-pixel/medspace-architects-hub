@@ -591,6 +591,19 @@ const ServiceDetailPage = () => {
               </motion.div>
             )}
 
+            {/* Callback form after stages */}
+            {service.stages && (
+              <div className="mb-12">
+                <InlineCallbackForm
+                  id={`service-${slug}-mid-stages`}
+                  variant="compact"
+                  title="Уточнить детали проекта?"
+                  description="Оставьте номер — перезвоним и разберём ваш проект поэтапно"
+                  subject={`Услуга ${service.code} — заявка (после этапов)`}
+                />
+              </div>
+            )}
+
             {/* Normatives section */}
             {service.normативы && (
               <motion.div
