@@ -51,6 +51,7 @@ const App = () => (
             <Route path="/privacy" element={withSuspense(<Privacy />)} />
             <Route path="/landing" element={withSuspense(<Landing />)} />
             <Route path="/landing2" element={withSuspense(<Landing2 />)} />
+            <Route path="/overview" element={withSuspense(<Overview />)} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={withSuspense(<NotFound />)} />
           </Routes>
