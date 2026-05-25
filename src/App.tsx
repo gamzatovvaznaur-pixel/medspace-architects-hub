@@ -21,6 +21,7 @@ const Landing = lazy(() => import("./pages/Landing.tsx"));
 const Landing2 = lazy(() => import("./pages/Landing2.tsx"));
 const Documents = lazy(() => import("./pages/Documents.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
+const Overview = lazy(() => import("./pages/Overview.tsx"));
 
 const PageLoader = () => (
   <div className="min-h-screen bg-background" aria-label="Загрузка страницы" />
@@ -50,6 +51,7 @@ const App = () => (
             <Route path="/privacy" element={withSuspense(<Privacy />)} />
             <Route path="/landing" element={withSuspense(<Landing />)} />
             <Route path="/landing2" element={withSuspense(<Landing2 />)} />
+            <Route path="/overview" element={withSuspense(<Overview />)} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={withSuspense(<NotFound />)} />
           </Routes>
