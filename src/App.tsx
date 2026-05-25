@@ -21,6 +21,7 @@ const Landing = lazy(() => import("./pages/Landing.tsx"));
 const Landing2 = lazy(() => import("./pages/Landing2.tsx"));
 const Documents = lazy(() => import("./pages/Documents.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
+const Overview = lazy(() => import("./pages/Overview.tsx"));
 
 const PageLoader = () => (
   <div className="min-h-screen bg-background" aria-label="Загрузка страницы" />
