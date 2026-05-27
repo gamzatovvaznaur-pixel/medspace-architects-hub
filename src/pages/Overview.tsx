@@ -112,6 +112,7 @@ const Overview = () => {
           <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground pt-4">
             Консультация на старте
           </h3>
+          <img src={serviceConsult} alt="Консультация на старте" className="w-full rounded-2xl border border-border aspect-[21/9] object-cover my-4" loading="lazy" />
           <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
             Если вы только думаете об открытии клиники и не знаете, с чего начать, мы
             проводим бесплатную консультацию. Объясняем разницу между концепцией,
@@ -145,6 +146,10 @@ const Overview = () => {
           <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground pt-4">
             Поставка оборудования и мебели из Китая
           </h3>
+          <div className="grid md:grid-cols-2 gap-6 my-4">
+            <img src={equipmentImg} alt="Оборудование" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
+            <img src={serviceFurniture} alt="Мебель" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
+          </div>
           <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
             Мы работаем с китайскими производителями напрямую, без посредников. Это
             касается стоматологических установок, оборудования для лабораторий,
@@ -152,6 +157,7 @@ const Overview = () => {
             обычно на 30–50% ниже европейских аналогов, а сроки производства — от 30 до
             90 дней. Поставка предлагается только как часть проектного контракта.
           </p>
+
 
           <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground pt-4">
             Согласование документации в ГАСН и Росздравнадзоре
