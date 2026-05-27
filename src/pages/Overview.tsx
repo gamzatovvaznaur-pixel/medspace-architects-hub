@@ -11,8 +11,23 @@ import clinicMulti from "@/assets/clinic-multidisciplinary.jpg";
 import clinicStom from "@/assets/clinic-stomatology.jpg";
 import clinicMri from "@/assets/clinic-mri.jpg";
 import clinicXray from "@/assets/clinic-xray.jpg";
+import clinicCosm from "@/assets/clinic-cosmetology.jpg";
+import clinicLab from "@/assets/clinic-laboratory.jpg";
+import clinicHospital from "@/assets/clinic-hospital.jpg";
+import clinicOphth from "@/assets/clinic-ophthalmology.jpg";
+import clinicProc from "@/assets/clinic-procedure.jpg";
+import serviceConsult from "@/assets/service-consultation.jpg";
+import serviceFurniture from "@/assets/service-furniture.jpg";
 import caseIris1 from "@/assets/case-iris-1.webp";
+import caseIris2 from "@/assets/case-iris-2.webp";
+import caseIris3 from "@/assets/case-iris-3.webp";
+import caseIris4 from "@/assets/case-iris-4.webp";
 import caseIrisMhk from "@/assets/case-iris-mhk-1.webp";
+import caseIrisMhk2 from "@/assets/case-iris-mhk-2.webp";
+import caseIrisMhk3 from "@/assets/case-iris-mhk-3.webp";
+import caseMavie from "@/assets/case-mavie-1.jpg";
+import caseDental from "@/assets/case-dental-spb.jpg";
+import caseMulti from "@/assets/case-multi-krasnodar.jpg";
 
 const Overview = () => {
   return (
