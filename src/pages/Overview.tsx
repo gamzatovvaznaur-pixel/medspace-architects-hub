@@ -328,6 +328,7 @@ const Overview = () => {
           <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground">
             Как устроен процесс работы
           </h2>
+          <img src={designImg} alt="Процесс проектирования" className="w-full rounded-2xl border border-border aspect-[21/9] object-cover my-4" loading="lazy" />
           <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
             На старте мы обсуждаем задачу и собираем исходные данные: правоустанавливающие
             документы на помещение, обмерные планы, технические условия от ресурсных
@@ -339,6 +340,10 @@ const Overview = () => {
             предварительный бюджет на стройку. На этом этапе ещё можно дёшево менять
             решения и пробовать варианты.
           </p>
+          <div className="grid md:grid-cols-2 gap-6 my-6">
+            <img src={supervisionImg} alt="Авторский надзор" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
+            <img src={approvalImg} alt="Согласования" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
+          </div>
           <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
             После утверждения концепции запускается проектная документация. Это
             формальные разделы, по которым потом проходит экспертиза и получаются
@@ -351,6 +356,7 @@ const Overview = () => {
             Конечный результат — работающая клиника, в которой можно легально оказывать
             медицинские услуги.
           </p>
+
         </div>
       </section>
 
