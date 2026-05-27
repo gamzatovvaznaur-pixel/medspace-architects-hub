@@ -11,8 +11,23 @@ import clinicMulti from "@/assets/clinic-multidisciplinary.jpg";
 import clinicStom from "@/assets/clinic-stomatology.jpg";
 import clinicMri from "@/assets/clinic-mri.jpg";
 import clinicXray from "@/assets/clinic-xray.jpg";
+import clinicCosm from "@/assets/clinic-cosmetology.jpg";
+import clinicLab from "@/assets/clinic-laboratory.jpg";
+import clinicHospital from "@/assets/clinic-hospital.jpg";
+import clinicOphth from "@/assets/clinic-ophthalmology.jpg";
+import clinicProc from "@/assets/clinic-procedure.jpg";
+import serviceConsult from "@/assets/service-consultation.jpg";
+import serviceFurniture from "@/assets/service-furniture.jpg";
 import caseIris1 from "@/assets/case-iris-1.webp";
+import caseIris2 from "@/assets/case-iris-2.webp";
+import caseIris3 from "@/assets/case-iris-3.webp";
+import caseIris4 from "@/assets/case-iris-4.webp";
 import caseIrisMhk from "@/assets/case-iris-mhk-1.webp";
+import caseIrisMhk2 from "@/assets/case-iris-mhk-2.webp";
+import caseIrisMhk3 from "@/assets/case-iris-mhk-3.webp";
+import caseMavie from "@/assets/case-mavie-1.jpg";
+import caseDental from "@/assets/case-dental-spb.jpg";
+import caseMulti from "@/assets/case-multi-krasnodar.jpg";
 
 const Overview = () => {
   return (
@@ -97,6 +112,7 @@ const Overview = () => {
           <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground pt-4">
             Консультация на старте
           </h3>
+          <img src={serviceConsult} alt="Консультация на старте" className="w-full rounded-2xl border border-border aspect-[21/9] object-cover my-4" loading="lazy" />
           <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
             Если вы только думаете об открытии клиники и не знаете, с чего начать, мы
             проводим бесплатную консультацию. Объясняем разницу между концепцией,
@@ -130,6 +146,10 @@ const Overview = () => {
           <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground pt-4">
             Поставка оборудования и мебели из Китая
           </h3>
+          <div className="grid md:grid-cols-2 gap-6 my-4">
+            <img src={equipmentImg} alt="Оборудование" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
+            <img src={serviceFurniture} alt="Мебель" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
+          </div>
           <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
             Мы работаем с китайскими производителями напрямую, без посредников. Это
             касается стоматологических установок, оборудования для лабораторий,
@@ -137,6 +157,7 @@ const Overview = () => {
             обычно на 30–50% ниже европейских аналогов, а сроки производства — от 30 до
             90 дней. Поставка предлагается только как часть проектного контракта.
           </p>
+
 
           <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground pt-4">
             Согласование документации в ГАСН и Росздравнадзоре
@@ -200,6 +221,12 @@ const Overview = () => {
             помещениям для инъекционных и аппаратных процедур. Сюда же — лазерные
             кабинеты с отдельными требованиями к освещению, экранированию и вентиляции.
           </p>
+          <div className="grid md:grid-cols-3 gap-4 my-6">
+            <img src={clinicCosm} alt="Косметология" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+            <img src={clinicLab} alt="Лаборатория" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+            <img src={clinicProc} alt="Процедурный кабинет" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+          </div>
+
           <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
             <strong className="text-foreground">Лаборатории и пункты забора.</strong>
             Клинико-диагностические лаборатории и сети пунктов взятия биоматериала.
@@ -217,6 +244,13 @@ const Overview = () => {
             медицинские газы, резервирование электроснабжения, чистые помещения,
             противопожарные решения для отделений с лежачими пациентами.
           </p>
+
+          <div className="grid md:grid-cols-3 gap-4 my-6">
+            <img src={clinicHospital} alt="Стационар" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+            <img src={clinicMri} alt="МРТ" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+            <img src={clinicOphth} alt="Офтальмология" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+          </div>
+
           <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
             <strong className="text-foreground">МРТ-кабинеты.</strong> Самый
             технологически сложный объект. Электромагнитное экранирование (клетка
@@ -235,6 +269,7 @@ const Overview = () => {
             Точные требования к освещению диагностических кабинетов, темновым комнатам и
             операционным.
           </p>
+
         </div>
       </section>
 
@@ -293,6 +328,7 @@ const Overview = () => {
           <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground">
             Как устроен процесс работы
           </h2>
+          <img src={designImg} alt="Процесс проектирования" className="w-full rounded-2xl border border-border aspect-[21/9] object-cover my-4" loading="lazy" />
           <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
             На старте мы обсуждаем задачу и собираем исходные данные: правоустанавливающие
             документы на помещение, обмерные планы, технические условия от ресурсных
@@ -304,6 +340,10 @@ const Overview = () => {
             предварительный бюджет на стройку. На этом этапе ещё можно дёшево менять
             решения и пробовать варианты.
           </p>
+          <div className="grid md:grid-cols-2 gap-6 my-6">
+            <img src={supervisionImg} alt="Авторский надзор" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
+            <img src={approvalImg} alt="Согласования" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
+          </div>
           <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
             После утверждения концепции запускается проектная документация. Это
             формальные разделы, по которым потом проходит экспертиза и получаются
@@ -316,6 +356,7 @@ const Overview = () => {
             Конечный результат — работающая клиника, в которой можно легально оказывать
             медицинские услуги.
           </p>
+
         </div>
       </section>
 
@@ -339,9 +380,11 @@ const Overview = () => {
             Примеры реализованных проектов
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-6 my-8">
-            <img src={caseIris1} alt="Ирис Краснодар" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
-            <img src={caseIrisMhk} alt="Ирис Махачкала" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
+            <img src={caseIris1} alt="Ирис Краснодар" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+            <img src={caseIris2} alt="Ирис Краснодар" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+            <img src={caseIris3} alt="Ирис Краснодар" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+            <img src={caseIris4} alt="Ирис Краснодар" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
           </div>
 
           <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground">
@@ -354,6 +397,12 @@ const Overview = () => {
             <Link to="/cases/iris-krasnodar" className="text-accent underline ml-1">странице кейса</Link>.
           </p>
 
+          <div className="grid grid-cols-3 gap-4 my-6">
+            <img src={caseIrisMhk} alt="Ирис Махачкала" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+            <img src={caseIrisMhk2} alt="Ирис Махачкала" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+            <img src={caseIrisMhk3} alt="Ирис Махачкала" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+          </div>
+
           <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground pt-4">
             Клиника «Ирис» в Махачкале
           </h3>
@@ -363,10 +412,25 @@ const Overview = () => {
             <Link to="/cases/iris-makhachkala" className="text-accent underline ml-1">странице кейса</Link>.
           </p>
 
+          <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground pt-4">
+            Другие реализованные объекты
+          </h3>
+          <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
+            Клиника эстетической медицины Mavie в Москве, стоматология в Санкт-Петербурге
+            и многопрофильный центр в Краснодарском крае — три разных по масштабу и
+            профилю объекта, прошедших путь от проекта до открытия.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4 my-6">
+            <img src={caseMavie} alt="Mavie Москва" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
+            <img src={caseDental} alt="Стоматология СПб" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
+            <img src={caseMulti} alt="Многопрофильный центр" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
+          </div>
+
           <div className="grid md:grid-cols-2 gap-6 my-8">
             <img src={clinicMri} alt="МРТ" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
             <img src={clinicXray} alt="Рентген" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
           </div>
+
         </div>
       </section>
 
