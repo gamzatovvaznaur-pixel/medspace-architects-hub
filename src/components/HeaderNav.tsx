@@ -6,6 +6,7 @@ import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 
 const navLinks = [
   { to: "/services", label: "Услуги" },
+  { to: "/licensing", label: "Лицензирование" },
   { to: "/about", label: "О компании" },
   { to: "/documents", label: "Документация" },
   { to: "/contacts", label: "Контакты" },
