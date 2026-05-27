@@ -221,6 +221,12 @@ const Overview = () => {
             помещениям для инъекционных и аппаратных процедур. Сюда же — лазерные
             кабинеты с отдельными требованиями к освещению, экранированию и вентиляции.
           </p>
+          <div className="grid md:grid-cols-3 gap-4 my-6">
+            <img src={clinicCosm} alt="Косметология" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+            <img src={clinicLab} alt="Лаборатория" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+            <img src={clinicProc} alt="Процедурный кабинет" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+          </div>
+
           <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
             <strong className="text-foreground">Лаборатории и пункты забора.</strong>
             Клинико-диагностические лаборатории и сети пунктов взятия биоматериала.
@@ -238,6 +244,13 @@ const Overview = () => {
             медицинские газы, резервирование электроснабжения, чистые помещения,
             противопожарные решения для отделений с лежачими пациентами.
           </p>
+
+          <div className="grid md:grid-cols-3 gap-4 my-6">
+            <img src={clinicHospital} alt="Стационар" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+            <img src={clinicMri} alt="МРТ" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+            <img src={clinicOphth} alt="Офтальмология" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+          </div>
+
           <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
             <strong className="text-foreground">МРТ-кабинеты.</strong> Самый
             технологически сложный объект. Электромагнитное экранирование (клетка
@@ -256,6 +269,7 @@ const Overview = () => {
             Точные требования к освещению диагностических кабинетов, темновым комнатам и
             операционным.
           </p>
+
         </div>
       </section>
 
