@@ -380,9 +380,11 @@ const Overview = () => {
             Примеры реализованных проектов
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-6 my-8">
-            <img src={caseIris1} alt="Ирис Краснодар" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
-            <img src={caseIrisMhk} alt="Ирис Махачкала" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
+            <img src={caseIris1} alt="Ирис Краснодар" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+            <img src={caseIris2} alt="Ирис Краснодар" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+            <img src={caseIris3} alt="Ирис Краснодар" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+            <img src={caseIris4} alt="Ирис Краснодар" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
           </div>
 
           <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground">
@@ -395,6 +397,12 @@ const Overview = () => {
             <Link to="/cases/iris-krasnodar" className="text-accent underline ml-1">странице кейса</Link>.
           </p>
 
+          <div className="grid grid-cols-3 gap-4 my-6">
+            <img src={caseIrisMhk} alt="Ирис Махачкала" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+            <img src={caseIrisMhk2} alt="Ирис Махачкала" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+            <img src={caseIrisMhk3} alt="Ирис Махачкала" className="rounded-2xl border border-border aspect-square object-cover" loading="lazy" />
+          </div>
+
           <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground pt-4">
             Клиника «Ирис» в Махачкале
           </h3>
@@ -404,10 +412,25 @@ const Overview = () => {
             <Link to="/cases/iris-makhachkala" className="text-accent underline ml-1">странице кейса</Link>.
           </p>
 
+          <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground pt-4">
+            Другие реализованные объекты
+          </h3>
+          <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
+            Клиника эстетической медицины Mavie в Москве, стоматология в Санкт-Петербурге
+            и многопрофильный центр в Краснодарском крае — три разных по масштабу и
+            профилю объекта, прошедших путь от проекта до открытия.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4 my-6">
+            <img src={caseMavie} alt="Mavie Москва" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
+            <img src={caseDental} alt="Стоматология СПб" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
+            <img src={caseMulti} alt="Многопрофильный центр" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
+          </div>
+
           <div className="grid md:grid-cols-2 gap-6 my-8">
             <img src={clinicMri} alt="МРТ" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
             <img src={clinicXray} alt="Рентген" className="rounded-2xl border border-border aspect-[4/3] object-cover" loading="lazy" />
           </div>
+
         </div>
       </section>
 
