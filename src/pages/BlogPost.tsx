@@ -194,6 +194,64 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={post.title}
+        description={post.description}
+        path={`/blog/${post.slug}`}
+        type="article"
+        keywords={`${post.category}, ${post.title}, проектирование клиник, СанПиН, СЭЗ`}
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post.title,
+            description: post.description,
+            inLanguage: "ru-RU",
+            articleSection: post.category,
+            wordCount: post.blocks
+              .map((b) => ("text" in b && b.text ? b.text.length : 0))
+              .reduce((a, c) => a + c, 0),
+            author: {
+              "@type": "Person",
+              name: "Азнаур Гамзатов",
+              jobTitle: "Руководитель проектной организации МедПроект",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "МедПроект",
+              url: SITE_URL,
+            },
+            mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Главная", item: SITE_URL },
+              { "@type": "ListItem", position: 2, name: "Блог", item: `${SITE_URL}/blog` },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: post.title,
+                item: `${SITE_URL}/blog/${post.slug}`,
+              },
+            ],
+          },
+          ...(post.faq.length > 0
+            ? [
+                {
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  mainEntity: post.faq.map((f) => ({
+                    "@type": "Question",
+                    name: f.q,
+                    acceptedAnswer: { "@type": "Answer", text: f.a },
+                  })),
+                },
+              ]
+            : []),
+        ]}
+      />
       <HeaderNav />
 
       <main className="pt-24 pb-20">
