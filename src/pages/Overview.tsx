@@ -33,6 +33,12 @@ import caseMulti from "@/assets/case-multi-krasnodar.jpg";
 const Overview = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Полный обзор услуг — проектирование клиник от концепции до лицензии"
+        description="Вся информация о проектировании медицинских учреждений на одной странице: услуги, направления, нормативная база, кейсы, процесс работы и получение СЭЗ."
+        path="/overview"
+        keywords="проектирование медцентра, услуги МедПроект, проект клиники под ключ, СЭЗ, авторский надзор"
+      />
       <HeaderNav />
 
       {/* Hero */}

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import StatsSection from "@/components/StatsSection";
+import SEO from "@/components/SEO";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import certNopriz from "@/assets/cert-nopriz.png";
 import certIso from "@/assets/cert-iso.png";
