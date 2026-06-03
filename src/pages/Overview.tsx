@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import InlineCallbackForm from "@/components/InlineCallbackForm";
+import SEO from "@/components/SEO";
 import heroImg from "@/assets/hero-blueprint.jpg";
 import designImg from "@/assets/service-design.jpg";
 import supervisionImg from "@/assets/service-supervision.jpg";
