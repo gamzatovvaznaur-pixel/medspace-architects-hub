@@ -10,10 +10,31 @@ import QuizSection from "@/components/QuizSection";
 import LicensingCompanionSection from "@/components/LicensingCompanionSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
+import SEO from "@/components/SEO";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="МедПроект — проектирование и лицензирование медицинских учреждений под ключ"
+        description="Проектируем клиники, стоматологии, диагностические центры и стационары с гарантией получения СЭЗ и медицинской лицензии Росздравнадзора. 100+ объектов, 9 лет опыта."
+        path="/"
+        keywords="проектирование клиник, проект медицинского учреждения, СЭЗ, медицинская лицензия, Росздравнадзор, СанПиН"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "МедПроект",
+          url: "https://medspace-architects-hub.lovable.app/",
+          description:
+            "Проектирование медицинских учреждений с гарантией получения СЭЗ и медицинской лицензии.",
+          areaServed: { "@type": "Country", name: "Russia" },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "5.0",
+            reviewCount: "100",
+          },
+        }}
+      />
       <HeaderNav />
       <HeroSimpleSection />
       <StatsSection />
