@@ -15,6 +15,7 @@ import {
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import InlineCallbackForm from "@/components/InlineCallbackForm";
+import SEO, { SITE_URL } from "@/components/SEO";
 import {
   Accordion,
   AccordionItem,
