@@ -39,7 +39,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <HashRouter>
+      <BrowserRouter>
         <CallbackDialogProvider>
           <ScrollToTop />
           <Routes>
@@ -63,7 +63,7 @@ const App = () => (
           </Routes>
           <CookieConsent />
         </CallbackDialogProvider>
-      </HashRouter>
+      </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
