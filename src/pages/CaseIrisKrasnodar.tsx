@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Phone } from "lucide-react";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
+import SEO from "@/components/SEO";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 
 import img1 from "@/assets/case-iris-1.webp";
@@ -17,6 +18,12 @@ const CaseIrisKrasnodar = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Кейс: офтальмологическая клиника «Ирис» в Краснодаре"
+        description="Проектирование сети офтальмологических клиник «Ирис» в Краснодаре: технология, инженерия, СЭЗ и лицензия."
+        path="/cases/iris-krasnodar"
+        type="article"
+      />
       <HeaderNav />
 
       <section className="min-h-screen flex flex-col justify-center pt-32 pb-20 px-6 md:px-12">

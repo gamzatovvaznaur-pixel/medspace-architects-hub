@@ -482,6 +482,31 @@ const ServiceDetailPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={`${service.title} — услуга МедПроект`}
+        description={service.description.slice(0, 180)}
+        path={`/services/${slug}`}
+        keywords={`${service.title}, проектирование клиник`}
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: service.title,
+            description: service.description,
+            provider: { "@type": "Organization", name: "МедПроект", url: SITE_URL },
+            areaServed: { "@type": "Country", name: "Russia" },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Главная", item: SITE_URL },
+              { "@type": "ListItem", position: 2, name: "Услуги", item: `${SITE_URL}/services` },
+              { "@type": "ListItem", position: 3, name: service.title, item: `${SITE_URL}/services/${slug}` },
+            ],
+          },
+        ]}
+      />
       <HeaderNav />
 
       {/* Breadcrumbs */}
