@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import InlineCallbackForm from "@/components/InlineCallbackForm";
+import SEO from "@/components/SEO";
 import heroImg from "@/assets/hero-blueprint.jpg";
 import designImg from "@/assets/service-design.jpg";
 import supervisionImg from "@/assets/service-supervision.jpg";
@@ -32,6 +33,12 @@ import caseMulti from "@/assets/case-multi-krasnodar.jpg";
 const Overview = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Полный обзор услуг — проектирование клиник от концепции до лицензии"
+        description="Вся информация о проектировании медицинских учреждений на одной странице: услуги, направления, нормативная база, кейсы, процесс работы и получение СЭЗ."
+        path="/overview"
+        keywords="проектирование медцентра, услуги МедПроект, проект клиники под ключ, СЭЗ, авторский надзор"
+      />
       <HeaderNav />
 
       {/* Hero */}

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import StatsSection from "@/components/StatsSection";
+import SEO from "@/components/SEO";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import certNopriz from "@/assets/cert-nopriz.png";
 import certIso from "@/assets/cert-iso.png";
@@ -49,6 +50,12 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="О компании МедПроект — 9 лет проектирования медучреждений"
+        description="Проектная организация МедПроект: 100+ объектов, 9 лет опыта, член НОПРИЗ. Проектирование медицинских учреждений под ключ с гарантией СЭЗ."
+        path="/about"
+        keywords="МедПроект, проектная организация, Азнаур Гамзатов, НОПРИЗ, проектирование клиник"
+      />
       <HeaderNav />
 
       {/* Hero */}

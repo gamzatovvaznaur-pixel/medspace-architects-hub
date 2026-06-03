@@ -4,6 +4,7 @@ import { Clock, ArrowRight, BookOpen } from "lucide-react";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import InlineCallbackForm from "@/components/InlineCallbackForm";
+import SEO, { SITE_URL } from "@/components/SEO";
 import { blogPosts } from "@/data/blogPosts";
 
 const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
@@ -13,6 +14,25 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Блог о проектировании клиник — нормы, СЭЗ, лицензирование"
+        description={`${blogPosts.length} экспертных материалов о проектировании медицинских учреждений: СанПиН, СП, СЭЗ, лицензирование Росздравнадзора. Опыт 100+ объектов.`}
+        path="/blog"
+        keywords="блог о проектировании клиник, СанПиН медучреждения, СЭЗ как получить, лицензирование клиники, нормы проектирования"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          name: "Блог МедПроект",
+          url: `${SITE_URL}/blog`,
+          inLanguage: "ru-RU",
+          blogPost: blogPosts.map((p) => ({
+            "@type": "BlogPosting",
+            headline: p.title,
+            description: p.description,
+            url: `${SITE_URL}/blog/${p.slug}`,
+          })),
+        }}
+      />
       <HeaderNav />
 
       <main className="pt-24 pb-20">
