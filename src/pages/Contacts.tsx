@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
+import SEO from "@/components/SEO";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 
 const transition = { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const };
@@ -36,6 +37,17 @@ const Contacts = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Контакты — заказать проект клиники"
+        description="Связаться с проектной организацией МедПроект: обсудим ваш проект, бесплатно проверим помещение, рассчитаем сроки и бюджет."
+        path="/contacts"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Контакты МедПроект",
+          url: "https://medspace-architects-hub.lovable.app/contacts",
+        }}
+      />
       <HeaderNav />
 
       {/* Hero */}

@@ -4,6 +4,7 @@ import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import CTABanner from "@/components/CTABanner";
 import InlineCallbackForm from "@/components/InlineCallbackForm";
+import SEO from "@/components/SEO";
 import serviceConsultationImg from "@/assets/service-consultation.jpg";
 import serviceDesignImg from "@/assets/service-design.jpg";
 import serviceSupervisionImg from "@/assets/service-supervision.jpg";
@@ -65,6 +66,12 @@ const ServiceCard = ({ service, i }: { service: typeof mainServices[0]; i: numbe
 const ServicesPage = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Услуги — проектирование, надзор, поставки, лицензирование"
+        description="Полный спектр услуг: проектирование клиник, авторский надзор, поставки оборудования и мебели из Китая, согласование документации и сопровождение лицензирования."
+        path="/services"
+        keywords="услуги проектирования клиник, авторский надзор, поставка медицинского оборудования, согласование ГАСН"
+      />
       <HeaderNav />
 
       <section className="min-h-screen flex flex-col justify-center pt-32 pb-16 px-6 md:px-12">
