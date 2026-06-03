@@ -17,6 +17,7 @@ import {
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import InlineCallbackForm from "@/components/InlineCallbackForm";
+import SEO from "@/components/SEO";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import {
   Accordion,
@@ -182,6 +183,32 @@ const Licensing = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Лицензирование медицинской деятельности под ключ — СЭЗ и лицензия Росздравнадзора"
+        description="Полное сопровождение лицензирования клиники: СЭЗ за 20–25 рабочих дней, лицензия Росздравнадзора до 15 рабочих дней. Гарантия получения зафиксирована в договоре."
+        path="/licensing"
+        keywords="лицензирование медицинской деятельности, СЭЗ, медицинская лицензия, Росздравнадзор, Роспотребнадзор, СанПиН 2.1.3678-20, лицензия клиники под ключ"
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Лицензирование медицинских учреждений",
+            provider: { "@type": "Organization", name: "МедПроект" },
+            areaServed: { "@type": "Country", name: "Russia" },
+            description:
+              "Получение СЭЗ Роспотребнадзора и медицинской лицензии Росздравнадзора под ключ с гарантией.",
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          },
+        ]}
+      />
       <HeaderNav />
 
       <section className="pt-32 pb-20 px-6 md:px-12">
