@@ -5,6 +5,7 @@ import FooterSection from "@/components/FooterSection";
 import CTABanner from "@/components/CTABanner";
 import InlineCallbackForm from "@/components/InlineCallbackForm";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
+import SEO, { SITE_URL } from "@/components/SEO";
 import { CheckCircle, Building2, ShieldCheck, Truck, FileCheck, HardHat } from "lucide-react";
 import serviceDesignImg from "@/assets/service-design.jpg";
 import serviceConsultationImg from "@/assets/service-consultation.jpg";
