@@ -17,62 +17,58 @@ const HeroSimpleSection = () => {
           backgroundPosition: "center",
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/55 to-white/85" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/65 to-white/90" />
 
-      <div className="relative max-w-7xl mx-auto w-full text-center">
-
-        <motion.span
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={transition}
-          className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-accent mb-6 block"
-        >
-          Делаем маленькие клиники большими
-        </motion.span>
-
+      <div className="relative max-w-4xl mx-auto w-full text-center">
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ ...transition, delay: 0.15 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-semibold text-foreground leading-[1.05] tracking-tight mb-6"
+          transition={transition}
+          className="text-3xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-[1.1] tracking-tight mb-6"
         >
-          С нашим проектом — лицензия
+          Проектируем клиники от 400 м²
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ ...transition, delay: 0.3 }}
-          className="text-lg md:text-xl text-foreground/70 max-w-xl mx-auto mb-12 leading-relaxed"
+          transition={{ ...transition, delay: 0.15 }}
+          className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto mb-4 leading-relaxed"
         >
-          Доведем до медицинской лицензии любую клинику — стоматологию 80 м², многопрофильный центр 2000 м², медицинскую лабораторию и любую другую. Давайте знакомиться!
+          Проекты от 1 500 000 ₽. Не участвуем в тендерах и не делаем дешёвых проектов — только качественно и в долгую.
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ ...transition, delay: 0.25 }}
+          className="text-foreground/60 max-w-xl mx-auto mb-10 leading-relaxed"
+        >
+          Сами выбираем клиентов. Если взялись — доводим от замера до медицинской лицензии. Звоните или оставьте заявку — всё объясним лично.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ ...transition, delay: 0.4 }}
+          transition={{ ...transition, delay: 0.35 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <button
             onClick={openCallback}
             className="bg-accent text-accent-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
           >
-            Обсудить проект
+            Оставить заявку
           </button>
-          <button
-            onClick={() => {
-              const el = document.getElementById("full-cycle");
-              if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-            }}
-            className="border border-foreground/20 text-foreground px-10 py-4 rounded-xl font-display text-sm font-medium uppercase tracking-widest hover:bg-foreground/5 transition-colors"
+          <a
+            href="tel:+79182633627"
+            className="border border-foreground/20 text-foreground px-10 py-4 rounded-xl font-display text-sm font-medium uppercase tracking-widest hover:bg-foreground/5 transition-colors text-center"
           >
-            Как мы работаем
-          </button>
+            Позвонить
+          </a>
         </motion.div>
       </div>
     </section>
