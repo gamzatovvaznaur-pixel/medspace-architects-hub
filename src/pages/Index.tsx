@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import HeaderNav from "@/components/HeaderNav";
 import HeroSimpleSection from "@/components/HeroSimpleSection";
+import StatsSection from "@/components/StatsSection";
+import LicensingCompanionSection from "@/components/LicensingCompanionSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
 import SEO from "@/components/SEO";
@@ -67,6 +69,8 @@ const Index = () => {
         </div>
       </section>
 
+      <StatsSection />
+      <LicensingCompanionSection />
       <ContactSection />
       <FooterSection />
     </div>
