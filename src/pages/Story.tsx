@@ -225,14 +225,14 @@ const Story = () => {
       />
       <HeaderNav />
 
-      <div ref={containerRef} className="relative pt-16">
-        <WindingRibbon progress={scrollYProgress} />
+      <div className="relative pt-16">
+        <WindingRibbon />
 
         {/* Chaotic scatter layer covering entire container */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="relative w-full h-full pointer-events-auto">
             {scatters.map((s, i) => (
-              <ScatterCard key={i} item={s} progress={scrollYProgress} />
+              <ScatterCard key={i} item={s} />
             ))}
           </div>
         </div>
