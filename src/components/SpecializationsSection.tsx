@@ -1,75 +1,117 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useCallbackDialog } from "@/hooks/useCallbackDialog";
+import clinicStomatologyImg from "@/assets/clinic-stomatology.jpg";
+import clinicMultidisciplinaryImg from "@/assets/clinic-multidisciplinary.jpg";
+import clinicCosmetologyImg from "@/assets/clinic-cosmetology.jpg";
+import clinicLaboratoryImg from "@/assets/clinic-laboratory.jpg";
+import clinicProcedureImg from "@/assets/clinic-procedure.jpg";
+import clinicHospitalImg from "@/assets/clinic-hospital.jpg";
 
 const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 
 const specs = [
-  { title: "Стоматологии", desc: "От кабинета до центра с хирургическим блоком" },
-  { title: "Косметология", desc: "Инъекционные кабинеты, лазерные залы, операционные" },
-  { title: "Многопрофильные клиники", desc: "Поликлиники, диагностические центры, МРТ" },
-  { title: "Медицинские лаборатории", desc: "ПЦР, бактериологические, клинико-диагностические" },
-  { title: "Офтальмология", desc: "Центры с операционным блоком и чистыми помещениями" },
-  { title: "Кабинеты МРТ и КТ", desc: "Радиационная защита, магнитное экранирование" },
+  {
+    slug: "stomatology",
+    code: "MED-01",
+    title: "Стоматологии",
+    desc: "Проектирование стоматологических клиник — от кабинета на одно кресло до центра с хирургическим блоком.",
+    image: clinicStomatologyImg,
+  },
+  {
+    slug: "multidisciplinary",
+    code: "MED-02",
+    title: "Многопрофильные клиники",
+    desc: "Комплексные проекты с интеграцией всех медицинских направлений в единое пространство.",
+    image: clinicMultidisciplinaryImg,
+  },
+  {
+    slug: "cosmetology",
+    code: "MED-03",
+    title: "Косметологические клиники",
+    desc: "Центры эстетической медицины с премиальным интерьером и соблюдением нормативов.",
+    image: clinicCosmetologyImg,
+  },
+  {
+    slug: "laboratory",
+    code: "MED-04",
+    title: "Лаборатории и пункты анализов",
+    desc: "Лаборатории клинической диагностики и сети пунктов забора биоматериала.",
+    image: clinicLaboratoryImg,
+  },
+  {
+    slug: "procedure-rooms",
+    code: "MED-05",
+    title: "Процедурные кабинеты",
+    desc: "Кабинеты для инфузионной терапии, манипуляций и малоинвазивных вмешательств.",
+    image: clinicProcedureImg,
+  },
+  {
+    slug: "hospital",
+    code: "MED-06",
+    title: "Стационары",
+    desc: "Палатные отделения, реанимационные блоки и операционные с полным инженерным обеспечением.",
+    image: clinicHospitalImg,
+  },
 ];
 
 const SpecializationsSection = () => {
-  const { openCallback } = useCallbackDialog();
-
   return (
     <section className="py-20 px-6 md:px-12">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={transition}
-          className="mb-10 max-w-2xl"
+          className="mb-12 max-w-3xl"
         >
-          <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-3 block">
+          <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-4 block">
             Проектирование клиник
           </span>
-          <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground leading-tight">
+          <h2 className="text-3xl md:text-5xl font-display font-semibold text-foreground leading-tight">
             Проектируем под вашу специализацию
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {specs.map((s, i) => (
             <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 12 }}
+              key={s.slug}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ ...transition, delay: i * 0.04 }}
-              className="bg-background p-7 group hover:bg-secondary/50 transition-colors"
+              transition={{ ...transition, delay: i * 0.06 }}
             >
-              <span className="font-mono text-[10px] tracking-widest text-accent mb-3 block">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="text-lg font-display font-semibold text-foreground mb-1.5">
-                {s.title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {s.desc}
-              </p>
+              <Link
+                to={`/services/${s.slug}`}
+                className="group block bg-card border border-border rounded-2xl overflow-hidden"
+              >
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-6">
+                  <span className="font-mono text-[10px] tracking-widest text-accent mb-2 block">
+                    {s.code}
+                  </span>
+                  <h3 className="text-xl font-display font-semibold text-foreground mb-3">
+                    {s.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {s.desc}
+                  </p>
+                  <span className="inline-flex items-center gap-2 mt-4 text-accent font-display text-sm font-medium">
+                    Подробнее →
+                  </span>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ ...transition, delay: 0.2 }}
-          className="mt-8 text-center"
-        >
-          <button
-            onClick={openCallback}
-            className="bg-accent text-accent-foreground px-8 py-3.5 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
-          >
-            Обсудить мой проект
-          </button>
-        </motion.div>
       </div>
     </section>
   );
