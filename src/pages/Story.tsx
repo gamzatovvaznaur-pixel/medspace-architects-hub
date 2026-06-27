@@ -65,11 +65,7 @@ const scatters: Scatter[] = [
   { kind: "norm", code: "СанПиН 2.6.1.1192-03", title: "Устройство и эксплуатация рентген-кабинетов", top: "92%", left: "12%", rotate: -3, depth: 0.4 },
 ];
 
-const ScatterCard = ({ item, progress }: { item: Scatter; progress: MotionValue<number> }) => {
-  // Parallax: card drifts upward as user scrolls past it.
-  const y = useTransform(progress, [0, 1], [80 * item.depth, -80 * item.depth]);
-  const smoothY = useSpring(y, { stiffness: 60, damping: 20, mass: 0.6 });
-
+const ScatterCard = ({ item }: { item: Scatter }) => {
   const baseClass =
     "absolute z-10 max-w-[240px] hidden md:block transition-transform duration-500 hover:!rotate-0 hover:-translate-y-1";
 
@@ -80,7 +76,7 @@ const ScatterCard = ({ item, progress }: { item: Scatter; progress: MotionValue<
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        style={{ top: item.top, left: item.left, rotate: item.rotate, y: smoothY }}
+        style={{ top: item.top, left: item.left, rotate: item.rotate }}
         className={baseClass}
       >
         <Link
@@ -104,7 +100,7 @@ const ScatterCard = ({ item, progress }: { item: Scatter; progress: MotionValue<
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-      style={{ top: item.top, left: item.left, rotate: item.rotate, y: smoothY }}
+      style={{ top: item.top, left: item.left, rotate: item.rotate }}
       className={baseClass}
     >
       <div className="bg-secondary/70 border border-dashed border-border rounded-2xl p-5 backdrop-blur-sm">
