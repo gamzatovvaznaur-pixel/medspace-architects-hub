@@ -145,8 +145,7 @@ const Screen = ({
   );
 };
 
-const WindingRibbon = ({ progress }: { progress: MotionValue<number> }) => {
-  // Wide-amplitude winding path; spans full container vertically.
+const WindingRibbon = () => {
   const d = `
     M 50 0
     C 95 100, 5 220, 50 320
@@ -158,12 +157,6 @@ const WindingRibbon = ({ progress }: { progress: MotionValue<number> }) => {
     S 5 2140, 50 2240
     S 95 2360, 50 2400
   `;
-  const totalLen = 3000;
-
-  // Smooth spring on scroll progress to make the draw feel buttery.
-  const smooth = useSpring(progress, { stiffness: 90, damping: 30, mass: 0.4 });
-  const dashOffset = useTransform(smooth, [0, 1], [totalLen, 0]);
-  const glowOffset = useTransform(smooth, [0, 1], [totalLen, -100]);
 
   return (
     <svg
@@ -187,7 +180,6 @@ const WindingRibbon = ({ progress }: { progress: MotionValue<number> }) => {
         </filter>
       </defs>
 
-      {/* faint base ribbon — always visible */}
       <path
         d={d}
         fill="none"
@@ -198,29 +190,23 @@ const WindingRibbon = ({ progress }: { progress: MotionValue<number> }) => {
         opacity="0.6"
       />
 
-      {/* glow halo following the draw */}
-      <motion.path
+      <path
         d={d}
         fill="none"
         stroke="url(#ribbonGrad)"
         strokeWidth="8"
         strokeLinecap="round"
-        strokeDasharray={`${totalLen} ${totalLen}`}
-        style={{ strokeDashoffset: glowOffset }}
         vectorEffect="non-scaling-stroke"
         opacity="0.35"
         filter="url(#ribbonGlow)"
       />
 
-      {/* main accent ribbon — drawn as user scrolls */}
-      <motion.path
+      <path
         d={d}
         fill="none"
         stroke="url(#ribbonGrad)"
         strokeWidth="3.5"
         strokeLinecap="round"
-        strokeDasharray={totalLen}
-        style={{ strokeDashoffset: dashOffset }}
         vectorEffect="non-scaling-stroke"
       />
     </svg>
@@ -229,8 +215,6 @@ const WindingRibbon = ({ progress }: { progress: MotionValue<number> }) => {
 
 const Story = () => {
   const { openCallback } = useCallbackDialog();
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: containerRef });
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
