@@ -133,22 +133,15 @@ const Screen = ({
   index: number;
   total: number;
 }) => {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const opacity = useTransform(scrollYProgress, [0, 0.25, 0.7, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.5, 1], [80, 0, -80]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.96, 1, 0.96]);
-  const smoothY = useSpring(y, { stiffness: 80, damping: 25 });
-
   return (
-    <section ref={ref} className="min-h-screen flex items-center justify-center px-6 md:px-12 relative">
-      <motion.div style={{ opacity, y: smoothY, scale }} className="max-w-3xl mx-auto text-center relative z-20">
+    <section className="min-h-screen flex items-center justify-center px-6 md:px-12 relative">
+      <div className="max-w-3xl mx-auto text-center relative z-20">
         <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-8">{kicker}</span>
         <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-semibold text-foreground leading-[1.05] tracking-tight mb-8">
           {title}
         </h2>
         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">{sub}</p>
-      </motion.div>
+      </div>
 
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-widest text-muted-foreground/50 z-20">
         {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
@@ -271,13 +264,7 @@ const Story = () => {
 
         {/* Final CTA screen */}
         <section className="min-h-screen flex items-center justify-center px-6 md:px-12 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-3xl mx-auto text-center relative z-20"
-          >
+          <div className="max-w-3xl mx-auto text-center relative z-20">
             <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-8">Эпилог</span>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-semibold text-foreground leading-[1.05] tracking-tight mb-8">
               Время действовать
@@ -299,7 +286,7 @@ const Story = () => {
                 +7 (918) 263-36-27
               </a>
             </div>
-          </motion.div>
+          </div>
 
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-widest text-muted-foreground/50 z-20">
             {String(screens.length + 1).padStart(2, "0")} / {String(screens.length + 1).padStart(2, "0")}
