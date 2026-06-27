@@ -286,7 +286,7 @@ const Story = () => {
                 +7 (918) 263-36-27
               </a>
             </div>
-          </motion.div>
+          </div>
 
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-widest text-muted-foreground/50 z-20">
             {String(screens.length + 1).padStart(2, "0")} / {String(screens.length + 1).padStart(2, "0")}
