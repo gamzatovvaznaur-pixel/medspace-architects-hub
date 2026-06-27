@@ -11,8 +11,25 @@ import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
 import InlineCallbackForm from "@/components/InlineCallbackForm";
 import SEO from "@/components/SEO";
+import certNopriz from "@/assets/cert-nopriz.png";
+import certIso from "@/assets/cert-iso.png";
 
 const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
+
+const licenses = [
+  {
+    img: certNopriz,
+    title: "СРО НОПРИЗ",
+    meta: "Рег. № П-185-231119468748-3166",
+    desc: "Право подготовки проектной документации для объектов капитального строительства.",
+  },
+  {
+    img: certIso,
+    title: "ГОСТ Р ИСО 9001-2015",
+    meta: "№ РОСС RU.31381.04ИБИ0/СМК.22417",
+    desc: "Система менеджмента качества процессов проектирования.",
+  },
+];
 
 
 const whyUs = [
