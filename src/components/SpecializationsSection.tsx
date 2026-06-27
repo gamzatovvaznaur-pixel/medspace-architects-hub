@@ -26,10 +26,10 @@ const SpecializationsSection = () => {
           className="mb-10 max-w-2xl"
         >
           <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-3 block">
-            Специализации
+            Проектирование клиник
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground leading-tight">
-            Проектируем медицинские объекты любой сложности
+            Проектируем под вашу специализацию
           </h2>
         </motion.div>
 
