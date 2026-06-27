@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import HeaderNav from "@/components/HeaderNav";
 import HeroSimpleSection from "@/components/HeroSimpleSection";
+import SpecializationsSection from "@/components/SpecializationsSection";
 import LicensingCompanionSection from "@/components/LicensingCompanionSection";
 import ProcessRoadmap from "@/components/ProcessRoadmap";
 import HomeCasesSection from "@/components/HomeCasesSection";
@@ -13,14 +14,6 @@ import SEO from "@/components/SEO";
 
 const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 
-const deliverables = [
-  { code: "01", title: "Архитектурно-планировочное проектирование", desc: "Функциональное зонирование, планировки помещений, расстановка оборудования с учётом нормативных требований." },
-  { code: "02", title: "Проектирование инженерных систем", desc: "Вентиляция, электроснабжение, водоснабжение, канализация, слаботочные системы — всё в комплекте рабочей документации." },
-  { code: "03", title: "Рабочая документация", desc: "Полный комплект чертежей для строительно-монтажных работ с детализацией всех инженерных узлов и отделки." },
-  { code: "04", title: "Авторский надзор на стройке", desc: "Регулярные выезды на объект, контроль соответствия выполненных работ проектной документации." },
-  { code: "05", title: "Технический надзор за качеством", desc: "Проверка материалов, технологий монтажа и соблюдения сметной документации подрядчиком." },
-  { code: "06", title: "Комплексное ведение проекта", desc: "Ваш проект ведёт один инженер с прямым контактом от замера до ввода объекта в эксплуатацию." },
-];
 
 const whyUs = [
   { value: "12+", label: "лет в проектировании медицинских объектов" },
@@ -48,14 +41,6 @@ const problems = [
   },
 ];
 
-const specializations = [
-  { title: "Многопрофильные клиники", desc: "Поликлиники и диагностические центры с интеграцией всех направлений в единое пространство." },
-  { title: "Стоматологические центры", desc: "От одного кабинета до клиники с хирургическим блоком и собственной стерилизационной." },
-  { title: "Клиники пластической хирургии", desc: "Операционные блоки, реанимация, палаты дневного стационара — полный цикл эстетической медицины." },
-  { title: "МРТ-кабинеты комфорт+ и выше", desc: "Электромагнитное и виброэкранирование, расчёт защиты, СЭЗ под конкретную модель томографа." },
-  { title: "Косметология и лазерные центры", desc: "Инъекционные кабинеты, лазерные залы, чистые помещения для малоинвазивных вмешательств." },
-  { title: "Офтальмологические центры", desc: "Диагностика, лазерная хирургия, операционные с системой чистых помещений." },
-];
 
 const Index = () => {
   return (
@@ -80,44 +65,8 @@ const Index = () => {
       {/* 1. HERO */}
       <HeroSimpleSection />
 
-      {/* 2. ЧТО КЛИЕНТ ПОЛУЧАЕТ */}
-      <section className="py-28 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={transition}
-            className="max-w-3xl mb-16"
-          >
-            <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-4 block">
-              Что вы получаете
-            </span>
-            <h2 className="text-3xl md:text-5xl font-display font-semibold text-foreground leading-tight">
-              Полный комплект для запуска клиники — от чертежа до лицензии
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-3xl overflow-hidden border border-border">
-            {deliverables.map((d, i) => (
-              <motion.div
-                key={d.code}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ ...transition, delay: i * 0.05 }}
-                className="bg-background p-8"
-              >
-                <span className="font-mono text-xs text-accent mb-4 block">{d.code}</span>
-                <h3 className="text-lg font-display font-semibold text-foreground mb-3 leading-snug">
-                  {d.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{d.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 2. СПЕЦИАЛИЗАЦИИ */}
+      <SpecializationsSection />
 
       {/* 3. ПОЧЕМУ ИМЕННО МЫ */}
       <section className="py-28 px-6 md:px-12 bg-secondary/40">
@@ -216,49 +165,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* 5. НА КАКИХ КЛИНИКАХ СПЕЦИАЛИЗИРУЕМСЯ */}
-      <section className="py-28 px-6 md:px-12 bg-secondary/40">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={transition}
-            className="max-w-3xl mb-16"
-          >
-            <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-4 block">
-              Специализация
-            </span>
-            <h2 className="text-3xl md:text-5xl font-display font-semibold text-foreground leading-tight mb-6">
-              Профили клиник, на которых мы концентрируемся
-            </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              Медицинские учреждения от 400 м² класса комфорт+ и выше.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-3xl overflow-hidden border border-border">
-            {specializations.map((s, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ ...transition, delay: i * 0.05 }}
-                className="bg-background p-8"
-              >
-                <span className="font-mono text-[10px] tracking-widest text-accent mb-3 block">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="text-lg font-display font-semibold text-foreground mb-2 leading-snug">
-                  {s.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* FORM 2 */}
       <section className="py-16 px-6 md:px-12">
