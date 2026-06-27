@@ -27,7 +27,7 @@ const HeroSimpleSection = () => {
           transition={transition}
           className="text-3xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-[1.1] tracking-tight mb-6"
         >
-          Проектируем клиники от 400 м²
+          Проектирование медицинских учреждений с полным циклом сопровождения
         </motion.h1>
 
         <motion.p
@@ -35,9 +35,9 @@ const HeroSimpleSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ ...transition, delay: 0.15 }}
-          className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto mb-4 leading-relaxed"
+          className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-4 leading-relaxed"
         >
-          Проекты от 1 500 000 ₽. Не участвуем в тендерах и не делаем дешёвых проектов — только качественно и в долгую.
+          Специализируемся на многопрофильных клиниках, стоматологических центрах, клиниках пластической хирургии и МРТ-кабинетах сегмента комфорт+ и выше.
         </motion.p>
 
         <motion.p
@@ -47,7 +47,7 @@ const HeroSimpleSection = () => {
           transition={{ ...transition, delay: 0.25 }}
           className="text-foreground/60 max-w-xl mx-auto mb-10 leading-relaxed"
         >
-          Сами выбираем клиентов. Если взялись — доводим от замера до медицинской лицензии. Звоните или оставьте заявку — всё объясним лично.
+          От замера помещения до получения медицинской лицензии — проектирование, СЭЗ, согласование в Росздравнадзоре и Минздраве, авторский надзор.
         </motion.p>
 
         <motion.div
@@ -61,7 +61,7 @@ const HeroSimpleSection = () => {
             onClick={openCallback}
             className="bg-accent text-accent-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity"
           >
-            Оставить заявку
+            Обсудить проект
           </button>
           <a
             href="tel:+79182633627"
