@@ -242,8 +242,6 @@ const Index = () => {
       {/* 7. ПРИМЕРЫ РАБОТ */}
       <HomeCasesSection />
 
-      {/* 8. НАШ ПОДХОД (тёмный блок) */}
-      <LicensingCompanionSection />
 
       {/* 9. ДОП ИНФОРМАЦИЯ / СТАТИСТИКА */}
       <StatsSection />
