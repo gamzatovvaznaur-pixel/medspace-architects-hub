@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, type MotionValue } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, FileText, BookOpen } from "lucide-react";
@@ -7,28 +7,7 @@ import FooterSection from "@/components/FooterSection";
 import SEO from "@/components/SEO";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 
-type Side = "left" | "right";
-type Scatter =
-  | {
-      kind: "article";
-      side: Side;
-      slug: string;
-      title: string;
-      tag: string;
-    }
-  | {
-      kind: "norm";
-      side: Side;
-      code: string;
-      title: string;
-    };
-
-const screens: {
-  kicker: string;
-  title: string;
-  sub: string;
-  scatter?: Scatter[];
-}[] = [
+const screens = [
   {
     kicker: "Пролог",
     title: "Как спроектировать медицинскую клинику?",
@@ -38,156 +17,83 @@ const screens: {
     kicker: "Шаг 1",
     title: "Формируем медицинскую концепцию",
     sub: "Чётко определяем специализацию клиники и составляем точный перечень необходимых кабинетов.",
-    scatter: [
-      {
-        kind: "article",
-        side: "right",
-        slug: "mnogoprofilnyy-centr",
-        title: "Проектирование многопрофильного медцентра: логистика потоков",
-        tag: "Статья",
-      },
-    ],
   },
   {
     kicker: "Шаг 2",
     title: "Расчёт площади и технологические нюансы",
     sub: "Высчитываем необходимый метраж и сразу закладываем спецтребования — например, для МРТ или рентген-кабинетов.",
-    scatter: [
-      {
-        kind: "article",
-        side: "left",
-        slug: "normy-ploshadi-medicinskih-kabinetov",
-        title: "Нормы площади медкабинетов: как не потерять метры",
-        tag: "Статья",
-      },
-      {
-        kind: "norm",
-        side: "right",
-        code: "СП 158.13330.2014",
-        title: "Здания и помещения медицинских организаций",
-      },
-    ],
   },
   {
     kicker: "Шаг 3",
     title: "Поиск и аудит помещения",
     sub: "Подбираем оптимальную локацию, проверяем её на соответствие нормативам и финализируем договор аренды.",
-    scatter: [
-      {
-        kind: "article",
-        side: "right",
-        slug: "vybor-pomeshcheniya-pod-kliniku",
-        title: "Как выбрать помещение под клинику: чек-лист",
-        tag: "Чек-лист",
-      },
-      {
-        kind: "norm",
-        side: "left",
-        code: "СанПиН 2.1.3678-20",
-        title: "Санитарно-эпидемиологические требования к эксплуатации помещений",
-      },
-    ],
   },
   {
     kicker: "Шаг 4",
     title: "Планировочные решения и дизайн",
     sub: "Создаём эргономичное пространство строго по СанПиН, где эстетика сочетается с технологией.",
-    scatter: [
-      {
-        kind: "article",
-        side: "left",
-        slug: "dostupnaya-sreda-mgn",
-        title: "Доступная среда: проектирование с учётом требований МГН",
-        tag: "Статья",
-      },
-      {
-        kind: "article",
-        side: "right",
-        slug: "medicinskie-othody",
-        title: "Сбор и хранение медотходов классов А, Б, В",
-        tag: "Статья",
-      },
-    ],
   },
   {
     kicker: "Шаг 5",
     title: "Проектирование инженерных систем",
     sub: "Разрабатываем разделы вентиляции, электрики, водоснабжения и слаботочных сетей. При необходимости — готовим смету.",
-    scatter: [
-      {
-        kind: "article",
-        side: "right",
-        slug: "ventilyaciya-operacionnyh",
-        title: "Вентиляция в операционных и чистых помещениях",
-        tag: "Инженерия",
-      },
-      {
-        kind: "article",
-        side: "left",
-        slug: "elektrosnabzhenie-klinik",
-        title: "Электроснабжение и ИБП первой категории надёжности",
-        tag: "Инженерия",
-      },
-      {
-        kind: "norm",
-        side: "right",
-        code: "СП 60.13330.2020",
-        title: "Отопление, вентиляция и кондиционирование воздуха",
-      },
-    ],
   },
   {
     kicker: "Шаг 6",
     title: "Детальный план строительных работ",
     sub: "Формируем пошаговый график и регламент работ, чтобы строители реализовали проект без ошибок и задержек.",
-    scatter: [
-      {
-        kind: "article",
-        side: "left",
-        slug: "proektirovanie-rentgen-kabineta",
-        title: "Проектирование рентген-кабинета и получение СЭЗ",
-        tag: "Лицензирование",
-      },
-      {
-        kind: "norm",
-        side: "right",
-        code: "СанПиН 2.6.1.1192-03",
-        title: "Гигиенические требования к устройству и эксплуатации рентген-кабинетов",
-      },
-    ],
   },
 ];
 
-const ScatterCard = ({ item }: { item: Scatter }) => {
-  const sideClass =
-    item.side === "left"
-      ? "left-4 md:left-[6%] lg:left-[10%]"
-      : "right-4 md:right-[6%] lg:right-[10%]";
-  const rotate = item.side === "left" ? "-rotate-[2deg]" : "rotate-[2deg]";
+type Scatter =
+  | { kind: "article"; slug: string; title: string; tag: string; top: string; left: string; rotate: number; depth: number }
+  | { kind: "norm"; code: string; title: string; top: string; left: string; rotate: number; depth: number };
+
+// Chaotically scattered cards (top is % of full container; left is % of viewport width).
+// depth = parallax factor: 0 = static, 1 = strong parallax.
+const scatters: Scatter[] = [
+  { kind: "article", slug: "mnogoprofilnyy-centr", title: "Логистика потоков в многопрофильном медцентре", tag: "Статья", top: "11%", left: "72%", rotate: -4, depth: 0.6 },
+  { kind: "norm", code: "СП 158.13330.2014", title: "Здания медицинских организаций", top: "18%", left: "8%", rotate: 5, depth: 0.4 },
+  { kind: "article", slug: "normy-ploshadi-medicinskih-kabinetov", title: "Нормы площади: как не потерять метры", tag: "Чек-лист", top: "26%", left: "78%", rotate: 3, depth: 0.8 },
+  { kind: "article", slug: "vybor-pomeshcheniya-pod-kliniku", title: "Как выбрать помещение под клинику", tag: "Статья", top: "34%", left: "5%", rotate: -6, depth: 0.5 },
+  { kind: "norm", code: "СанПиН 2.1.3678-20", title: "Санитарные требования к эксплуатации помещений", top: "42%", left: "74%", rotate: -3, depth: 0.3 },
+  { kind: "article", slug: "dostupnaya-sreda-mgn", title: "Доступная среда для МГН", tag: "Статья", top: "49%", left: "10%", rotate: 4, depth: 0.7 },
+  { kind: "article", slug: "medicinskie-othody", title: "Медотходы классов А, Б, В", tag: "Статья", top: "57%", left: "80%", rotate: -5, depth: 0.5 },
+  { kind: "article", slug: "ventilyaciya-operacionnyh", title: "Вентиляция в операционных и чистых помещениях", tag: "Инженерия", top: "65%", left: "6%", rotate: 6, depth: 0.9 },
+  { kind: "norm", code: "СП 60.13330.2020", title: "Отопление, вентиляция и кондиционирование", top: "72%", left: "76%", rotate: 2, depth: 0.4 },
+  { kind: "article", slug: "elektrosnabzhenie-klinik", title: "ИБП и первая категория надёжности", tag: "Инженерия", top: "80%", left: "9%", rotate: -4, depth: 0.6 },
+  { kind: "article", slug: "proektirovanie-rentgen-kabineta", title: "Проектирование рентген-кабинета и СЭЗ", tag: "Лицензирование", top: "87%", left: "73%", rotate: 5, depth: 0.7 },
+  { kind: "norm", code: "СанПиН 2.6.1.1192-03", title: "Устройство и эксплуатация рентген-кабинетов", top: "92%", left: "12%", rotate: -3, depth: 0.4 },
+];
+
+const ScatterCard = ({ item, progress }: { item: Scatter; progress: MotionValue<number> }) => {
+  // Parallax: card drifts upward as user scrolls past it.
+  const y = useTransform(progress, [0, 1], [80 * item.depth, -80 * item.depth]);
+  const smoothY = useSpring(y, { stiffness: 60, damping: 20, mass: 0.6 });
+
+  const baseClass =
+    "absolute z-10 max-w-[240px] hidden md:block transition-transform duration-500 hover:!rotate-0 hover:-translate-y-1";
 
   if (item.kind === "article") {
     return (
       <motion.div
-        initial={{ opacity: 0, y: 30, rotate: 0 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className={`hidden md:block absolute top-1/2 -translate-y-1/2 ${sideClass} z-10 max-w-[260px] ${rotate} hover:rotate-0 transition-transform duration-500`}
+        initial={{ opacity: 0, scale: 0.85, y: 40 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        style={{ top: item.top, left: item.left, rotate: item.rotate, y: smoothY }}
+        className={baseClass}
       >
         <Link
           to={`/blog/${item.slug}`}
-          className="block bg-background border border-border rounded-2xl p-5 shadow-[0_20px_60px_-30px_hsl(var(--foreground)/0.25)] hover:shadow-[0_30px_80px_-30px_hsl(var(--foreground)/0.35)] hover:-translate-y-1 transition-all group"
+          className="block bg-background border border-border rounded-2xl p-5 shadow-[0_25px_70px_-30px_hsl(var(--foreground)/0.3)] hover:shadow-[0_35px_90px_-30px_hsl(var(--foreground)/0.45)] transition-shadow group"
         >
           <div className="flex items-center gap-2 mb-3">
             <BookOpen className="w-3.5 h-3.5 text-accent" />
-            <span className="font-mono text-[9px] tracking-widest uppercase text-accent">
-              {item.tag}
-            </span>
+            <span className="font-mono text-[9px] tracking-widest uppercase text-accent">{item.tag}</span>
             <ArrowUpRight className="w-3.5 h-3.5 ml-auto text-muted-foreground group-hover:text-foreground transition-colors" />
           </div>
-          <p className="text-sm font-display font-medium text-foreground leading-snug">
-            {item.title}
-          </p>
+          <p className="text-sm font-display font-medium text-foreground leading-snug">{item.title}</p>
         </Link>
       </motion.div>
     );
@@ -195,18 +101,17 @@ const ScatterCard = ({ item }: { item: Scatter }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className={`hidden md:block absolute top-1/2 -translate-y-1/2 ${sideClass} z-10 max-w-[240px] ${rotate} hover:rotate-0 transition-transform duration-500`}
+      initial={{ opacity: 0, scale: 0.85, y: 40 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+      style={{ top: item.top, left: item.left, rotate: item.rotate, y: smoothY }}
+      className={baseClass}
     >
-      <div className="bg-secondary/60 border border-dashed border-border rounded-2xl p-5 backdrop-blur-sm">
+      <div className="bg-secondary/70 border border-dashed border-border rounded-2xl p-5 backdrop-blur-sm">
         <div className="flex items-center gap-2 mb-3">
           <FileText className="w-3.5 h-3.5 text-muted-foreground" />
-          <span className="font-mono text-[9px] tracking-widest uppercase text-muted-foreground">
-            Норматив
-          </span>
+          <span className="font-mono text-[9px] tracking-widest uppercase text-muted-foreground">Норматив</span>
         </div>
         <p className="font-mono text-[11px] text-accent mb-1.5">{item.code}</p>
         <p className="text-xs text-foreground leading-snug">{item.title}</p>
@@ -221,43 +126,28 @@ const Screen = ({
   sub,
   index,
   total,
-  scatter,
 }: {
   kicker: string;
   title: string;
   sub: string;
   index: number;
   total: number;
-  scatter?: Scatter[];
 }) => {
   const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.5, 1], [60, 0, -60]);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const opacity = useTransform(scrollYProgress, [0, 0.25, 0.7, 1], [0, 1, 1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.5, 1], [80, 0, -80]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.96, 1, 0.96]);
+  const smoothY = useSpring(y, { stiffness: 80, damping: 25 });
 
   return (
-    <section
-      ref={ref}
-      className="min-h-screen flex items-center justify-center px-6 md:px-12 relative"
-    >
-      {scatter?.map((s, i) => <ScatterCard key={i} item={s} />)}
-
-      <motion.div
-        style={{ opacity, y }}
-        className="max-w-3xl mx-auto text-center relative z-20"
-      >
-        <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-8">
-          {kicker}
-        </span>
+    <section ref={ref} className="min-h-screen flex items-center justify-center px-6 md:px-12 relative">
+      <motion.div style={{ opacity, y: smoothY, scale }} className="max-w-3xl mx-auto text-center relative z-20">
+        <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-8">{kicker}</span>
         <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-semibold text-foreground leading-[1.05] tracking-tight mb-8">
           {title}
         </h2>
-        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-          {sub}
-        </p>
+        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">{sub}</p>
       </motion.div>
 
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-widest text-muted-foreground/50 z-20">
@@ -268,24 +158,24 @@ const Screen = ({
 };
 
 const WindingRibbon = ({ progress }: { progress: MotionValue<number> }) => {
-  // viewBox stretches with container (preserveAspectRatio=none).
-  // Path: sine-like winding from top (x=50) to bottom, amplitude 40 in a 100-wide box.
-  const totalLen = 2400;
-  const dashOffset = useTransform(progress, [0, 1], [totalLen, 0]);
-
+  // Wide-amplitude winding path; spans full container vertically.
   const d = `
     M 50 0
-    C 90 80, 10 160, 50 240
-    S 90 400, 50 480
-    S 10 640, 50 720
-    S 90 880, 50 960
-    S 10 1120, 50 1200
-    S 90 1360, 50 1440
-    S 10 1600, 50 1680
-    S 90 1840, 50 1920
-    S 10 2080, 50 2160
-    S 90 2320, 50 2400
+    C 95 100, 5 220, 50 320
+    S 95 540, 50 640
+    S 5 860, 50 960
+    S 95 1180, 50 1280
+    S 5 1500, 50 1600
+    S 95 1820, 50 1920
+    S 5 2140, 50 2240
+    S 95 2360, 50 2400
   `;
+  const totalLen = 3000;
+
+  // Smooth spring on scroll progress to make the draw feel buttery.
+  const smooth = useSpring(progress, { stiffness: 90, damping: 30, mass: 0.4 });
+  const dashOffset = useTransform(smooth, [0, 1], [totalLen, 0]);
+  const glowOffset = useTransform(smooth, [0, 1], [totalLen, -100]);
 
   return (
     <svg
@@ -294,27 +184,56 @@ const WindingRibbon = ({ progress }: { progress: MotionValue<number> }) => {
       preserveAspectRatio="none"
       aria-hidden
     >
-      {/* faint base ribbon */}
+      <defs>
+        <linearGradient id="ribbonGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="hsl(var(--accent))" stopOpacity="0.9" />
+          <stop offset="50%" stopColor="hsl(var(--accent))" stopOpacity="1" />
+          <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.7" />
+        </linearGradient>
+        <filter id="ribbonGlow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
+      {/* faint base ribbon — always visible */}
       <path
         d={d}
         fill="none"
         stroke="hsl(var(--border))"
-        strokeWidth="0.6"
+        strokeWidth="2.5"
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
-        opacity="0.5"
+        opacity="0.6"
       />
-      {/* progressing accent ribbon */}
+
+      {/* glow halo following the draw */}
       <motion.path
         d={d}
         fill="none"
-        stroke="hsl(var(--accent))"
-        strokeWidth="1.2"
+        stroke="url(#ribbonGrad)"
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeDasharray={`${totalLen} ${totalLen}`}
+        style={{ strokeDashoffset: glowOffset }}
+        vectorEffect="non-scaling-stroke"
+        opacity="0.35"
+        filter="url(#ribbonGlow)"
+      />
+
+      {/* main accent ribbon — drawn as user scrolls */}
+      <motion.path
+        d={d}
+        fill="none"
+        stroke="url(#ribbonGrad)"
+        strokeWidth="3.5"
         strokeLinecap="round"
         strokeDasharray={totalLen}
         style={{ strokeDashoffset: dashOffset }}
         vectorEffect="non-scaling-stroke"
-        opacity="0.7"
       />
     </svg>
   );
@@ -337,6 +256,15 @@ const Story = () => {
       <div ref={containerRef} className="relative pt-16">
         <WindingRibbon progress={scrollYProgress} />
 
+        {/* Chaotic scatter layer covering entire container */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="relative w-full h-full pointer-events-auto">
+            {scatters.map((s, i) => (
+              <ScatterCard key={i} item={s} progress={scrollYProgress} />
+            ))}
+          </div>
+        </div>
+
         {screens.map((s, i) => (
           <Screen key={i} {...s} index={i} total={screens.length + 1} />
         ))}
@@ -350,9 +278,7 @@ const Story = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-3xl mx-auto text-center relative z-20"
           >
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-8">
-              Эпилог
-            </span>
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-8">Эпилог</span>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-semibold text-foreground leading-[1.05] tracking-tight mb-8">
               Время действовать
             </h2>
