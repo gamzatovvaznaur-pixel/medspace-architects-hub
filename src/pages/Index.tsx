@@ -126,17 +126,53 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FORM 1 */}
+      {/* FORM 1 + ЛИЦЕНЗИИ */}
       <section className="py-16 px-6 md:px-12">
-        <div className="max-w-5xl mx-auto">
-          <InlineCallbackForm
-            id="home-form-1"
-            title="Обсудить ваш проект"
-            description="Оставьте номер — перезвоним в течение рабочего дня и бесплатно разберём ваше помещение и задачу."
-            subject="Заявка с главной — обсудить проект"
-          />
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+          <div className="lg:col-span-3">
+            <InlineCallbackForm
+              id="home-form-1"
+              title="Обсудить ваш проект"
+              description="Оставьте номер — перезвоним в течение рабочего дня и бесплатно разберём ваше помещение и задачу."
+              subject="Заявка с главной — обсудить проект"
+            />
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={transition}
+            className="lg:col-span-2 bg-card border border-border rounded-2xl p-6 md:p-8"
+          >
+            <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-3 block">
+              Право на работу
+            </span>
+            <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground mb-6 leading-snug">
+              Наши лицензии и допуски
+            </h3>
+            <div className="space-y-5">
+              {licenses.map((l) => (
+                <div key={l.title} className="flex gap-4 items-start">
+                  <div className="w-20 h-28 shrink-0 rounded-lg overflow-hidden bg-secondary/40 border border-border">
+                    <img src={l.img} alt={l.title} className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="text-sm font-display font-semibold text-foreground leading-tight">
+                      {l.title}
+                    </h4>
+                    <p className="font-mono text-[10px] tracking-wide text-muted-foreground mt-1 break-words">
+                      {l.meta}
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-2 leading-relaxed">{l.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
+
 
       {/* 4. ПРОБЛЕМЫ, КОТОРЫЕ РЕШАЕМ */}
       <section className="py-28 px-6 md:px-12">
