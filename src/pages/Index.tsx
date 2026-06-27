@@ -11,8 +11,25 @@ import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
 import InlineCallbackForm from "@/components/InlineCallbackForm";
 import SEO from "@/components/SEO";
+import certNopriz from "@/assets/cert-nopriz.png";
+import certIso from "@/assets/cert-iso.png";
 
 const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
+
+const licenses = [
+  {
+    img: certNopriz,
+    title: "СРО НОПРИЗ",
+    meta: "Рег. № П-185-231119468748-3166",
+    desc: "Право подготовки проектной документации для объектов капитального строительства.",
+  },
+  {
+    img: certIso,
+    title: "ГОСТ Р ИСО 9001-2015",
+    meta: "№ РОСС RU.31381.04ИБИ0/СМК.22417",
+    desc: "Система менеджмента качества процессов проектирования.",
+  },
+];
 
 
 const whyUs = [
@@ -24,20 +41,20 @@ const whyUs = [
 
 const problems = [
   {
-    pain: "Проектировщик сделал чертежи — и пропал",
-    solution: "Идём с вами до момента, когда клиника принимает первого пациента. Отвечаем за результат, а не за «сданный комплект».",
+    pain: "Не знаете, что вообще можно разместить в помещении",
+    solution: "Расскажем, какие кабинеты и направления реально проходят по площади, высоте потолков, водоснабжению и вентиляции — ещё до аренды или покупки.",
   },
   {
-    pain: "Помещение не проходит по СанПиН",
-    solution: "Проводим аудит до договора. Если помещение не подходит под лицензию — скажем сразу, до того как вы вложите деньги в ремонт.",
+    pain: "Не понимаете, как правильно проектировать клинику",
+    solution: "Объясним логику зонирования: чистые и грязные потоки, стерилизационная, санпропускник, изоляция кабинетов — на языке, понятном собственнику, а не проектировщику.",
   },
   {
-    pain: "Бесконечные замечания Роспотребнадзора",
-    solution: "Проектируем сразу под действующие нормы и берём согласование на себя. Замечания закрываем мы, а не вы.",
+    pain: "Не знаете, какие нормы и СанПиН касаются именно вас",
+    solution: "Подбираем нормативную базу под вашу специализацию: стоматология, хирургия, МРТ — у каждой свой набор требований. Покажем, что обязательно, а что — миф.",
   },
   {
-    pain: "Стройка идёт не по проекту",
-    solution: "Авторский надзор: выезжаем на объект, контролируем инженерные узлы, корректируем подрядчика на месте.",
+    pain: "Не понимаете, что войдёт в проект и какие документы нужны для лицензии",
+    solution: "Даём прозрачный состав проекта: разделы, чертежи, СЭЗ, экспертизы. Заранее видно, что вы получите на руки и что предъявите Росздравнадзору.",
   },
 ];
 
@@ -109,17 +126,53 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FORM 1 */}
+      {/* FORM 1 + ЛИЦЕНЗИИ */}
       <section className="py-16 px-6 md:px-12">
-        <div className="max-w-5xl mx-auto">
-          <InlineCallbackForm
-            id="home-form-1"
-            title="Обсудить ваш проект"
-            description="Оставьте номер — перезвоним в течение рабочего дня и бесплатно разберём ваше помещение и задачу."
-            subject="Заявка с главной — обсудить проект"
-          />
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+          <div className="lg:col-span-3">
+            <InlineCallbackForm
+              id="home-form-1"
+              title="Обсудить ваш проект"
+              description="Оставьте номер — перезвоним в течение рабочего дня и бесплатно разберём ваше помещение и задачу."
+              subject="Заявка с главной — обсудить проект"
+            />
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={transition}
+            className="lg:col-span-2 bg-card border border-border rounded-2xl p-6 md:p-8"
+          >
+            <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-3 block">
+              Право на работу
+            </span>
+            <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground mb-6 leading-snug">
+              Наши лицензии и допуски
+            </h3>
+            <div className="space-y-5">
+              {licenses.map((l) => (
+                <div key={l.title} className="flex gap-4 items-start">
+                  <div className="w-20 h-28 shrink-0 rounded-lg overflow-hidden bg-secondary/40 border border-border">
+                    <img src={l.img} alt={l.title} className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="text-sm font-display font-semibold text-foreground leading-tight">
+                      {l.title}
+                    </h4>
+                    <p className="font-mono text-[10px] tracking-wide text-muted-foreground mt-1 break-words">
+                      {l.meta}
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-2 leading-relaxed">{l.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
+
 
       {/* 4. ПРОБЛЕМЫ, КОТОРЫЕ РЕШАЕМ */}
       <section className="py-28 px-6 md:px-12">
@@ -132,11 +185,14 @@ const Index = () => {
             className="max-w-3xl mb-16"
           >
             <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-4 block">
-              Что мы закрываем
+              Что обычно непонятно
             </span>
-            <h2 className="text-3xl md:text-5xl font-display font-semibold text-foreground leading-tight">
-              Проблемы, с которыми к нам приходят
+            <h2 className="text-3xl md:text-5xl font-display font-semibold text-foreground leading-tight mb-6">
+              Чего собственник не знает до старта проектирования
             </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              На старте мало кто понимает, что именно можно разместить в помещении, как клинику правильно спроектировать и какие документы потребует лицензирование. Разбираем эти вопросы до договора.
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -150,13 +206,13 @@ const Index = () => {
                 className="border border-border rounded-2xl p-8 bg-background"
               >
                 <span className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-3 block">
-                  Боль клиента
+                  Непонятно клиенту
                 </span>
                 <h3 className="text-xl font-display font-semibold text-foreground mb-5 leading-snug">
                   {p.pain}
                 </h3>
                 <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-2 block">
-                  Как решаем
+                  Что делаем мы
                 </span>
                 <p className="text-muted-foreground leading-relaxed">{p.solution}</p>
               </motion.div>
@@ -164,6 +220,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+
 
 
       {/* FORM 2 */}
