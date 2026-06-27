@@ -37,7 +37,7 @@ const HeroSimpleSection = () => {
           transition={{ ...transition, delay: 0.15 }}
           className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-4 leading-relaxed"
         >
-          Специализируемся на многопрофильных клиниках, стоматологических центрах, клиниках пластической хирургии и МРТ-кабинетах сегмента комфорт+ и выше.
+          Специализируемся на медицинских учреждениях от 400 м² класса комфорт+ и выше.
         </motion.p>
 
         <motion.p
