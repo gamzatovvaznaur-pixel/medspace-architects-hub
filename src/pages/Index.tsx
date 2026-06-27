@@ -65,44 +65,8 @@ const Index = () => {
       {/* 1. HERO */}
       <HeroSimpleSection />
 
-      {/* 2. ЧТО КЛИЕНТ ПОЛУЧАЕТ */}
-      <section className="py-28 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={transition}
-            className="max-w-3xl mb-16"
-          >
-            <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-4 block">
-              Что вы получаете
-            </span>
-            <h2 className="text-3xl md:text-5xl font-display font-semibold text-foreground leading-tight">
-              Полный комплект для запуска клиники — от чертежа до лицензии
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-3xl overflow-hidden border border-border">
-            {deliverables.map((d, i) => (
-              <motion.div
-                key={d.code}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ ...transition, delay: i * 0.05 }}
-                className="bg-background p-8"
-              >
-                <span className="font-mono text-xs text-accent mb-4 block">{d.code}</span>
-                <h3 className="text-lg font-display font-semibold text-foreground mb-3 leading-snug">
-                  {d.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{d.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 2. СПЕЦИАЛИЗАЦИИ */}
+      <SpecializationsSection />
 
       {/* 3. ПОЧЕМУ ИМЕННО МЫ */}
       <section className="py-28 px-6 md:px-12 bg-secondary/40">
