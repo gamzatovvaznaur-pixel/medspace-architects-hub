@@ -165,49 +165,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* 5. НА КАКИХ КЛИНИКАХ СПЕЦИАЛИЗИРУЕМСЯ */}
-      <section className="py-28 px-6 md:px-12 bg-secondary/40">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={transition}
-            className="max-w-3xl mb-16"
-          >
-            <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-4 block">
-              Специализация
-            </span>
-            <h2 className="text-3xl md:text-5xl font-display font-semibold text-foreground leading-tight mb-6">
-              Профили клиник, на которых мы концентрируемся
-            </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              Медицинские учреждения от 400 м² класса комфорт+ и выше.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-3xl overflow-hidden border border-border">
-            {specializations.map((s, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ ...transition, delay: i * 0.05 }}
-                className="bg-background p-8"
-              >
-                <span className="font-mono text-[10px] tracking-widest text-accent mb-3 block">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="text-lg font-display font-semibold text-foreground mb-2 leading-snug">
-                  {s.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* FORM 2 */}
       <section className="py-16 px-6 md:px-12">
