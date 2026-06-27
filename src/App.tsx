@@ -25,6 +25,7 @@ const Overview = lazy(() => import("./pages/Overview.tsx"));
 const Licensing = lazy(() => import("./pages/Licensing.tsx"));
 const Blog = lazy(() => import("./pages/Blog.tsx"));
 const BlogPost = lazy(() => import("./pages/BlogPost.tsx"));
+const Story = lazy(() => import("./pages/Story.tsx"));
 
 const PageLoader = () => (
   <div className="min-h-screen bg-background" aria-label="Загрузка страницы" />
@@ -58,6 +59,7 @@ const App = () => (
             <Route path="/licensing" element={withSuspense(<Licensing />)} />
             <Route path="/blog" element={withSuspense(<Blog />)} />
             <Route path="/blog/:slug" element={withSuspense(<BlogPost />)} />
+            <Route path="/story" element={withSuspense(<Story />)} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={withSuspense(<NotFound />)} />
           </Routes>
