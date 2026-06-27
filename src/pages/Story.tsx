@@ -1,5 +1,4 @@
-import { motion, useScroll, useTransform, useSpring, type MotionValue } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, FileText, BookOpen } from "lucide-react";
 import HeaderNav from "@/components/HeaderNav";
