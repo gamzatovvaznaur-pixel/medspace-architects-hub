@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import HeaderNav from "@/components/HeaderNav";
 import HeroSimpleSection from "@/components/HeroSimpleSection";
+import SpecializationsSection from "@/components/SpecializationsSection";
 import LicensingCompanionSection from "@/components/LicensingCompanionSection";
 import ProcessRoadmap from "@/components/ProcessRoadmap";
 import HomeCasesSection from "@/components/HomeCasesSection";
