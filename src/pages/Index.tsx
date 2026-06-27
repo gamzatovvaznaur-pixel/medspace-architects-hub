@@ -29,43 +29,54 @@ const Index = () => {
       <HeroSimpleSection />
 
       <section className="py-20 px-6 md:px-12">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-6"
+            className="mb-10 max-w-2xl"
           >
-            <div className="flex gap-4 items-start">
-              <span className="text-accent font-display text-2xl leading-none mt-1">→</span>
-              <div>
-                <h3 className="text-xl font-semibold text-foreground mb-1">Только клиники от 400 м²</h3>
-                <p className="text-foreground/60">Меньшие объекты не берём — проект требует той же экспертизы, а сроки не позволяют делать это экономично.</p>
-              </div>
-            </div>
-            <div className="flex gap-4 items-start">
-              <span className="text-accent font-display text-2xl leading-none mt-1">→</span>
-              <div>
-                <h3 className="text-xl font-semibold text-foreground mb-1">От 1 500 000 ₽ за проект</h3>
-                <p className="text-foreground/60">Если нужен дешёвый проект — это не к нам. Мы работаем качественно, с гарантией прохождения СЭЗ и лицензирования.</p>
-              </div>
-            </div>
-            <div className="flex gap-4 items-start">
-              <span className="text-accent font-display text-2xl leading-none mt-1">→</span>
-              <div>
-                <h3 className="text-xl font-semibold text-foreground mb-1">Не участвуем в тендерах</h3>
-                <p className="text-foreground/60">Просьбы о тендерном участии не принимаем. Мы сами выбираем клиентов и работаем напрямую.</p>
-              </div>
-            </div>
-            <div className="flex gap-4 items-start">
-              <span className="text-accent font-display text-2xl leading-none mt-1">→</span>
-              <div>
-                <h3 className="text-xl font-semibold text-foreground mb-1">Доводим до конца</h3>
-                <p className="text-foreground/60">Если взялись — сопровождаем от замера помещения до получения медицинской лицензии. Без передачи на аутсорс.</p>
-              </div>
-            </div>
+            <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-3 block">
+              Экспертиза
+            </span>
+            <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground leading-tight">
+              Проектируем медицинские учреждения любой сложности
+            </h2>
           </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+            {[
+              { title: "Многопрофильные клиники", desc: "Поликлиники, диагностические центры, интеграция всех направлений в единое пространство" },
+              { title: "Стоматологические центры", desc: "От одного кабинета до клиники с хирургическим блоком, цифровым потоком и собственным стерилизационным отделением" },
+              { title: "Клиники пластической хирургии", desc: "Операционные блоки, реанимация, палаты дневного стационара — полный цикл эстетической медицины" },
+              { title: "МРТ-кабинеты комфорт+", desc: "Электромагнитное и виброэкранирование, расчёт радиационной защиты, получение СЭЗ" },
+              { title: "Рентген-кабинеты", desc: "Проектирование под защиту от ионизирующего излучения, согласование с Роспотребнадзором" },
+              { title: "Косметологические клиники", desc: "Инъекционные кабинеты, лазерные залы, чистые помещения для малоинвазивных вмешательств" },
+              { title: "Офтальмологические центры", desc: "Диагностические комплексы, лазерные операционные, чистые помещения для хирургии зрения" },
+              { title: "Медицинские лаборатории", desc: "ПЦР, бактериологические, клинико-диагностические — зоны чистоты, вентиляция, логистика проб" },
+              { title: "Стационары и хосписы", desc: "Палатные отделения, реанимационные блоки, операционные с полным инженерным обеспечением" },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: i * 0.04 }}
+                className="bg-background p-7 group hover:bg-secondary/50 transition-colors"
+              >
+                <span className="font-mono text-[10px] tracking-widest text-accent mb-3 block">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="text-lg font-display font-semibold text-foreground mb-1.5">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
