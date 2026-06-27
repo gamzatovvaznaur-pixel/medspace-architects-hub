@@ -264,13 +264,7 @@ const Story = () => {
 
         {/* Final CTA screen */}
         <section className="min-h-screen flex items-center justify-center px-6 md:px-12 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-3xl mx-auto text-center relative z-20"
-          >
+          <div className="max-w-3xl mx-auto text-center relative z-20">
             <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-8">Эпилог</span>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-semibold text-foreground leading-[1.05] tracking-tight mb-8">
               Время действовать
