@@ -185,11 +185,14 @@ const Index = () => {
             className="max-w-3xl mb-16"
           >
             <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-4 block">
-              Что мы закрываем
+              Что обычно непонятно
             </span>
-            <h2 className="text-3xl md:text-5xl font-display font-semibold text-foreground leading-tight">
-              Проблемы, с которыми к нам приходят
+            <h2 className="text-3xl md:text-5xl font-display font-semibold text-foreground leading-tight mb-6">
+              Чего собственник не знает до старта проектирования
             </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              На старте мало кто понимает, что именно можно разместить в помещении, как клинику правильно спроектировать и какие документы потребует лицензирование. Разбираем эти вопросы до договора.
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -203,13 +206,13 @@ const Index = () => {
                 className="border border-border rounded-2xl p-8 bg-background"
               >
                 <span className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-3 block">
-                  Боль клиента
+                  Непонятно клиенту
                 </span>
                 <h3 className="text-xl font-display font-semibold text-foreground mb-5 leading-snug">
                   {p.pain}
                 </h3>
                 <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-2 block">
-                  Как решаем
+                  Что делаем мы
                 </span>
                 <p className="text-muted-foreground leading-relaxed">{p.solution}</p>
               </motion.div>
@@ -217,6 +220,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+
 
 
       {/* FORM 2 */}
