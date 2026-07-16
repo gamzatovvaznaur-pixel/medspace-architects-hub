@@ -87,7 +87,46 @@ const Index = () => {
       {/* 1. HERO */}
       <HeroSimpleSection />
 
-      {/* 2. СПЕЦИАЛИЗАЦИИ */}
+      {/* 2. ИТОГИ 2025 */}
+      <StatsSection />
+
+      {/* 3. ЧТО ВХОДИТ В ПРОЕКТ */}
+      <section className="py-20 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={transition}
+            className="max-w-3xl"
+          >
+            <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-4 block">
+              Состав проекта
+            </span>
+            <h2 className="text-3xl md:text-5xl font-display font-semibold text-foreground leading-tight mb-6">
+              Что входит в наш проект?
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+              Мы можем разработать как проект капитального ремонта существующего помещения, так и проект для строительства нового здания — в каждом случае набор разрабатываемой документации будет индивидуальным. Запросите индивидуальную консультацию с нашим экспертом, он расскажет, что должно быть разработано в вашем случае.
+            </p>
+            <button
+              onClick={openCallback}
+              className="bg-accent text-accent-foreground px-8 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity inline-flex items-center gap-2"
+            >
+              Запросить консультацию
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 4. О КОМПАНИИ */}
+      <AboutPreviewSection />
+
+      {/* 5. КВИЗ */}
+      <QuizSection />
+
+      {/* 6. СПЕЦИАЛИЗАЦИИ */}
       <SpecializationsSection />
 
       {/* 3. ПОЧЕМУ ИМЕННО МЫ */}
