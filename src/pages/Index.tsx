@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import HeaderNav from "@/components/HeaderNav";
 import HeroSimpleSection from "@/components/HeroSimpleSection";
 import SpecializationsSection from "@/components/SpecializationsSection";
-import LicensingCompanionSection from "@/components/LicensingCompanionSection";
+import AboutPreviewSection from "@/components/AboutPreviewSection";
 import ProcessRoadmap from "@/components/ProcessRoadmap";
+import QuizSection from "@/components/QuizSection";
 
 import StatsSection from "@/components/StatsSection";
 import ContactSection from "@/components/ContactSection";
