@@ -48,10 +48,10 @@ const AboutPreviewSection = () => {
             className="grid grid-cols-2 gap-6"
           >
             {[
-              { value: "Множество", label: "реализованных проектов" },
-              { value: "Десятки", label: "городов России и СНГ" },
-              { value: "Полный цикл", label: "проектирования медицинских объектов" },
-              { value: "Узкая", label: "специализация на медицинских нормативах" },
+              { value: "38", label: "проектов за 2025 год" },
+              { value: "12+", label: "регионов России и СНГ" },
+              { value: "100%", label: "прохождение Роспотребнадзора" },
+              { value: "ИСО 9001", label: "сертифицированные процессы" },
             ].map((stat, i) => (
               <div key={i} className="border border-white/10 rounded-2xl p-6">
                 <span className="text-2xl font-display font-bold text-accent">{stat.value}</span>
