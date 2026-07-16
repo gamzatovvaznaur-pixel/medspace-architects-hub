@@ -13,7 +13,7 @@ const FooterSection = () => {
           <div className="md:col-span-2">
             <Link to="/" onClick={scrollToTop} className="font-display font-bold text-xl tracking-tight text-foreground">МедПроект</Link>
             <p className="text-sm text-muted-foreground mt-3 max-w-sm leading-relaxed">
-              Проектирование медицинских учреждений, авторский надзор и прямые поставки оборудования из Китая.
+              Проектирование медицинских учреждений от 400 м² — до медицинской лицензии.
             </p>
             <button
               onClick={openCallback}
@@ -28,8 +28,7 @@ const FooterSection = () => {
               <li><Link to="/about" onClick={scrollToTop} className="text-sm text-muted-foreground hover:text-foreground transition-colors">О компании</Link></li>
               <li><Link to="/services" onClick={scrollToTop} className="text-sm text-muted-foreground hover:text-foreground transition-colors">Услуги</Link></li>
               <li><Link to="/services/design" onClick={scrollToTop} className="text-sm text-muted-foreground hover:text-foreground transition-colors">Проектирование</Link></li>
-              <li><Link to="/services/equipment" onClick={scrollToTop} className="text-sm text-muted-foreground hover:text-foreground transition-colors">Оборудование</Link></li>
-              <li><Link to="/services/approval" onClick={scrollToTop} className="text-sm text-muted-foreground hover:text-foreground transition-colors">Согласование</Link></li>
+              <li><Link to="/licensing" onClick={scrollToTop} className="text-sm text-muted-foreground hover:text-foreground transition-colors">Лицензирование</Link></li>
               <li><Link to="/contacts" onClick={scrollToTop} className="text-sm text-muted-foreground hover:text-foreground transition-colors">Контакты</Link></li>
             </ul>
           </div>

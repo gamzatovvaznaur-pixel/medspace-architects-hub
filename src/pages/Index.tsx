@@ -5,7 +5,7 @@ import HeroSimpleSection from "@/components/HeroSimpleSection";
 import SpecializationsSection from "@/components/SpecializationsSection";
 import LicensingCompanionSection from "@/components/LicensingCompanionSection";
 import ProcessRoadmap from "@/components/ProcessRoadmap";
-import HomeCasesSection from "@/components/HomeCasesSection";
+
 import StatsSection from "@/components/StatsSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
@@ -239,8 +239,6 @@ const Index = () => {
       {/* 6. ПРОЦЕСС */}
       <ProcessRoadmap />
 
-      {/* 7. ПРИМЕРЫ РАБОТ */}
-      <HomeCasesSection />
 
 
       {/* 9. ДОП ИНФОРМАЦИЯ / СТАТИСТИКА */}

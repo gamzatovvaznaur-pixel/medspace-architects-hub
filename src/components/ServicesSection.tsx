@@ -5,13 +5,9 @@ import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 
 const services = [
-  
   { slug: "design", code: "01", title: "Проектная документация", description: "Чертежи, планировки и все разделы проекта для строительства или ремонта клиники." },
   { slug: "design", code: "02", title: "Рабочая документация", description: "Подробные чертежи для строителей: что, где и как монтировать." },
-  { slug: "supervision", code: "03", title: "Авторский надзор", description: "Следим, чтобы строители всё сделали точно по проекту." },
-  { slug: "equipment", code: "04", title: "Поставка оборудования", description: "Привозим медицинское оборудование напрямую от производителей." },
-  { slug: "furniture", code: "05", title: "Поставка мебели", description: "Медицинская мебель под ваш проект — кушетки, столы, шкафы." },
-  { slug: "approval", code: "06", title: "Согласование документации", description: "Проходим экспертизу и получаем разрешения за вас." },
+  { slug: "design", code: "03", title: "Технологические решения", description: "Расстановка оборудования, потоки пациентов и персонала под требования СанПиН." },
 ];
 
 const ServicesSection = () => {
@@ -31,7 +27,7 @@ const ServicesSection = () => {
               Услуги
             </span>
             <h2 className="text-3xl md:text-5xl font-semibold text-foreground max-w-3xl">
-              Полный цикл — от концепции до ввода в эксплуатацию
+              Проектирование медицинских учреждений
             </h2>
           </div>
           <Link

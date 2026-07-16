@@ -7,10 +7,6 @@ import InlineCallbackForm from "@/components/InlineCallbackForm";
 import SEO from "@/components/SEO";
 import serviceConsultationImg from "@/assets/service-consultation.jpg";
 import serviceDesignImg from "@/assets/service-design.jpg";
-import serviceSupervisionImg from "@/assets/service-supervision.jpg";
-import serviceEquipmentImg from "@/assets/service-equipment.jpg";
-import serviceFurnitureImg from "@/assets/service-furniture.jpg";
-import serviceApprovalImg from "@/assets/service-approval.jpg";
 import clinicStomatologyImg from "@/assets/clinic-stomatology.jpg";
 import clinicMultidisciplinaryImg from "@/assets/clinic-multidisciplinary.jpg";
 import clinicCosmetologyImg from "@/assets/clinic-cosmetology.jpg";
@@ -26,10 +22,6 @@ const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 const mainServices = [
   { slug: "consultation", code: "SRV-00", title: "Я не знаю, что мне нужно", summary: "Поможем разобраться: расскажем про виды проектирования, этапы и нужную документацию. Бесплатная консультация.", image: serviceConsultationImg },
   { slug: "design", code: "SRV-01", title: "Проектирование медицинских учреждений", summary: "Полный комплект проектной и рабочей документации с учётом специфики медицинской отрасли.", image: serviceDesignImg },
-  { slug: "supervision", code: "SRV-02", title: "Авторский надзор при строительстве", summary: "Контроль каждого этапа строительства, обеспечивающий точное соответствие проектным решениям.", image: serviceSupervisionImg },
-  { slug: "equipment", code: "SRV-03", title: "Поставка оборудования из Китая", summary: "Прямые контракты без посредников. Стоимость на 30–50% ниже европейских аналогов.", image: serviceEquipmentImg },
-  { slug: "furniture", code: "SRV-04", title: "Поставка медицинской мебели из Китая", summary: "Индивидуальное производство мебели под ваш проект — точные размеры и конфигурации.", image: serviceFurnitureImg },
-  { slug: "approval", code: "SRV-05", title: "Согласование документации в ГАСН", summary: "Полное сопровождение при прохождении государственной экспертизы и получение разрешений.", image: serviceApprovalImg },
 ];
 
 const clinicTypes = [
@@ -67,10 +59,10 @@ const ServicesPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Услуги — проектирование, надзор, поставки, лицензирование"
-        description="Полный спектр услуг: проектирование клиник, авторский надзор, поставки оборудования и мебели из Китая, согласование документации и сопровождение лицензирования."
+        title="Услуги — проектирование медицинских учреждений"
+        description="Проектирование клиник любой специализации: стоматологии, многопрофильные центры, МРТ и рентген-кабинеты, стационары. Доводим до медицинской лицензии."
         path="/services"
-        keywords="услуги проектирования клиник, авторский надзор, поставка медицинского оборудования, согласование ГАСН"
+        keywords="проектирование клиник, проект медицинского учреждения, проект стоматологии, проект МРТ-кабинета"
       />
       <HeaderNav />
 
@@ -79,10 +71,10 @@ const ServicesPage = () => {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transition}>
             <span className="font-mono text-[10px] tracking-widest uppercase text-accent mb-4 block">Наши услуги</span>
             <h1 className="text-4xl md:text-6xl font-semibold text-foreground max-w-4xl mb-6">
-              Полный цикл — от концепции до ввода в эксплуатацию
+              Проектирование медицинских учреждений
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              Мы закрываем все этапы создания медицинского учреждения: проектирование, надзор, поставки и согласование.
+              Мы занимаемся только проектированием клиник — от планировки под лицензию до полного комплекта рабочей документации.
             </p>
           </motion.div>
         </div>
