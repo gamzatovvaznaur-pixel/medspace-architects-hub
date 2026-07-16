@@ -50,8 +50,8 @@ const AboutPreviewSection = () => {
             {[
               { value: "Множество", label: "реализованных проектов" },
               { value: "Десятки", label: "городов России и СНГ" },
-              { value: "Полный цикл", label: "проектирования и поставок" },
-              { value: "Значительная", label: "экономия на оборудовании" },
+              { value: "Полный цикл", label: "проектирования медицинских объектов" },
+              { value: "Узкая", label: "специализация на медицинских нормативах" },
             ].map((stat, i) => (
               <div key={i} className="border border-white/10 rounded-2xl p-6">
                 <span className="text-2xl font-display font-bold text-accent">{stat.value}</span>
