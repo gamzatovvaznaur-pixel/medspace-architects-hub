@@ -280,13 +280,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* 6. ПРОЦЕСС */}
+      {/* 7. ПРОЦЕСС */}
       <ProcessRoadmap />
-
-
-
-      {/* 9. ДОП ИНФОРМАЦИЯ / СТАТИСТИКА */}
-      <StatsSection />
 
       {/* 10. ДОП ССЫЛКИ */}
       <section className="py-20 px-6 md:px-12">
