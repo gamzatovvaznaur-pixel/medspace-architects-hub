@@ -19,9 +19,8 @@ import HeaderNav from "@/components/HeaderNav";
 import CasesSection from "@/components/CasesSection";
 import ConsentCheckbox from "@/components/ConsentCheckbox";
 import heroImg from "@/assets/hero-blueprint.jpg";
+import { submitLead } from "@/lib/submitLead";
 
-const FORMSPREE_QUIZ = "https://formspree.io/f/xykllrgn";
-const FORMSPREE_CONTACT = "https://formspree.io/f/xlgaaqrw";
 const PHONE_DISPLAY = "+7 (918) 263-36-27";
 const PHONE_RAW = "+79182633627";
 const PHONE_HREF = "tel:+79182633627";
@@ -101,15 +100,11 @@ const ContactForm = ({ subjectTag }: { subjectTag: string }) => {
     }
     setSending(true);
     try {
-      await fetch(FORMSPREE_CONTACT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          phone,
-          description,
-          source: "Landing /landing2",
-          _subject: `Лендинг 2 — ${subjectTag} — МедПроект`,
-        }),
+      await submitLead({
+        formId: "xlgaaqrw",
+        subject: `Лендинг 2 — ${subjectTag} — МедПроект`,
+        source: "Landing /landing2",
+        data: { phone, description },
       });
       setSubmitted(true);
     } catch {
