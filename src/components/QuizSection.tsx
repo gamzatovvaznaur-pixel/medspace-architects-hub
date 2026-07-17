@@ -208,7 +208,7 @@ const QuizSection = () => {
                     exit={{ opacity: 0, x: -30 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h3 className="text-xl md:text-2xl font-display font-semibold text-white mb-6">
+                    <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground mb-6">
                       {questions[currentStep].question}
                     </h3>
                     <div className="space-y-3">
@@ -216,12 +216,15 @@ const QuizSection = () => {
                         <button
                           key={option}
                           onClick={() => handleAnswer(option)}
-                          className={`w-full text-left px-5 py-4 rounded-xl border transition-all ${
+                          className={`w-full text-left px-5 py-4 rounded-xl border-2 transition-all ${
                             answers[currentStep] === option
-                              ? "border-accent bg-accent/10 text-white"
-                              : "border-white/10 text-white/70 hover:border-white/30 hover:text-white"
+                              ? "border-accent bg-accent/10 text-foreground font-medium"
+                              : "border-border text-muted-foreground hover:border-accent/40 hover:text-foreground"
                           }`}
                         >
+                          {answers[currentStep] === option && (
+                            <span className="inline-block w-2 h-2 rounded-full bg-accent mr-3 align-middle" />
+                          )}
                           {option}
                         </button>
                       ))}
