@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle2, ClipboardList, Sparkles } from "lucide-react";
 import ConsentCheckbox from "./ConsentCheckbox";
 import { submitLead } from "@/lib/submitLead";
 
