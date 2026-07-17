@@ -2,8 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
 import ConsentCheckbox from "./ConsentCheckbox";
-
-const FORMSPREE_URL = "https://formspree.io/f/xykllrgn";
+import { submitLead } from "@/lib/submitLead";
 
 const questions = [
   {
@@ -65,20 +64,14 @@ const questions = [
 
 const transition = { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const };
 
-const buildQuizFormData = (answers: Record<number, string>, phone: string) => {
-  const formData = new FormData();
+const buildQuizPayload = (answers: Record<number, string>, phone: string) => {
   const quizResults = questions.map((q, i) => `${q.question}: ${answers[i] || "—"}`).join("\n");
-
-  formData.append("phone", phone);
-  formData.append("quiz", quizResults);
-  formData.append("_subject", "Квиз — расчёт стоимости — МедПроект");
-
+  const payload: Record<string, string> = { phone, quiz: quizResults };
   questions.forEach((q, i) => {
-    formData.append(`question_${i + 1}`, q.question);
-    formData.append(`answer_${i + 1}`, answers[i] || "—");
+    payload[`question_${i + 1}`] = q.question;
+    payload[`answer_${i + 1}`] = answers[i] || "—";
   });
-
-  return formData;
+  return payload;
 };
 
 const QuizSection = () => {
@@ -126,16 +119,12 @@ const QuizSection = () => {
     setSending(true);
 
     try {
-      const response = await fetch(FORMSPREE_URL, {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: buildQuizFormData(answers, phone),
+      await submitLead({
+        formId: "xykllrgn",
+        subject: "Квиз — расчёт стоимости — МедПроект",
+        source: "QuizSection",
+        data: buildQuizPayload(answers, phone),
       });
-
-      if (!response.ok) {
-        throw new Error("Form submission failed");
-      }
-
       setSubmitted(true);
     } catch {
       alert("Ошибка отправки. Попробуйте позже.");

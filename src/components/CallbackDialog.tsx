@@ -2,9 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import ConsentCheckbox from "./ConsentCheckbox";
-
-const FORMSPREE_URL_DEFAULT = "https://formspree.io/f/mdapgwjz";
-const FORMSPREE_URL_LANDING = "https://formspree.io/f/xlgaaqrw";
+import { submitLead } from "@/lib/submitLead";
 
 interface CallbackDialogProps {
   open: boolean;
@@ -33,12 +31,12 @@ const CallbackDialog = ({ open, onOpenChange }: CallbackDialogProps) => {
     }
     setSending(true);
     const isLanding = typeof window !== "undefined" && window.location.hash.includes("/landing");
-    const url = isLanding ? FORMSPREE_URL_LANDING : FORMSPREE_URL_DEFAULT;
     try {
-      await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone, _subject: isLanding ? "Лендинг — обратный звонок — МедПроект" : "Обратный звонок — МедПроект" }),
+      await submitLead({
+        formId: isLanding ? "xlgaaqrw" : "mdapgwjz",
+        subject: isLanding ? "Лендинг — обратный звонок — МедПроект" : "Обратный звонок — МедПроект",
+        source: typeof window !== "undefined" ? window.location.href : undefined,
+        data: { phone },
       });
       setSubmitted(true);
     } catch {

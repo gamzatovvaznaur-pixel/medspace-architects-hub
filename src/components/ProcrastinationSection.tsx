@@ -2,8 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Download, Clock } from "lucide-react";
 import ConsentCheckbox from "./ConsentCheckbox";
-
-const FORMSPREE_URL = "https://formspree.io/f/mdapgwjz";
+import { submitLead } from "@/lib/submitLead";
 
 const transition = { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const };
 
@@ -25,13 +24,11 @@ const ProcrastinationSection = () => {
     if (!consent) return;
     setSending(true);
     try {
-      await fetch(FORMSPREE_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          _subject: "Чек-лист: 3 ошибки при выборе подрядчика — заявка",
-        }),
+      await submitLead({
+        formId: "mdapgwjz",
+        subject: "Чек-лист: 3 ошибки при выборе подрядчика — заявка",
+        source: "ProcrastinationSection",
+        data: { email },
       });
       setSent(true);
     } catch {
