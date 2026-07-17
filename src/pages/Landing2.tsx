@@ -231,20 +231,20 @@ const Landing2 = () => {
     }
     setSending(true);
     try {
-      const formData = new FormData();
-      formData.append("phone", phone);
-      formData.append("source", "Landing /landing2");
-      formData.append("_subject", "Лендинг 2 — заявка с квиза — МедПроект");
+      const data: Record<string, string> = {
+        phone,
+        source: "Landing /landing2",
+      };
       questions.forEach((q, i) => {
-        formData.append(`question_${i + 1}`, q.question);
-        formData.append(`answer_${i + 1}`, answers[i] || "—");
+        data[`question_${i + 1}`] = q.question;
+        data[`answer_${i + 1}`] = answers[i] || "—";
       });
-      const res = await fetch(FORMSPREE_QUIZ, {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: formData,
+      await submitLead({
+        formId: "xykllrgn",
+        subject: "Лендинг 2 — заявка с квиза — МедПроект",
+        source: "Landing /landing2",
+        data,
       });
-      if (!res.ok) throw new Error();
       setSubmitted(true);
     } catch {
       alert("Ошибка отправки. Попробуйте позже или позвоните нам.");
