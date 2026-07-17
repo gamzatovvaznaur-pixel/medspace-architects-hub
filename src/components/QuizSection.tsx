@@ -238,10 +238,10 @@ const QuizSection = () => {
                     exit={{ opacity: 0, x: -30 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h3 className="text-xl md:text-2xl font-display font-semibold text-white mb-3">
+                    <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground mb-3">
                       Отлично! Оставьте номер для получения расчёта
                     </h3>
-                    <p className="text-white/60 mb-6 text-sm">
+                    <p className="text-muted-foreground mb-6 text-sm">
                       Мы свяжемся с вами в течение рабочего дня и предоставим предварительную оценку.
                     </p>
                     <form onSubmit={handleSubmit} className="space-y-4">
@@ -251,7 +251,7 @@ const QuizSection = () => {
                         value={phone}
                         onChange={handlePhoneChange}
                         placeholder="+7 (XXX) XXX-XX-XX"
-                        className="w-full border border-white/20 bg-white/5 px-5 py-4 rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-accent transition-colors"
+                        className="w-full border border-border bg-card px-5 py-4 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors"
                       />
                       <ConsentCheckbox
                         id="quiz-consent"
@@ -262,7 +262,7 @@ const QuizSection = () => {
                       <button
                         type="submit"
                         disabled={sending || !consent}
-                        className="w-full bg-accent text-accent-foreground px-8 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+                        className="w-full bg-accent text-accent-foreground px-8 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest disabled:opacity-40 disabled:cursor-not-allowed"
                       >
                         {sending ? "Отправка..." : "Получить расчёт"}
                       </button>
