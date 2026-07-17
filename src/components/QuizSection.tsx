@@ -181,15 +181,15 @@ const QuizSection = () => {
             <>
               {/* Progress bar */}
               <div className="mb-8">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="font-mono text-[10px] tracking-widest text-accent">
+                <div className="flex justify-between items-center mb-3">
+                  <span className="font-mono text-[10px] tracking-widest text-accent bg-accent/10 px-3 py-1 rounded-full">
                     {isPhoneStep ? "ПОСЛЕДНИЙ ШАГ" : `ВОПРОС ${currentStep + 1} ИЗ ${questions.length}`}
                   </span>
-                  <span className="font-mono text-[10px] tracking-widest text-white/40">
+                  <span className="font-mono text-[10px] tracking-widest text-muted-foreground">
                     {Math.round(progress)}%
                   </span>
                 </div>
-                <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+                <div className="h-2 bg-muted rounded-full overflow-hidden ring-1 ring-border/50">
                   <motion.div
                     className="h-full bg-accent rounded-full"
                     initial={{ width: 0 }}
