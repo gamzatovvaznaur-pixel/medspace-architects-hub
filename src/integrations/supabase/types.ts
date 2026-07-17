@@ -14,7 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      leads: {
+        Row: {
+          created_at: string
+          form_id: string
+          forward_error: string | null
+          forwarded: boolean
+          id: string
+          payload: Json
+          source: string | null
+          subject: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          created_at?: string
+          form_id: string
+          forward_error?: string | null
+          forwarded?: boolean
+          id?: string
+          payload?: Json
+          source?: string | null
+          subject?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          created_at?: string
+          form_id?: string
+          forward_error?: string | null
+          forwarded?: boolean
+          id?: string
+          payload?: Json
+          source?: string | null
+          subject?: string | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
