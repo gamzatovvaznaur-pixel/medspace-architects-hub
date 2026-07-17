@@ -144,8 +144,11 @@ const QuizSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={transition}
-          className="dark-section rounded-3xl p-8 md:p-12 relative overflow-hidden"
+          className="dark-section rounded-3xl p-8 md:p-12 relative overflow-hidden ring-1 ring-border/80 shadow-2xl shadow-accent/10"
         >
+          {/* Decorative corner accents */}
+          <div className="absolute top-0 right-0 w-40 h-40 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
           {!started && !submitted && (
             <div className="text-center">
               <div className="inline-flex items-center gap-2 bg-accent/10 text-accent border border-accent/20 px-4 py-1.5 rounded-full font-mono text-[10px] tracking-widest uppercase mb-5">
