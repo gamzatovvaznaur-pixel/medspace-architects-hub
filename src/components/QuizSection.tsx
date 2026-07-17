@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle2, ClipboardList, Sparkles } from "lucide-react";
 import ConsentCheckbox from "./ConsentCheckbox";
 import { submitLead } from "@/lib/submitLead";
 
@@ -144,26 +144,36 @@ const QuizSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={transition}
-          className="dark-section rounded-3xl p-8 md:p-12 relative overflow-hidden"
+          className="dark-section rounded-3xl p-8 md:p-12 relative overflow-hidden ring-1 ring-border/80 shadow-2xl shadow-accent/10"
         >
+          {/* Decorative corner accents */}
+          <div className="absolute top-0 right-0 w-40 h-40 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
           {!started && !submitted && (
             <div className="text-center">
-              <span className="font-mono text-[10px] tracking-widest text-accent mb-4 block">
-                КВИЗ
-              </span>
-              <h2 className="text-2xl md:text-3xl font-display font-semibold text-white mb-4">
-                Получите предварительный расчёт стоимости
+              <div className="inline-flex items-center gap-2 bg-accent/10 text-accent border border-accent/20 px-4 py-1.5 rounded-full font-mono text-[10px] tracking-widest uppercase mb-5">
+                <Sparkles className="w-3.5 h-3.5" />
+                Бесплатный расчёт за 1 минуту
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-semibold text-foreground mb-4 leading-tight">
+                Получите предварительный расчёт стоимости проекта
               </h2>
-              <p className="text-white/60 max-w-lg mx-auto mb-8 leading-relaxed">
-                Ответьте на 5 коротких вопросов, и мы подготовим для вас индивидуальную оценку проекта.
+              <p className="text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed text-base md:text-lg">
+                Ответьте на 5 коротких вопросов о вашей клинике — и мы подготовим индивидуальную оценку проекта и сроки.
               </p>
-              <button
-                onClick={() => setStarted(true)}
-                className="bg-accent text-accent-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity inline-flex items-center gap-2"
-              >
-                Начать
-                <ArrowRight className="w-4 h-4" />
-              </button>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button
+                  onClick={() => setStarted(true)}
+                  className="bg-accent text-accent-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest inline-flex items-center gap-2 cta-pulse"
+                >
+                  Начать квиз
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <span className="text-xs text-muted-foreground flex items-center gap-1.5">
+                  <ClipboardList className="w-4 h-4" />
+                  5 вопросов · без регистрации
+                </span>
+              </div>
             </div>
           )}
 
@@ -171,15 +181,15 @@ const QuizSection = () => {
             <>
               {/* Progress bar */}
               <div className="mb-8">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="font-mono text-[10px] tracking-widest text-accent">
+                <div className="flex justify-between items-center mb-3">
+                  <span className="font-mono text-[10px] tracking-widest text-accent bg-accent/10 px-3 py-1 rounded-full">
                     {isPhoneStep ? "ПОСЛЕДНИЙ ШАГ" : `ВОПРОС ${currentStep + 1} ИЗ ${questions.length}`}
                   </span>
-                  <span className="font-mono text-[10px] tracking-widest text-white/40">
+                  <span className="font-mono text-[10px] tracking-widest text-muted-foreground">
                     {Math.round(progress)}%
                   </span>
                 </div>
-                <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+                <div className="h-2 bg-muted rounded-full overflow-hidden ring-1 ring-border/50">
                   <motion.div
                     className="h-full bg-accent rounded-full"
                     initial={{ width: 0 }}
@@ -198,7 +208,7 @@ const QuizSection = () => {
                     exit={{ opacity: 0, x: -30 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h3 className="text-xl md:text-2xl font-display font-semibold text-white mb-6">
+                    <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground mb-6">
                       {questions[currentStep].question}
                     </h3>
                     <div className="space-y-3">
@@ -206,12 +216,15 @@ const QuizSection = () => {
                         <button
                           key={option}
                           onClick={() => handleAnswer(option)}
-                          className={`w-full text-left px-5 py-4 rounded-xl border transition-all ${
+                          className={`w-full text-left px-5 py-4 rounded-xl border-2 transition-all ${
                             answers[currentStep] === option
-                              ? "border-accent bg-accent/10 text-white"
-                              : "border-white/10 text-white/70 hover:border-white/30 hover:text-white"
+                              ? "border-accent bg-accent/10 text-foreground font-medium"
+                              : "border-border text-muted-foreground hover:border-accent/40 hover:text-foreground"
                           }`}
                         >
+                          {answers[currentStep] === option && (
+                            <span className="inline-block w-2 h-2 rounded-full bg-accent mr-3 align-middle" />
+                          )}
                           {option}
                         </button>
                       ))}
@@ -225,10 +238,10 @@ const QuizSection = () => {
                     exit={{ opacity: 0, x: -30 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h3 className="text-xl md:text-2xl font-display font-semibold text-white mb-3">
+                    <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground mb-3">
                       Отлично! Оставьте номер для получения расчёта
                     </h3>
-                    <p className="text-white/60 mb-6 text-sm">
+                    <p className="text-muted-foreground mb-6 text-sm">
                       Мы свяжемся с вами в течение рабочего дня и предоставим предварительную оценку.
                     </p>
                     <form onSubmit={handleSubmit} className="space-y-4">
@@ -238,7 +251,7 @@ const QuizSection = () => {
                         value={phone}
                         onChange={handlePhoneChange}
                         placeholder="+7 (XXX) XXX-XX-XX"
-                        className="w-full border border-white/20 bg-white/5 px-5 py-4 rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-accent transition-colors"
+                        className="w-full border border-border bg-card px-5 py-4 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors"
                       />
                       <ConsentCheckbox
                         id="quiz-consent"
@@ -249,7 +262,7 @@ const QuizSection = () => {
                       <button
                         type="submit"
                         disabled={sending || !consent}
-                        className="w-full bg-accent text-accent-foreground px-8 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+                        className="w-full bg-accent text-accent-foreground px-8 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest disabled:opacity-40 disabled:cursor-not-allowed"
                       >
                         {sending ? "Отправка..." : "Получить расчёт"}
                       </button>
@@ -263,7 +276,7 @@ const QuizSection = () => {
                 <button
                   onClick={handleBack}
                   disabled={currentStep === 0}
-                  className="text-white/40 hover:text-white transition-colors disabled:opacity-0 inline-flex items-center gap-1 text-sm"
+                  className="text-muted-foreground hover:text-foreground transition-colors disabled:opacity-0 inline-flex items-center gap-1 text-sm"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   Назад
@@ -289,11 +302,13 @@ const QuizSection = () => {
               transition={transition}
               className="text-center py-6"
             >
-              <CheckCircle2 className="w-12 h-12 text-accent mx-auto mb-4" />
-              <h3 className="text-2xl font-display font-semibold text-white mb-2">
+              <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                <CheckCircle2 className="w-8 h-8 text-accent" />
+              </div>
+              <h3 className="text-2xl font-display font-semibold text-foreground mb-2">
                 Спасибо за ваши ответы!
               </h3>
-              <p className="text-white/60 max-w-md mx-auto">
+              <p className="text-muted-foreground max-w-md mx-auto">
                 Мы подготовим предварительный расчёт и свяжемся с вами в ближайшее время.
               </p>
             </motion.div>
