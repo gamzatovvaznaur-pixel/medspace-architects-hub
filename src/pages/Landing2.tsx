@@ -19,9 +19,8 @@ import HeaderNav from "@/components/HeaderNav";
 import CasesSection from "@/components/CasesSection";
 import ConsentCheckbox from "@/components/ConsentCheckbox";
 import heroImg from "@/assets/hero-blueprint.jpg";
+import { submitLead } from "@/lib/submitLead";
 
-const FORMSPREE_QUIZ = "https://formspree.io/f/xykllrgn";
-const FORMSPREE_CONTACT = "https://formspree.io/f/xlgaaqrw";
 const PHONE_DISPLAY = "+7 (918) 263-36-27";
 const PHONE_RAW = "+79182633627";
 const PHONE_HREF = "tel:+79182633627";
@@ -101,15 +100,11 @@ const ContactForm = ({ subjectTag }: { subjectTag: string }) => {
     }
     setSending(true);
     try {
-      await fetch(FORMSPREE_CONTACT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          phone,
-          description,
-          source: "Landing /landing2",
-          _subject: `Лендинг 2 — ${subjectTag} — МедПроект`,
-        }),
+      await submitLead({
+        formId: "xlgaaqrw",
+        subject: `Лендинг 2 — ${subjectTag} — МедПроект`,
+        source: "Landing /landing2",
+        data: { phone, description },
       });
       setSubmitted(true);
     } catch {
@@ -236,20 +231,20 @@ const Landing2 = () => {
     }
     setSending(true);
     try {
-      const formData = new FormData();
-      formData.append("phone", phone);
-      formData.append("source", "Landing /landing2");
-      formData.append("_subject", "Лендинг 2 — заявка с квиза — МедПроект");
+      const data: Record<string, string> = {
+        phone,
+        source: "Landing /landing2",
+      };
       questions.forEach((q, i) => {
-        formData.append(`question_${i + 1}`, q.question);
-        formData.append(`answer_${i + 1}`, answers[i] || "—");
+        data[`question_${i + 1}`] = q.question;
+        data[`answer_${i + 1}`] = answers[i] || "—";
       });
-      const res = await fetch(FORMSPREE_QUIZ, {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: formData,
+      await submitLead({
+        formId: "xykllrgn",
+        subject: "Лендинг 2 — заявка с квиза — МедПроект",
+        source: "Landing /landing2",
+        data,
       });
-      if (!res.ok) throw new Error();
       setSubmitted(true);
     } catch {
       alert("Ошибка отправки. Попробуйте позже или позвоните нам.");

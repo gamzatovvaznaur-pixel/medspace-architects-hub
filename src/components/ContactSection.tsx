@@ -2,10 +2,9 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import ConsentCheckbox from "./ConsentCheckbox";
+import { submitLead } from "@/lib/submitLead";
 
 const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
-
-const FORMSPREE_URL = "https://formspree.io/f/mdapgwjz";
 
 const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -22,14 +21,11 @@ const ContactSection = () => {
     }
     setSending(true);
     try {
-      await fetch(FORMSPREE_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          phone: formData.phone,
-          description: formData.description,
-          _subject: "Заявка с сайта МедПроект",
-        }),
+      await submitLead({
+        formId: "mdapgwjz",
+        subject: "Заявка с сайта МедПроект",
+        source: typeof window !== "undefined" ? window.location.href : "ContactSection",
+        data: { phone: formData.phone, description: formData.description },
       });
       setSubmitted(true);
     } catch {

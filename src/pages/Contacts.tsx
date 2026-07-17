@@ -4,9 +4,9 @@ import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import SEO from "@/components/SEO";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
+import { submitLead } from "@/lib/submitLead";
 
 const transition = { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const };
-const FORMSPREE_URL = "https://formspree.io/f/mdapgwjz";
 
 const Contacts = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -18,14 +18,11 @@ const Contacts = () => {
     e.preventDefault();
     setSending(true);
     try {
-      await fetch(FORMSPREE_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          phone: formData.phone,
-          description: formData.description,
-          _subject: "Заявка с сайта МедПроект",
-        }),
+      await submitLead({
+        formId: "mdapgwjz",
+        subject: "Заявка с сайта МедПроект",
+        source: "Contacts page",
+        data: { phone: formData.phone, description: formData.description },
       });
       setSubmitted(true);
     } catch {

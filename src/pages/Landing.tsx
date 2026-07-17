@@ -16,8 +16,8 @@ import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import HeaderNav from "@/components/HeaderNav";
 import ConsentCheckbox from "@/components/ConsentCheckbox";
 import heroImg from "@/assets/hero-blueprint.jpg";
+import { submitLead } from "@/lib/submitLead";
 
-const FORMSPREE_URL = "https://formspree.io/f/xykllrgn";
 const PHONE_DISPLAY = "+7 (918) 263-36-27";
 const PHONE_HREF = "tel:+79182633627";
 
@@ -168,23 +168,20 @@ const Landing = () => {
     }
     setSending(true);
     try {
-      const formData = new FormData();
-      formData.append("phone", phone);
-      formData.append("source", "Landing /landing");
-      formData.append(
-        "_subject",
-        "Лендинг — заявка с квиза — МедПроект",
-      );
+      const data: Record<string, string> = {
+        phone,
+        source: "Landing /landing",
+      };
       questions.forEach((q, i) => {
-        formData.append(`question_${i + 1}`, q.question);
-        formData.append(`answer_${i + 1}`, answers[i] || "—");
+        data[`question_${i + 1}`] = q.question;
+        data[`answer_${i + 1}`] = answers[i] || "—";
       });
-      const res = await fetch(FORMSPREE_URL, {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: formData,
+      await submitLead({
+        formId: "xykllrgn",
+        subject: "Лендинг — заявка с квиза — МедПроект",
+        source: "Landing /landing",
+        data,
       });
-      if (!res.ok) throw new Error();
       setSubmitted(true);
     } catch {
       alert("Ошибка отправки. Попробуйте позже или позвоните нам.");

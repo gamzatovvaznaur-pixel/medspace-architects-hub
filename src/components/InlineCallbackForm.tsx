@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import ConsentCheckbox from "./ConsentCheckbox";
-
-const FORMSPREE_URL = "https://formspree.io/f/mdapgwjz";
+import { submitLead } from "@/lib/submitLead";
 
 interface InlineCallbackFormProps {
   title?: string;
@@ -41,10 +40,11 @@ const InlineCallbackForm = ({
     }
     setSending(true);
     try {
-      await fetch(FORMSPREE_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone, name, _subject: subject }),
+      await submitLead({
+        formId: "mdapgwjz",
+        subject,
+        source: typeof window !== "undefined" ? window.location.href : undefined,
+        data: { phone, name },
       });
       setSubmitted(true);
     } catch {
