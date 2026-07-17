@@ -148,22 +148,29 @@ const QuizSection = () => {
         >
           {!started && !submitted && (
             <div className="text-center">
-              <span className="font-mono text-[10px] tracking-widest text-accent mb-4 block">
-                КВИЗ
-              </span>
-              <h2 className="text-2xl md:text-3xl font-display font-semibold text-white mb-4">
-                Получите предварительный расчёт стоимости
+              <div className="inline-flex items-center gap-2 bg-accent/10 text-accent border border-accent/20 px-4 py-1.5 rounded-full font-mono text-[10px] tracking-widest uppercase mb-5">
+                <Sparkles className="w-3.5 h-3.5" />
+                Бесплатный расчёт за 1 минуту
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-semibold text-foreground mb-4 leading-tight">
+                Получите предварительный расчёт стоимости проекта
               </h2>
-              <p className="text-white/60 max-w-lg mx-auto mb-8 leading-relaxed">
-                Ответьте на 5 коротких вопросов, и мы подготовим для вас индивидуальную оценку проекта.
+              <p className="text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed text-base md:text-lg">
+                Ответьте на 5 коротких вопросов о вашей клинике — и мы подготовим индивидуальную оценку проекта и сроки.
               </p>
-              <button
-                onClick={() => setStarted(true)}
-                className="bg-accent text-accent-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity inline-flex items-center gap-2"
-              >
-                Начать
-                <ArrowRight className="w-4 h-4" />
-              </button>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button
+                  onClick={() => setStarted(true)}
+                  className="bg-accent text-accent-foreground px-10 py-4 rounded-xl font-display text-sm font-semibold uppercase tracking-widest inline-flex items-center gap-2 cta-pulse"
+                >
+                  Начать квиз
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <span className="text-xs text-muted-foreground flex items-center gap-1.5">
+                  <ClipboardList className="w-4 h-4" />
+                  5 вопросов · без регистрации
+                </span>
+              </div>
             </div>
           )}
 
