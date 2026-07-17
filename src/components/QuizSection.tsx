@@ -276,7 +276,7 @@ const QuizSection = () => {
                 <button
                   onClick={handleBack}
                   disabled={currentStep === 0}
-                  className="text-white/40 hover:text-white transition-colors disabled:opacity-0 inline-flex items-center gap-1 text-sm"
+                  className="text-muted-foreground hover:text-foreground transition-colors disabled:opacity-0 inline-flex items-center gap-1 text-sm"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   Назад
@@ -302,11 +302,13 @@ const QuizSection = () => {
               transition={transition}
               className="text-center py-6"
             >
-              <CheckCircle2 className="w-12 h-12 text-accent mx-auto mb-4" />
-              <h3 className="text-2xl font-display font-semibold text-white mb-2">
+              <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                <CheckCircle2 className="w-8 h-8 text-accent" />
+              </div>
+              <h3 className="text-2xl font-display font-semibold text-foreground mb-2">
                 Спасибо за ваши ответы!
               </h3>
-              <p className="text-white/60 max-w-md mx-auto">
+              <p className="text-muted-foreground max-w-md mx-auto">
                 Мы подготовим предварительный расчёт и свяжемся с вами в ближайшее время.
               </p>
             </motion.div>
