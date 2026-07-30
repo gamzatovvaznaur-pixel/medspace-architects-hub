@@ -38,9 +38,13 @@ const serviceEntries: Entry[] = serviceSlugs.map((slug) => ({
   priority: "0.8",
 }));
 
-// Extract blog slugs from data file (regex — avoids TS import in script)
-const blogRaw = readFileSync(resolve("src/data/blogPosts.ts"), "utf-8");
-const blogSlugs = Array.from(blogRaw.matchAll(/slug:\s*"([^"]+)"/g)).map((m) => m[1]);
+// Extract blog slugs from data files (regex — avoids TS import in script)
+const blogRaw =
+  readFileSync(resolve("src/data/blogPosts.ts"), "utf-8") +
+  readFileSync(resolve("src/data/blogPostsExtra.ts"), "utf-8");
+const blogSlugs = Array.from(
+  blogRaw.matchAll(/"?slug"?:\s*"([^"]+)"/g),
+).map((m) => m[1]);
 const blogEntries: Entry[] = blogSlugs.map((slug) => ({
   path: `/blog/${slug}`,
   changefreq: "monthly",

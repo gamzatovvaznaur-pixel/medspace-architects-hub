@@ -27,7 +27,9 @@ export type BlogPost = {
 const AZNAUR =
   "Азнаур Гамзатов, руководитель проектной организации «МедПроект»";
 
-export const blogPosts: BlogPost[] = [
+import { extraBlogPosts } from "./blogPostsExtra";
+
+const basePosts: BlogPost[] = [
   {
     slug: "vybor-pomeshcheniya-pod-kliniku",
     title: "Как правильно выбрать помещение под клинику: чек-лист требований СанПиН и СП",
@@ -1506,6 +1508,8 @@ export const blogPosts: BlogPost[] = [
     ],
   },
 ];
+
+export const blogPosts: BlogPost[] = [...basePosts, ...extraBlogPosts];
 
 export const getPostBySlug = (slug: string) =>
   blogPosts.find((p) => p.slug === slug);
