@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
+import RecommendationsSection from "@/components/RecommendationsSection";
 import SEO from "@/components/SEO";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import { submitLead } from "@/lib/submitLead";
@@ -176,6 +177,8 @@ const Contacts = () => {
           </motion.div>
         </div>
       </section>
+
+      <RecommendationsSection compact className="bg-card" />
 
       <FooterSection />
     </div>

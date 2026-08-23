@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import StatsSection from "@/components/StatsSection";
+import RecommendationsSection from "@/components/RecommendationsSection";
 import SEO from "@/components/SEO";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
 import certNopriz from "@/assets/cert-nopriz.png";
@@ -142,6 +143,8 @@ const AboutPage = () => {
       </section>
 
       <StatsSection />
+
+      <RecommendationsSection />
 
       {/* Certificates */}
       <section className="py-20 px-6 md:px-12 bg-card">
