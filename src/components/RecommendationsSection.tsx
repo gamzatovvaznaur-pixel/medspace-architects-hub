@@ -1,13 +1,9 @@
 import { motion } from "framer-motion";
 import { Quote, FileText } from "lucide-react";
-import rec22gImg from "@/assets/rec-22g.jpg.asset.json";
-import rec22gPdf from "@/assets/rec-22g.pdf.asset.json";
-import recAmritaImg from "@/assets/rec-amrita.jpg.asset.json";
-import recAmritaPdf from "@/assets/rec-amrita.pdf.asset.json";
-import recInvitroImg from "@/assets/rec-invitro.jpg.asset.json";
-import recInvitroPdf from "@/assets/rec-invitro.pdf.asset.json";
-import recIrisImg from "@/assets/rec-iris.jpg.asset.json";
-import recIrisPdf from "@/assets/rec-iris.pdf.asset.json";
+import rec22gImg from "@/assets/rec-22g.jpg";
+import recAmritaImg from "@/assets/rec-amrita.jpg";
+import recInvitroImg from "@/assets/rec-invitro.jpg";
+import recIrisImg from "@/assets/rec-iris.jpg";
 
 const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
 
@@ -18,8 +14,8 @@ export const recommendations = [
     type: "Медицинская лаборатория",
     quote:
       "Все услуги были предоставлены на высочайшем уровне, в полном соответствии с действующими государственными стандартами и санитарно-эпидемиологическими нормами. Благодаря безупречному качеству проектной документации наша организация без затруднений получила все необходимые лицензии.",
-    image: recInvitroImg.url,
-    pdf: recInvitroPdf.url,
+    image: recInvitroImg,
+    pdf: "/documents/rekomendaciya-invitro.pdf",
   },
   {
     company: "Центр офтальмохирургии «ИРИС»",
@@ -27,8 +23,8 @@ export const recommendations = [
     type: "Офтальмохирургия, операционные",
     quote:
       "Специфика высокотехнологичной офтальмохирургии предъявляет бескомпромиссные требования к микроклимату, чистоте воздуха и инженерии. Наш центр прошёл все лицензионные и контролирующие проверки с первого раза и точно в намеченные сроки.",
-    image: recIrisImg.url,
-    pdf: recIrisPdf.url,
+    image: recIrisImg,
+    pdf: "/documents/rekomendaciya-iris.pdf",
   },
   {
     company: "ООО «22 ДЖИ КЛИНИК»",
@@ -36,8 +32,8 @@ export const recommendations = [
     type: "Многопрофильный медицинский центр",
     quote:
       "Задачи любой сложности решались системно, точно в установленные сроки и с глубоким пониманием специфики лицензирования медицинской деятельности. Документация прошла все процедуры согласования без замечаний.",
-    image: rec22gImg.url,
-    pdf: rec22gPdf.url,
+    image: rec22gImg,
+    pdf: "/documents/rekomendaciya-22g.pdf",
   },
   {
     company: "ООО «Амрита»",
@@ -45,8 +41,8 @@ export const recommendations = [
     type: "Клиника, Москва",
     quote:
       "Отдельно отмечаем высокий уровень сервиса и клиентского контроля: на протяжении всего сотрудничества вы были на связи и оперативно реагировали на любые вопросы. Рекомендуем как надёжного и компетентного партнёра.",
-    image: recAmritaImg.url,
-    pdf: recAmritaPdf.url,
+    image: recAmritaImg,
+    pdf: "/documents/rekomendaciya-amrita.pdf",
   },
 ];
 
