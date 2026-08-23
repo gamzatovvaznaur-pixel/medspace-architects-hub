@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
 import CTABanner from "@/components/CTABanner";
+import RecommendationsSection from "@/components/RecommendationsSection";
 import InlineCallbackForm from "@/components/InlineCallbackForm";
 import SEO from "@/components/SEO";
 import serviceConsultationImg from "@/assets/service-consultation.jpg";
@@ -122,6 +123,8 @@ const ServicesPage = () => {
           />
         </div>
       </section>
+
+      <RecommendationsSection className="bg-card" />
 
       <CTABanner />
       <FooterSection />

@@ -12,6 +12,7 @@ import QuizSection from "@/components/QuizSection";
 import StatsSection from "@/components/StatsSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
+import RecommendationsSection from "@/components/RecommendationsSection";
 import InlineCallbackForm from "@/components/InlineCallbackForm";
 import SEO from "@/components/SEO";
 import certNopriz from "@/assets/cert-nopriz.png";
@@ -282,6 +283,8 @@ const Index = () => {
 
       {/* 7. ПРОЦЕСС */}
       <ProcessRoadmap />
+
+      <RecommendationsSection />
 
       {/* 10. ДОП ССЫЛКИ */}
       <section className="py-20 px-6 md:px-12">

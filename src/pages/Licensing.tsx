@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import HeaderNav from "@/components/HeaderNav";
 import FooterSection from "@/components/FooterSection";
+import RecommendationsSection from "@/components/RecommendationsSection";
 import InlineCallbackForm from "@/components/InlineCallbackForm";
 import SEO from "@/components/SEO";
 import { useCallbackDialog } from "@/hooks/useCallbackDialog";
@@ -499,6 +500,8 @@ const Licensing = () => {
           />
         </div>
       </section>
+
+      <RecommendationsSection className="bg-card" />
 
       <FooterSection />
     </div>
