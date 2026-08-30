@@ -249,6 +249,8 @@ const Licensing = () => {
         </div>
       </section>
 
+      <RecommendationsSection className="bg-card" />
+
       <section className="py-20 px-6 md:px-12 bg-secondary/30">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -500,8 +502,6 @@ const Licensing = () => {
           />
         </div>
       </section>
-
-      <RecommendationsSection className="bg-card" />
 
       <FooterSection />
     </div>

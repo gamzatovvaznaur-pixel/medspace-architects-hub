@@ -101,6 +101,8 @@ const AboutPage = () => {
         </div>
       </section>
 
+      <RecommendationsSection />
+
       {/* Facts grid */}
       <section className="py-20 px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
@@ -143,8 +145,6 @@ const AboutPage = () => {
       </section>
 
       <StatsSection />
-
-      <RecommendationsSection />
 
       {/* Certificates */}
       <section className="py-20 px-6 md:px-12 bg-card">

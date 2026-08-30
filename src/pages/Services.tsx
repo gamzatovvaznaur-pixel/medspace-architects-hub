@@ -81,8 +81,10 @@ const ServicesPage = () => {
         </div>
       </section>
 
+      <RecommendationsSection className="bg-card" />
+
       {/* Top inline form */}
-      <section className="pb-16 px-6 md:px-12">
+      <section className="py-16 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <InlineCallbackForm
             id="services-top"
@@ -123,8 +125,6 @@ const ServicesPage = () => {
           />
         </div>
       </section>
-
-      <RecommendationsSection className="bg-card" />
 
       <CTABanner />
       <FooterSection />
