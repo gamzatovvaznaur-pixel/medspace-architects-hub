@@ -88,6 +88,8 @@ const Index = () => {
       {/* 1. HERO */}
       <HeroSimpleSection />
 
+      <RecommendationsSection />
+
       {/* 2. ИТОГИ 2025 */}
       <StatsSection />
 
@@ -283,8 +285,6 @@ const Index = () => {
 
       {/* 7. ПРОЦЕСС */}
       <ProcessRoadmap />
-
-      <RecommendationsSection />
 
       {/* 10. ДОП ССЫЛКИ */}
       <section className="py-20 px-6 md:px-12">
